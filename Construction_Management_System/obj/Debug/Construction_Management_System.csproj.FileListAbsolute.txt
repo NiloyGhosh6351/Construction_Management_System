@@ -30,3 +30,6 @@ C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Manag
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormHome.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormItem.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Employee.resources
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.csprojAssemblyReference.cache
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.exe
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.pdb

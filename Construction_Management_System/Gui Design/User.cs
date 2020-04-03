@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Construction_Management_System
 {
-    public partial class FormEmployee : Form
+    public partial class FormUser : Form
     {
-        public FormEmployee()
+        public FormUser()
         {
             InitializeComponent();
         }
 
-        private void labelEmployee_Click(object sender, EventArgs e)
+        private void labelUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormUser_Load(object sender, EventArgs e)
         {
 
         }

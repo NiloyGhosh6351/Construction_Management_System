@@ -33,3 +33,13 @@ C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Mana
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.csprojAssemblyReference.cache
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.exe
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.pdb
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\bin\Debug\Construction_Management_System.exe.config
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\bin\Debug\Construction_Management_System.exe
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\bin\Debug\Construction_Management_System.pdb
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormHome.resources
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormItem.resources
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Properties.Resources.resources
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormUser.resources
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.csproj.GenerateResource.cache
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.csproj.CoreCompileInputs.cache
+G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormEmployee.resources

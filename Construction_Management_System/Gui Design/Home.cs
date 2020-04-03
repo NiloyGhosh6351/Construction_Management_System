@@ -54,5 +54,26 @@ namespace Construction_Management_System
         {
 
         }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //open user Form
+            FormUser openwindow = new FormUser();
+            openwindow.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //open Employee Foem
+            FormEmployee openEmployee = new FormEmployee();
+            openEmployee.Show();
+
+
+        }
     }
 }

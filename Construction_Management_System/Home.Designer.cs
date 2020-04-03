@@ -33,7 +33,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonHomeItem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.buttonHomeItem);
             this.panel2.Location = new System.Drawing.Point(269, 42);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
@@ -116,15 +116,17 @@
             this.label1.Size = new System.Drawing.Size(48, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "ITEM";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // buttonHomeItem
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(23, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 71);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonHomeItem.BackColor = System.Drawing.Color.White;
+            this.buttonHomeItem.Location = new System.Drawing.Point(23, 15);
+            this.buttonHomeItem.Name = "buttonHomeItem";
+            this.buttonHomeItem.Size = new System.Drawing.Size(153, 71);
+            this.buttonHomeItem.TabIndex = 0;
+            this.buttonHomeItem.UseVisualStyleBackColor = false;
+            this.buttonHomeItem.Click += new System.EventHandler(this.buttonHomeItem_Click);
             // 
             // panel3
             // 
@@ -347,7 +349,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonHomeItem;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;

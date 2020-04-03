@@ -36,5 +36,18 @@ namespace Construction_Management_System
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonHomeItem_Click(object sender, EventArgs e)
+        {
+            //Open Item From
+            FormItem openform = new FormItem();
+            openform.Show();
+           
+        }
     }
 }

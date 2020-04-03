@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelItemId = new System.Windows.Forms.Label();
-            this.textBoxItemId = new System.Windows.Forms.TextBox();
-            this.textBoxItemName = new System.Windows.Forms.TextBox();
-            this.labelItemName = new System.Windows.Forms.Label();
-            this.textBoxItemPrice = new System.Windows.Forms.TextBox();
-            this.labelItemPrice = new System.Windows.Forms.Label();
-            this.textBoxCategory = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBoxSupplierName = new System.Windows.Forms.TextBox();
             this.labelSupplierName = new System.Windows.Forms.Label();
+            this.textBoxCategory = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxItemPrice = new System.Windows.Forms.TextBox();
+            this.labelItemPrice = new System.Windows.Forms.Label();
+            this.textBoxItemName = new System.Windows.Forms.TextBox();
+            this.labelItemName = new System.Windows.Forms.Label();
+            this.textBoxItemId = new System.Windows.Forms.TextBox();
+            this.labelItemId = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewItem = new System.Windows.Forms.DataGridView();
             this.buttonItemAdd = new System.Windows.Forms.Button();
             this.buttonItemUpdate = new System.Windows.Forms.Button();
@@ -68,93 +68,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 507);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(50, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ITEM";
-            // 
-            // labelItemId
-            // 
-            this.labelItemId.AutoSize = true;
-            this.labelItemId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItemId.ForeColor = System.Drawing.Color.White;
-            this.labelItemId.Location = new System.Drawing.Point(13, 104);
-            this.labelItemId.Name = "labelItemId";
-            this.labelItemId.Size = new System.Drawing.Size(54, 17);
-            this.labelItemId.TabIndex = 1;
-            this.labelItemId.Text = "Item ID";
-            // 
-            // textBoxItemId
-            // 
-            this.textBoxItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemId.Location = new System.Drawing.Point(16, 124);
-            this.textBoxItemId.Name = "textBoxItemId";
-            this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemId.TabIndex = 2;
-            // 
-            // textBoxItemName
-            // 
-            this.textBoxItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemName.Location = new System.Drawing.Point(16, 177);
-            this.textBoxItemName.Name = "textBoxItemName";
-            this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemName.TabIndex = 4;
-            // 
-            // labelItemName
-            // 
-            this.labelItemName.AutoSize = true;
-            this.labelItemName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItemName.ForeColor = System.Drawing.Color.White;
-            this.labelItemName.Location = new System.Drawing.Point(13, 157);
-            this.labelItemName.Name = "labelItemName";
-            this.labelItemName.Size = new System.Drawing.Size(76, 17);
-            this.labelItemName.TabIndex = 3;
-            this.labelItemName.Text = "Item Name";
-            // 
-            // textBoxItemPrice
-            // 
-            this.textBoxItemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemPrice.Location = new System.Drawing.Point(16, 234);
-            this.textBoxItemPrice.Name = "textBoxItemPrice";
-            this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemPrice.TabIndex = 6;
-            // 
-            // labelItemPrice
-            // 
-            this.labelItemPrice.AutoSize = true;
-            this.labelItemPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItemPrice.ForeColor = System.Drawing.Color.White;
-            this.labelItemPrice.Location = new System.Drawing.Point(13, 214);
-            this.labelItemPrice.Name = "labelItemPrice";
-            this.labelItemPrice.Size = new System.Drawing.Size(70, 17);
-            this.labelItemPrice.TabIndex = 5;
-            this.labelItemPrice.Text = "Item Price";
-            // 
-            // textBoxCategory
-            // 
-            this.textBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxCategory.Location = new System.Drawing.Point(16, 292);
-            this.textBoxCategory.Name = "textBoxCategory";
-            this.textBoxCategory.Size = new System.Drawing.Size(169, 20);
-            this.textBoxCategory.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 272);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Item Category";
-            // 
             // textBoxSupplierName
             // 
             this.textBoxSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -175,6 +88,93 @@
             this.labelSupplierName.TabIndex = 9;
             this.labelSupplierName.Text = "Supplier Name";
             this.labelSupplierName.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBoxCategory
+            // 
+            this.textBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxCategory.Location = new System.Drawing.Point(16, 292);
+            this.textBoxCategory.Name = "textBoxCategory";
+            this.textBoxCategory.Size = new System.Drawing.Size(169, 20);
+            this.textBoxCategory.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(13, 272);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Item Category";
+            // 
+            // textBoxItemPrice
+            // 
+            this.textBoxItemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemPrice.Location = new System.Drawing.Point(16, 234);
+            this.textBoxItemPrice.Name = "textBoxItemPrice";
+            this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
+            this.textBoxItemPrice.TabIndex = 6;
+            // 
+            // labelItemPrice
+            // 
+            this.labelItemPrice.AutoSize = true;
+            this.labelItemPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemPrice.ForeColor = System.Drawing.Color.White;
+            this.labelItemPrice.Location = new System.Drawing.Point(13, 214);
+            this.labelItemPrice.Name = "labelItemPrice";
+            this.labelItemPrice.Size = new System.Drawing.Size(70, 17);
+            this.labelItemPrice.TabIndex = 5;
+            this.labelItemPrice.Text = "Item Price";
+            // 
+            // textBoxItemName
+            // 
+            this.textBoxItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemName.Location = new System.Drawing.Point(16, 177);
+            this.textBoxItemName.Name = "textBoxItemName";
+            this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
+            this.textBoxItemName.TabIndex = 4;
+            // 
+            // labelItemName
+            // 
+            this.labelItemName.AutoSize = true;
+            this.labelItemName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemName.ForeColor = System.Drawing.Color.White;
+            this.labelItemName.Location = new System.Drawing.Point(13, 157);
+            this.labelItemName.Name = "labelItemName";
+            this.labelItemName.Size = new System.Drawing.Size(76, 17);
+            this.labelItemName.TabIndex = 3;
+            this.labelItemName.Text = "Item Name";
+            // 
+            // textBoxItemId
+            // 
+            this.textBoxItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemId.Location = new System.Drawing.Point(16, 124);
+            this.textBoxItemId.Name = "textBoxItemId";
+            this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
+            this.textBoxItemId.TabIndex = 2;
+            // 
+            // labelItemId
+            // 
+            this.labelItemId.AutoSize = true;
+            this.labelItemId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemId.ForeColor = System.Drawing.Color.White;
+            this.labelItemId.Location = new System.Drawing.Point(13, 104);
+            this.labelItemId.Name = "labelItemId";
+            this.labelItemId.Size = new System.Drawing.Size(54, 17);
+            this.labelItemId.TabIndex = 1;
+            this.labelItemId.Text = "Item ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(50, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ITEM";
             // 
             // dataGridViewItem
             // 

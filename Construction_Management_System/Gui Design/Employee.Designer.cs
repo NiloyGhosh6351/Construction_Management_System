@@ -30,12 +30,14 @@
         {
             this.panelEmployee = new System.Windows.Forms.Panel();
             this.labelEmployee = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEmployee
             // 
             this.panelEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelEmployee.Controls.Add(this.textBox1);
             this.panelEmployee.Controls.Add(this.labelEmployee);
             this.panelEmployee.Location = new System.Drawing.Point(0, 0);
             this.panelEmployee.Name = "panelEmployee";
@@ -53,6 +55,13 @@
             this.labelEmployee.TabIndex = 0;
             this.labelEmployee.Text = "EMPLOYEE";
             this.labelEmployee.Click += new System.EventHandler(this.labelEmployee_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(50, 115);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // Employee
             // 
@@ -72,5 +81,6 @@
 
         private System.Windows.Forms.Panel panelEmployee;
         private System.Windows.Forms.Label labelEmployee;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

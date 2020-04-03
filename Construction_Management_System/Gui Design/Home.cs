@@ -44,10 +44,15 @@ namespace Construction_Management_System
 
         private void buttonHomeItem_Click(object sender, EventArgs e)
         {
-            //Open Item From
+            //Open Item Form
             FormItem openform = new FormItem();
             openform.Show();
            
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

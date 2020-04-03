@@ -94,6 +94,7 @@
             this.label6.Size = new System.Drawing.Size(172, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Construction Management";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel2
             // 
@@ -322,6 +323,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

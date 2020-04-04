@@ -72,16 +72,16 @@
     <Compile Include="Gui Design\User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalesReport.cs">
+    <Compile Include="Gui Design\SalesReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalesReport.Designer.cs">
+    <Compile Include="Gui Design\SalesReport.Designer.cs">
       <DependentUpon>SalesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs">
+    <Compile Include="Gui Design\Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplier.Designer.cs">
+    <Compile Include="Gui Design\Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Gui Design\Employee.resx">
@@ -106,10 +106,10 @@
     <EmbeddedResource Include="Gui Design\User.resx">
       <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalesReport.resx">
+    <EmbeddedResource Include="Gui Design\SalesReport.resx">
       <DependentUpon>SalesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supplier.resx">
+    <EmbeddedResource Include="Gui Design\Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

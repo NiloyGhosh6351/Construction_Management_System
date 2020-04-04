@@ -45,6 +45,8 @@
             this.buttonItemUpdate = new System.Windows.Forms.Button();
             this.buttonItemDelete = new System.Windows.Forms.Button();
             this.buttonItemClear = new System.Windows.Forms.Button();
+            this.textBoxItemQuantity = new System.Windows.Forms.TextBox();
+            this.labelItemQuantity = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +54,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.textBoxItemQuantity);
+            this.panel1.Controls.Add(this.labelItemQuantity);
             this.panel1.Controls.Add(this.textBoxSupplierName);
             this.panel1.Controls.Add(this.labelSupplierName);
             this.panel1.Controls.Add(this.textBoxCategory);
@@ -71,7 +75,7 @@
             // textBoxSupplierName
             // 
             this.textBoxSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxSupplierName.Location = new System.Drawing.Point(16, 344);
+            this.textBoxSupplierName.Location = new System.Drawing.Point(16, 397);
             this.textBoxSupplierName.Name = "textBoxSupplierName";
             this.textBoxSupplierName.Size = new System.Drawing.Size(169, 20);
             this.textBoxSupplierName.TabIndex = 10;
@@ -82,7 +86,7 @@
             this.labelSupplierName.AutoSize = true;
             this.labelSupplierName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSupplierName.ForeColor = System.Drawing.Color.White;
-            this.labelSupplierName.Location = new System.Drawing.Point(13, 324);
+            this.labelSupplierName.Location = new System.Drawing.Point(13, 377);
             this.labelSupplierName.Name = "labelSupplierName";
             this.labelSupplierName.Size = new System.Drawing.Size(99, 17);
             this.labelSupplierName.TabIndex = 9;
@@ -92,7 +96,7 @@
             // textBoxCategory
             // 
             this.textBoxCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxCategory.Location = new System.Drawing.Point(16, 292);
+            this.textBoxCategory.Location = new System.Drawing.Point(16, 345);
             this.textBoxCategory.Name = "textBoxCategory";
             this.textBoxCategory.Size = new System.Drawing.Size(169, 20);
             this.textBoxCategory.TabIndex = 8;
@@ -102,7 +106,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 272);
+            this.label5.Location = new System.Drawing.Point(13, 325);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 7;
@@ -230,6 +234,25 @@
             this.buttonItemClear.Text = "CLEAR";
             this.buttonItemClear.UseVisualStyleBackColor = false;
             // 
+            // textBoxItemQuantity
+            // 
+            this.textBoxItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemQuantity.Location = new System.Drawing.Point(15, 290);
+            this.textBoxItemQuantity.Name = "textBoxItemQuantity";
+            this.textBoxItemQuantity.Size = new System.Drawing.Size(169, 20);
+            this.textBoxItemQuantity.TabIndex = 12;
+            // 
+            // labelItemQuantity
+            // 
+            this.labelItemQuantity.AutoSize = true;
+            this.labelItemQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemQuantity.ForeColor = System.Drawing.Color.White;
+            this.labelItemQuantity.Location = new System.Drawing.Point(12, 270);
+            this.labelItemQuantity.Name = "labelItemQuantity";
+            this.labelItemQuantity.Size = new System.Drawing.Size(94, 17);
+            this.labelItemQuantity.TabIndex = 11;
+            this.labelItemQuantity.Text = "Item Quantity";
+            // 
             // FormItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,5 +295,7 @@
         private System.Windows.Forms.Button buttonItemUpdate;
         private System.Windows.Forms.Button buttonItemDelete;
         private System.Windows.Forms.Button buttonItemClear;
+        private System.Windows.Forms.TextBox textBoxItemQuantity;
+        private System.Windows.Forms.Label labelItemQuantity;
     }
 }

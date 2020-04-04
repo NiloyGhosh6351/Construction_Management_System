@@ -69,11 +69,25 @@ namespace Construction_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //open Employee Foem
+            //open Employee Form
             FormEmployee openEmployee = new FormEmployee();
             openEmployee.Show();
 
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //open Supplier Form
+            FormSupplier openSupplier = new FormSupplier();
+            openSupplier.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //open Sales Report Form
+            FormSalesReport opensalesReport = new FormSalesReport();
+            opensalesReport.Show();
         }
     }
 }

@@ -45,3 +45,8 @@ G:\7th  Semister\C##\Construction_Management_System\Construction_Management_Syst
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormEmployee.resources
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormSupplier.resources
 G:\7th  Semister\C##\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormSalesReport.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormEmployee.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormItem.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormUser.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormSalesReport.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormSupplier.resources

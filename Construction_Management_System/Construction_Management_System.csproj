@@ -45,16 +45,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Gui Design\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Gui Design\Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromHome.cs" />
+    <Compile Include="Gui Design\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Gui Design\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\SalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\SalesReport.Designer.cs">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Gui Design\Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -64,7 +101,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Gui Design\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\SalesReport.resx">
+      <DependentUpon>SalesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,6 +124,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\human-resources.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\supply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\owner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

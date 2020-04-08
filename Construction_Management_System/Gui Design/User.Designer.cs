@@ -29,42 +29,30 @@
         private void InitializeComponent()
         {
             this.panelUser = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.labelUserType = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.labelUserName = new System.Windows.Forms.Label();
             this.textBoxUserId = new System.Windows.Forms.TextBox();
             this.labelUserId = new System.Windows.Forms.Label();
-=======
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             this.labelUser = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonItemClear = new System.Windows.Forms.Button();
             this.buttonItemDelete = new System.Windows.Forms.Button();
             this.buttonItemUpdate = new System.Windows.Forms.Button();
             this.buttonItemAdd = new System.Windows.Forms.Button();
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.textBoxUserPassword = new System.Windows.Forms.TextBox();
             this.labelUserPassword = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxUserAdress = new System.Windows.Forms.TextBox();
             this.labelUserAdress = new System.Windows.Forms.Label();
-=======
-            this.textBoxUserAddress = new System.Windows.Forms.TextBox();
-            this.labelUserAddress = new System.Windows.Forms.Label();
-            this.textBoxUserCatagory = new System.Windows.Forms.TextBox();
-            this.labelUserCatagory = new System.Windows.Forms.Label();
-            this.textBoxUserPassword = new System.Windows.Forms.TextBox();
-            this.labelUserPassword = new System.Windows.Forms.Label();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.labelUserName = new System.Windows.Forms.Label();
-            this.textBoxUName = new System.Windows.Forms.TextBox();
-            this.labelUName = new System.Windows.Forms.Label();
-            this.textBoxUserId = new System.Windows.Forms.TextBox();
-            this.labelUserId = new System.Windows.Forms.Label();
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +60,7 @@
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.panelUser.Controls.Add(this.textBoxUserAdress);
             this.panelUser.Controls.Add(this.labelUserAdress);
             this.panelUser.Controls.Add(this.textBoxName);
@@ -81,18 +69,12 @@
             this.panelUser.Controls.Add(this.labelUserPassword);
             this.panelUser.Controls.Add(this.textBox2);
             this.panelUser.Controls.Add(this.labelUserType);
-=======
-            this.panelUser.Controls.Add(this.textBoxUserAddress);
-            this.panelUser.Controls.Add(this.labelUserAddress);
-            this.panelUser.Controls.Add(this.textBoxUserCatagory);
-            this.panelUser.Controls.Add(this.labelUserCatagory);
-            this.panelUser.Controls.Add(this.textBoxUserPassword);
-            this.panelUser.Controls.Add(this.labelUserPassword);
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+           
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             this.panelUser.Controls.Add(this.textBoxUserName);
             this.panelUser.Controls.Add(this.labelUserName);
-            this.panelUser.Controls.Add(this.textBoxUName);
-            this.panelUser.Controls.Add(this.labelUName);
+           
             this.panelUser.Controls.Add(this.textBoxUserId);
             this.panelUser.Controls.Add(this.labelUserId);
             this.panelUser.Controls.Add(this.labelUser);
@@ -102,7 +84,7 @@
             this.panelUser.Size = new System.Drawing.Size(204, 507);
             this.panelUser.TabIndex = 0;
             // 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(27, 319);
@@ -163,18 +145,18 @@
             this.labelUserId.TabIndex = 1;
             this.labelUserId.Text = "User ID";
             // 
-=======
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             // labelUser
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.labelUser.Location = new System.Drawing.Point(56, 51);
-=======
+//=======
             this.labelUser.Location = new System.Drawing.Point(52, 59);
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             this.labelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(84, 37);
@@ -238,7 +220,7 @@
             this.buttonItemAdd.Text = "ADD";
             this.buttonItemAdd.UseVisualStyleBackColor = false;
             // 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             // textBoxUserPassword
             // 
             this.textBoxUserPassword.Location = new System.Drawing.Point(25, 272);
@@ -246,51 +228,10 @@
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(159, 20);
             this.textBoxUserPassword.TabIndex = 8;
-=======
+//=======
             // textBoxUserAddress
             // 
-            this.textBoxUserAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserAddress.Location = new System.Drawing.Point(14, 397);
-            this.textBoxUserAddress.Multiline = true;
-            this.textBoxUserAddress.Name = "textBoxUserAddress";
-            this.textBoxUserAddress.Size = new System.Drawing.Size(169, 52);
-            this.textBoxUserAddress.TabIndex = 34;
-            this.textBoxUserAddress.TextChanged += new System.EventHandler(this.textBoxEmpAddress_TextChanged);
-            // 
-            // labelUserAddress
-            // 
-            this.labelUserAddress.AutoSize = true;
-            this.labelUserAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserAddress.ForeColor = System.Drawing.Color.White;
-            this.labelUserAddress.Location = new System.Drawing.Point(11, 377);
-            this.labelUserAddress.Name = "labelUserAddress";
-            this.labelUserAddress.Size = new System.Drawing.Size(57, 17);
-            this.labelUserAddress.TabIndex = 33;
-            this.labelUserAddress.Text = "Address";
-            this.labelUserAddress.Click += new System.EventHandler(this.labelEmpAddress_Click);
-            // 
-            // textBoxUserCatagory
-            // 
-            this.textBoxUserCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserCatagory.Location = new System.Drawing.Point(14, 342);
-            this.textBoxUserCatagory.Name = "textBoxUserCatagory";
-            this.textBoxUserCatagory.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserCatagory.TabIndex = 32;
-            this.textBoxUserCatagory.TextChanged += new System.EventHandler(this.textBoxEmpContact_TextChanged);
-            // 
-            // labelUserCatagory
-            // 
-            this.labelUserCatagory.AutoSize = true;
-            this.labelUserCatagory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserCatagory.ForeColor = System.Drawing.Color.White;
-            this.labelUserCatagory.Location = new System.Drawing.Point(11, 322);
-            this.labelUserCatagory.Name = "labelUserCatagory";
-            this.labelUserCatagory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelUserCatagory.Size = new System.Drawing.Size(64, 17);
-            this.labelUserCatagory.TabIndex = 31;
-            this.labelUserCatagory.Text = "Catagory";
-            this.labelUserCatagory.Click += new System.EventHandler(this.labelEmpContact_Click);
-            // 
+            
             // textBoxUserPassword
             // 
             this.textBoxUserPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -299,12 +240,12 @@
             this.textBoxUserPassword.Size = new System.Drawing.Size(169, 20);
             this.textBoxUserPassword.TabIndex = 30;
             this.textBoxUserPassword.TextChanged += new System.EventHandler(this.textBoxEmpCategory_TextChanged);
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+
             // 
             // labelUserPassword
             // 
             this.labelUserPassword.AutoSize = true;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.labelUserPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserPassword.ForeColor = System.Drawing.Color.White;
             this.labelUserPassword.Location = new System.Drawing.Point(22, 247);
@@ -354,7 +295,7 @@
             this.labelUserAdress.Size = new System.Drawing.Size(63, 19);
             this.labelUserAdress.TabIndex = 11;
             this.labelUserAdress.Text = "Address";
-=======
+//=======
             this.labelUserPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserPassword.ForeColor = System.Drawing.Color.White;
             this.labelUserPassword.Location = new System.Drawing.Point(11, 270);
@@ -387,24 +328,7 @@
             // 
             // textBoxUName
             // 
-            this.textBoxUName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUName.Location = new System.Drawing.Point(14, 175);
-            this.textBoxUName.Name = "textBoxUName";
-            this.textBoxUName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUName.TabIndex = 26;
-            this.textBoxUName.TextChanged += new System.EventHandler(this.textBoxEmpName_TextChanged);
-            // 
-            // labelUName
-            // 
-            this.labelUName.AutoSize = true;
-            this.labelUName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUName.ForeColor = System.Drawing.Color.White;
-            this.labelUName.Location = new System.Drawing.Point(11, 155);
-            this.labelUName.Name = "labelUName";
-            this.labelUName.Size = new System.Drawing.Size(44, 17);
-            this.labelUName.TabIndex = 25;
-            this.labelUName.Text = "Name";
-            this.labelUName.Click += new System.EventHandler(this.labelEmpName_Click);
+            
             // 
             // textBoxUserId
             // 
@@ -426,18 +350,18 @@
             this.labelUserId.TabIndex = 23;
             this.labelUserId.Text = "User ID";
             this.labelUserId.Click += new System.EventHandler(this.labelEmpId_Click);
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-<<<<<<< HEAD
+//<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(771, 507);
-=======
+//=======
             this.ClientSize = new System.Drawing.Size(800, 507);
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
             this.Controls.Add(this.buttonItemClear);
             this.Controls.Add(this.buttonItemDelete);
             this.Controls.Add(this.buttonItemUpdate);
@@ -459,40 +383,30 @@
 
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Label labelUser;
-<<<<<<< HEAD
+//<<<<<<< HEAD
         private System.Windows.Forms.TextBox textBoxUserId;
         private System.Windows.Forms.Label labelUserId;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label labelUserType;
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Label labelUserName;
-=======
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+//>>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonItemClear;
         private System.Windows.Forms.Button buttonItemDelete;
         private System.Windows.Forms.Button buttonItemUpdate;
         private System.Windows.Forms.Button buttonItemAdd;
-<<<<<<< HEAD
+//<<<<<<< HEAD
         private System.Windows.Forms.TextBox textBoxUserPassword;
         private System.Windows.Forms.Label labelUserPassword;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxUserAdress;
         private System.Windows.Forms.Label labelUserAdress;
-=======
-        private System.Windows.Forms.TextBox textBoxUserAddress;
-        private System.Windows.Forms.Label labelUserAddress;
-        private System.Windows.Forms.TextBox textBoxUserCatagory;
-        private System.Windows.Forms.Label labelUserCatagory;
-        private System.Windows.Forms.TextBox textBoxUserPassword;
-        private System.Windows.Forms.Label labelUserPassword;
-        private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Label labelUserName;
-        private System.Windows.Forms.TextBox textBoxUName;
-        private System.Windows.Forms.Label labelUName;
-        private System.Windows.Forms.TextBox textBoxUserId;
-        private System.Windows.Forms.Label labelUserId;
->>>>>>> f58b353803b35c90697631ca42f0fc1fabbdddfb
+//=======
+       
+
+
     }
 }

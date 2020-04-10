@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 .vs/Construction_Management_System/v16/.suo
+.vs/Construction_Management_System/v16/.suo
+.suo

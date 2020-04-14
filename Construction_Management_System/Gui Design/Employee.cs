@@ -12,12 +12,18 @@ namespace Construction_Management_System
 {
     public partial class FormEmployee : Form
     {
+
         public FormEmployee()
         {
             InitializeComponent();
         }
 
         private void labelEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormEmployee_Load(object sender, EventArgs e)
         {
 
         }

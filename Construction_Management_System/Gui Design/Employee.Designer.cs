@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.panelEmployee = new System.Windows.Forms.Panel();
-            this.labelEmployee = new System.Windows.Forms.Label();
+            this.textBoxEmpAddress = new System.Windows.Forms.TextBox();
+            this.labelEmpAddress = new System.Windows.Forms.Label();
             this.textBoxEmpContact = new System.Windows.Forms.TextBox();
             this.labelEmpContact = new System.Windows.Forms.Label();
             this.textBoxEmpCategory = new System.Windows.Forms.TextBox();
@@ -40,8 +41,7 @@
             this.labelEmpName = new System.Windows.Forms.Label();
             this.textBoxEmpId = new System.Windows.Forms.TextBox();
             this.labelEmpId = new System.Windows.Forms.Label();
-            this.textBoxEmpAddress = new System.Windows.Forms.TextBox();
-            this.labelEmpAddress = new System.Windows.Forms.Label();
+            this.labelEmployee = new System.Windows.Forms.Label();
             this.dataGridViewEmp = new System.Windows.Forms.DataGridView();
             this.buttonEmpClear = new System.Windows.Forms.Button();
             this.buttonIEmpDelete = new System.Windows.Forms.Button();
@@ -72,17 +72,25 @@
             this.panelEmployee.Size = new System.Drawing.Size(200, 522);
             this.panelEmployee.TabIndex = 0;
             // 
-            // labelEmployee
+            // textBoxEmpAddress
             // 
-            this.labelEmployee.AutoSize = true;
-            this.labelEmployee.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmployee.ForeColor = System.Drawing.Color.White;
-            this.labelEmployee.Location = new System.Drawing.Point(22, 56);
-            this.labelEmployee.Name = "labelEmployee";
-            this.labelEmployee.Size = new System.Drawing.Size(150, 37);
-            this.labelEmployee.TabIndex = 0;
-            this.labelEmployee.Text = "EMPLOYEE";
-            this.labelEmployee.Click += new System.EventHandler(this.labelEmployee_Click);
+            this.textBoxEmpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxEmpAddress.Location = new System.Drawing.Point(12, 401);
+            this.textBoxEmpAddress.Multiline = true;
+            this.textBoxEmpAddress.Name = "textBoxEmpAddress";
+            this.textBoxEmpAddress.Size = new System.Drawing.Size(169, 52);
+            this.textBoxEmpAddress.TabIndex = 22;
+            // 
+            // labelEmpAddress
+            // 
+            this.labelEmpAddress.AutoSize = true;
+            this.labelEmpAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmpAddress.ForeColor = System.Drawing.Color.White;
+            this.labelEmpAddress.Location = new System.Drawing.Point(9, 381);
+            this.labelEmpAddress.Name = "labelEmpAddress";
+            this.labelEmpAddress.Size = new System.Drawing.Size(57, 17);
+            this.labelEmpAddress.TabIndex = 21;
+            this.labelEmpAddress.Text = "Address";
             // 
             // textBoxEmpContact
             // 
@@ -179,25 +187,17 @@
             this.labelEmpId.TabIndex = 11;
             this.labelEmpId.Text = "Employee ID";
             // 
-            // textBoxEmpAddress
+            // labelEmployee
             // 
-            this.textBoxEmpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpAddress.Location = new System.Drawing.Point(12, 401);
-            this.textBoxEmpAddress.Multiline = true;
-            this.textBoxEmpAddress.Name = "textBoxEmpAddress";
-            this.textBoxEmpAddress.Size = new System.Drawing.Size(169, 52);
-            this.textBoxEmpAddress.TabIndex = 22;
-            // 
-            // labelEmpAddress
-            // 
-            this.labelEmpAddress.AutoSize = true;
-            this.labelEmpAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmpAddress.ForeColor = System.Drawing.Color.White;
-            this.labelEmpAddress.Location = new System.Drawing.Point(9, 381);
-            this.labelEmpAddress.Name = "labelEmpAddress";
-            this.labelEmpAddress.Size = new System.Drawing.Size(57, 17);
-            this.labelEmpAddress.TabIndex = 21;
-            this.labelEmpAddress.Text = "Address";
+            this.labelEmployee.AutoSize = true;
+            this.labelEmployee.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmployee.ForeColor = System.Drawing.Color.White;
+            this.labelEmployee.Location = new System.Drawing.Point(22, 56);
+            this.labelEmployee.Name = "labelEmployee";
+            this.labelEmployee.Size = new System.Drawing.Size(150, 37);
+            this.labelEmployee.TabIndex = 0;
+            this.labelEmployee.Text = "EMPLOYEE";
+            this.labelEmployee.Click += new System.EventHandler(this.labelEmployee_Click);
             // 
             // dataGridViewEmp
             // 
@@ -266,6 +266,7 @@
             this.Controls.Add(this.panelEmployee);
             this.Name = "FormEmployee";
             this.Text = "Employee";
+            this.Load += new System.EventHandler(this.FormEmployee_Load);
             this.panelEmployee.ResumeLayout(false);
             this.panelEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();

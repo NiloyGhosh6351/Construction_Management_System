@@ -18,6 +18,7 @@ namespace Construction_Management_System
         {
             InitializeComponent();
             dataGridViewItem.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewItem.MultiSelect = false;
         }
         int selectedRow;
 

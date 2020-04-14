@@ -130,24 +130,19 @@ namespace Construction_Management_System
             textBoxItemQuantity.Text = row.Cells[5].Value.ToString();
             string aa = row.Cells[3].Value.ToString().ToUpper();
             string a;
-           // int dt = dataGridViewItem.S
             if (row.Cells[3].Value.ToString().ToUpper() != comboBoxItemCatagory.Text.ToUpper())
             {
                 for (int i = 0; i < comboBoxItemCatagory.Items.Count; i++)
                 {
                     a = comboBoxItemCatagory.GetItemText(comboBoxItemCatagory.Items[i]).ToUpper();
-                    //MessageBox.Show(aa + " " + a);
 
                     if (aa == a)
                     {
                         comboBoxItemCatagory.SelectedIndex = i;
                         break;
                     }
-                    //MessageBox.Show(comboBoxItemCatagory.SelectedIndex + "SELECTED INDEX " + i);
                 }
             }
-            //comboBoxItemCatagory.SelectedIndex = 0;
-            //MessageBox.Show(comboBoxItemCatagory.GetItemText(comboBoxItemCatagory.Items[1]));
         }
 
         private void buttonItemClear_Click(object sender, EventArgs e)
@@ -158,9 +153,6 @@ namespace Construction_Management_System
             textBoxItemQuantity.Clear();
             comboBoxItemCatagory.SelectedIndex = -1;
             textBoxSupplierName.Clear();
-            
-            //comboBoxItemCatagory.Items.Remove(comboBoxItemCatagory.Text);
-            //comboBoxItemCatagory.Text = string.Empty;
         }
     }
 }

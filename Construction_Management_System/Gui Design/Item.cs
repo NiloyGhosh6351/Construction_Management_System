@@ -13,7 +13,7 @@ namespace Construction_Management_System
 {
     public partial class FormItem : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public FormItem()
         {
             InitializeComponent();
@@ -48,7 +48,6 @@ namespace Construction_Management_System
 
         private void buttonItemAdd_Click(object sender, EventArgs e)
         {
-            //string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
             string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Price, Item_Catagory, Supplier_Name, Item_Quantity) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxItemId.Text, textBoxItemName.Text, textBoxItemPrice.Text, comboBoxItemCatagory.Text, textBoxSupplierName.Text, textBoxItemQuantity.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);

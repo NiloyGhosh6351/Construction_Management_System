@@ -33,9 +33,8 @@
             this.labelEmpAddress = new System.Windows.Forms.Label();
             this.textBoxEmpContact = new System.Windows.Forms.TextBox();
             this.labelEmpContact = new System.Windows.Forms.Label();
-            this.textBoxEmpCategory = new System.Windows.Forms.TextBox();
             this.labelEmpCategory = new System.Windows.Forms.Label();
-            this.textBoxEmpPrice = new System.Windows.Forms.TextBox();
+            this.textBoxEmpSalary = new System.Windows.Forms.TextBox();
             this.labelEmpSalary = new System.Windows.Forms.Label();
             this.textBoxEmpName = new System.Windows.Forms.TextBox();
             this.labelEmpName = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.buttonIEmpDelete = new System.Windows.Forms.Button();
             this.buttonEmpUpdate = new System.Windows.Forms.Button();
             this.buttonEmpAdd = new System.Windows.Forms.Button();
+            this.comboBoxEmpCatagory = new System.Windows.Forms.ComboBox();
             this.panelEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.SuspendLayout();
@@ -54,13 +54,13 @@
             // panelEmployee
             // 
             this.panelEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelEmployee.Controls.Add(this.comboBoxEmpCatagory);
             this.panelEmployee.Controls.Add(this.textBoxEmpAddress);
             this.panelEmployee.Controls.Add(this.labelEmpAddress);
             this.panelEmployee.Controls.Add(this.textBoxEmpContact);
             this.panelEmployee.Controls.Add(this.labelEmpContact);
-            this.panelEmployee.Controls.Add(this.textBoxEmpCategory);
             this.panelEmployee.Controls.Add(this.labelEmpCategory);
-            this.panelEmployee.Controls.Add(this.textBoxEmpPrice);
+            this.panelEmployee.Controls.Add(this.textBoxEmpSalary);
             this.panelEmployee.Controls.Add(this.labelEmpSalary);
             this.panelEmployee.Controls.Add(this.textBoxEmpName);
             this.panelEmployee.Controls.Add(this.labelEmpName);
@@ -111,32 +111,24 @@
             this.labelEmpContact.TabIndex = 19;
             this.labelEmpContact.Text = "Contact";
             // 
-            // textBoxEmpCategory
-            // 
-            this.textBoxEmpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpCategory.Location = new System.Drawing.Point(12, 294);
-            this.textBoxEmpCategory.Name = "textBoxEmpCategory";
-            this.textBoxEmpCategory.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpCategory.TabIndex = 18;
-            // 
             // labelEmpCategory
             // 
             this.labelEmpCategory.AutoSize = true;
             this.labelEmpCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpCategory.ForeColor = System.Drawing.Color.White;
-            this.labelEmpCategory.Location = new System.Drawing.Point(9, 274);
+            this.labelEmpCategory.Location = new System.Drawing.Point(9, 268);
             this.labelEmpCategory.Name = "labelEmpCategory";
             this.labelEmpCategory.Size = new System.Drawing.Size(128, 17);
             this.labelEmpCategory.TabIndex = 17;
             this.labelEmpCategory.Text = "Employee Category";
             // 
-            // textBoxEmpPrice
+            // textBoxEmpSalary
             // 
-            this.textBoxEmpPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpPrice.Location = new System.Drawing.Point(12, 236);
-            this.textBoxEmpPrice.Name = "textBoxEmpPrice";
-            this.textBoxEmpPrice.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpPrice.TabIndex = 16;
+            this.textBoxEmpSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxEmpSalary.Location = new System.Drawing.Point(12, 236);
+            this.textBoxEmpSalary.Name = "textBoxEmpSalary";
+            this.textBoxEmpSalary.Size = new System.Drawing.Size(169, 20);
+            this.textBoxEmpSalary.TabIndex = 16;
             // 
             // labelEmpSalary
             // 
@@ -207,6 +199,8 @@
             this.dataGridViewEmp.Name = "dataGridViewEmp";
             this.dataGridViewEmp.Size = new System.Drawing.Size(522, 402);
             this.dataGridViewEmp.TabIndex = 1;
+            this.dataGridViewEmp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmp_CellClick);
+            //this.dataGridViewEmp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmp_CellContentClick);
             // 
             // buttonEmpClear
             // 
@@ -218,6 +212,7 @@
             this.buttonEmpClear.TabIndex = 9;
             this.buttonEmpClear.Text = "CLEAR";
             this.buttonEmpClear.UseVisualStyleBackColor = false;
+            this.buttonEmpClear.Click += new System.EventHandler(this.buttonEmpClear_Click);
             // 
             // buttonIEmpDelete
             // 
@@ -229,6 +224,7 @@
             this.buttonIEmpDelete.TabIndex = 8;
             this.buttonIEmpDelete.Text = "DELETE";
             this.buttonIEmpDelete.UseVisualStyleBackColor = false;
+            this.buttonIEmpDelete.Click += new System.EventHandler(this.buttonIEmpDelete_Click);
             // 
             // buttonEmpUpdate
             // 
@@ -240,6 +236,7 @@
             this.buttonEmpUpdate.TabIndex = 7;
             this.buttonEmpUpdate.Text = "UPDATE";
             this.buttonEmpUpdate.UseVisualStyleBackColor = false;
+            this.buttonEmpUpdate.Click += new System.EventHandler(this.buttonEmpUpdate_Click);
             // 
             // buttonEmpAdd
             // 
@@ -251,6 +248,16 @@
             this.buttonEmpAdd.TabIndex = 6;
             this.buttonEmpAdd.Text = "ADD";
             this.buttonEmpAdd.UseVisualStyleBackColor = false;
+            this.buttonEmpAdd.Click += new System.EventHandler(this.buttonEmpAdd_Click);
+            // 
+            // comboBoxEmpCatagory
+            // 
+            this.comboBoxEmpCatagory.FormattingEnabled = true;
+            this.comboBoxEmpCatagory.Location = new System.Drawing.Point(12, 302);
+            this.comboBoxEmpCatagory.Name = "comboBoxEmpCatagory";
+            this.comboBoxEmpCatagory.Size = new System.Drawing.Size(169, 21);
+            this.comboBoxEmpCatagory.TabIndex = 23;
+            this.comboBoxEmpCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmpCatagory_SelectedIndexChanged);
             // 
             // FormEmployee
             // 
@@ -282,9 +289,8 @@
         private System.Windows.Forms.Label labelEmpAddress;
         private System.Windows.Forms.TextBox textBoxEmpContact;
         private System.Windows.Forms.Label labelEmpContact;
-        private System.Windows.Forms.TextBox textBoxEmpCategory;
         private System.Windows.Forms.Label labelEmpCategory;
-        private System.Windows.Forms.TextBox textBoxEmpPrice;
+        private System.Windows.Forms.TextBox textBoxEmpSalary;
         private System.Windows.Forms.Label labelEmpSalary;
         private System.Windows.Forms.TextBox textBoxEmpName;
         private System.Windows.Forms.Label labelEmpName;
@@ -295,5 +301,6 @@
         private System.Windows.Forms.Button buttonIEmpDelete;
         private System.Windows.Forms.Button buttonEmpUpdate;
         private System.Windows.Forms.Button buttonEmpAdd;
+        private System.Windows.Forms.ComboBox comboBoxEmpCatagory;
     }
 }

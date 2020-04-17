@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Construction_Management_System.Gui_Design;
 
 namespace Construction_Management_System
 {
@@ -88,6 +89,22 @@ namespace Construction_Management_System
             //open Sales Report Form
             FormSalesReport opensalesReport = new FormSalesReport();
             opensalesReport.Show();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonClient_Click(object sender, EventArgs e)
+        {
+            FormClient OpenClient = new FormClient();
+            OpenClient.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

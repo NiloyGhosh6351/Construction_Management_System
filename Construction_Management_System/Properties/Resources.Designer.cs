@@ -83,6 +83,16 @@ namespace Construction_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Main_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Main Pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap owner {
             get {
                 object obj = ResourceManager.GetObject("owner", resourceCulture);

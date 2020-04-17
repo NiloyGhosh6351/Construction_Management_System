@@ -13,7 +13,7 @@ namespace Construction_Management_System
 {
     public partial class FormUser : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public FormUser()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Construction_Management_System
             comboBoxUserType.DataSource = dt1;
             comboBoxUserType.DisplayMember = "User_Type";
             comboBoxUserType.ValueMember = "Id";
+            display_dataUser();
         }
 
         private void labelEmpId_Click(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace Construction_Management_System
 
         private void buttonUserAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into User (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
+            string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -139,7 +140,7 @@ namespace Construction_Management_System
 
         public void display_dataUser()
         {
-            string sql = string.Format("select * " + " from User");
+            string sql = string.Format("select * " + " from [User]");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -156,7 +157,7 @@ namespace Construction_Management_System
         {
             //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
             //dataGridViewItem.Rows.RemoveAt(rowIndex);
-            string sql = string.Format("delete " + " from User where User_ID={0}", textBoxUserId.Text);
+            string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -178,7 +179,7 @@ namespace Construction_Management_System
             dataGridViewUser.SelectedCells[4].Value = comboBoxUserType.Text;
             dataGridViewUser.SelectedCells[5].Value = textBoxUserContact.Text;
             dataGridViewUser.SelectedCells[6].Value = textBoxUserAddress.Text;
-            string sql = string.Format("update User set User_ID={0}, Name='{1}', User_Name={2}, User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
+            string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name={2}, User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();

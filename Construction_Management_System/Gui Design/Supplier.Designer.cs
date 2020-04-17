@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelUser = new System.Windows.Forms.Panel();
+            this.comboBoxItemCatagory = new System.Windows.Forms.ComboBox();
             this.textBoxSupplierAddress = new System.Windows.Forms.TextBox();
             this.labelSupplierAddress = new System.Windows.Forms.Label();
             this.labelSupplierItem = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.buttonSupplierDelete = new System.Windows.Forms.Button();
             this.buttonSupplierUpdate = new System.Windows.Forms.Button();
             this.buttonSupplierAdd = new System.Windows.Forms.Button();
-            this.comboBoxItemCatagory = new System.Windows.Forms.ComboBox();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,14 @@
             this.panelUser.Size = new System.Drawing.Size(204, 507);
             this.panelUser.TabIndex = 1;
             // 
+            // comboBoxItemCatagory
+            // 
+            this.comboBoxItemCatagory.FormattingEnabled = true;
+            this.comboBoxItemCatagory.Location = new System.Drawing.Point(21, 347);
+            this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
+            this.comboBoxItemCatagory.Size = new System.Drawing.Size(152, 21);
+            this.comboBoxItemCatagory.TabIndex = 3;
+            // 
             // textBoxSupplierAddress
             // 
             this.textBoxSupplierAddress.Location = new System.Drawing.Point(22, 410);
@@ -76,7 +84,7 @@
             this.textBoxSupplierAddress.Multiline = true;
             this.textBoxSupplierAddress.Name = "textBoxSupplierAddress";
             this.textBoxSupplierAddress.Size = new System.Drawing.Size(152, 56);
-            this.textBoxSupplierAddress.TabIndex = 10;
+            this.textBoxSupplierAddress.TabIndex = 4;
             // 
             // labelSupplierAddress
             // 
@@ -108,7 +116,7 @@
             this.textBoxSupplierContact.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSupplierContact.Name = "textBoxSupplierContact";
             this.textBoxSupplierContact.Size = new System.Drawing.Size(152, 20);
-            this.textBoxSupplierContact.TabIndex = 6;
+            this.textBoxSupplierContact.TabIndex = 2;
             // 
             // labelSupplierContact
             // 
@@ -128,7 +136,7 @@
             this.textBoxSupplierName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSupplierName.Name = "textBoxSupplierName";
             this.textBoxSupplierName.Size = new System.Drawing.Size(152, 20);
-            this.textBoxSupplierName.TabIndex = 4;
+            this.textBoxSupplierName.TabIndex = 1;
             // 
             // labelSupplierName
             // 
@@ -148,7 +156,7 @@
             this.textBoxSupplierId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxSupplierId.Name = "textBoxSupplierId";
             this.textBoxSupplierId.Size = new System.Drawing.Size(152, 20);
-            this.textBoxSupplierId.TabIndex = 2;
+            this.textBoxSupplierId.TabIndex = 0;
             // 
             // labelSupplierId
             // 
@@ -235,14 +243,6 @@
             this.buttonSupplierAdd.Text = "ADD";
             this.buttonSupplierAdd.UseVisualStyleBackColor = false;
             this.buttonSupplierAdd.Click += new System.EventHandler(this.buttonSupplierAdd_Click);
-            // 
-            // comboBoxItemCatagory
-            // 
-            this.comboBoxItemCatagory.FormattingEnabled = true;
-            this.comboBoxItemCatagory.Location = new System.Drawing.Point(21, 347);
-            this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
-            this.comboBoxItemCatagory.Size = new System.Drawing.Size(152, 21);
-            this.comboBoxItemCatagory.TabIndex = 11;
             // 
             // FormSupplier
             // 

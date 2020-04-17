@@ -78,7 +78,7 @@
             this.comboBoxItemCatagory.Location = new System.Drawing.Point(16, 345);
             this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
             this.comboBoxItemCatagory.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxItemCatagory.TabIndex = 13;
+            this.comboBoxItemCatagory.TabIndex = 4;
             this.comboBoxItemCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemCatagory_SelectedIndexChanged);
             // 
             // textBoxItemQuantity
@@ -87,7 +87,7 @@
             this.textBoxItemQuantity.Location = new System.Drawing.Point(15, 290);
             this.textBoxItemQuantity.Name = "textBoxItemQuantity";
             this.textBoxItemQuantity.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemQuantity.TabIndex = 12;
+            this.textBoxItemQuantity.TabIndex = 3;
             // 
             // labelItemQuantity
             // 
@@ -106,7 +106,7 @@
             this.textBoxSupplierName.Location = new System.Drawing.Point(16, 397);
             this.textBoxSupplierName.Name = "textBoxSupplierName";
             this.textBoxSupplierName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxSupplierName.TabIndex = 10;
+            this.textBoxSupplierName.TabIndex = 5;
             this.textBoxSupplierName.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // labelSupplierName
@@ -138,7 +138,7 @@
             this.textBoxItemPrice.Location = new System.Drawing.Point(16, 234);
             this.textBoxItemPrice.Name = "textBoxItemPrice";
             this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemPrice.TabIndex = 6;
+            this.textBoxItemPrice.TabIndex = 2;
             // 
             // labelItemPrice
             // 
@@ -157,7 +157,7 @@
             this.textBoxItemName.Location = new System.Drawing.Point(16, 177);
             this.textBoxItemName.Name = "textBoxItemName";
             this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemName.TabIndex = 4;
+            this.textBoxItemName.TabIndex = 1;
             // 
             // labelItemName
             // 
@@ -176,7 +176,7 @@
             this.textBoxItemId.Location = new System.Drawing.Point(16, 124);
             this.textBoxItemId.Name = "textBoxItemId";
             this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemId.TabIndex = 2;
+            this.textBoxItemId.TabIndex = 0;
             // 
             // labelItemId
             // 

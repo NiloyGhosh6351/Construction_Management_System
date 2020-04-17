@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelEmployee = new System.Windows.Forms.Panel();
+            this.comboBoxEmpCatagory = new System.Windows.Forms.ComboBox();
             this.textBoxEmpAddress = new System.Windows.Forms.TextBox();
             this.labelEmpAddress = new System.Windows.Forms.Label();
             this.textBoxEmpContact = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.buttonIEmpDelete = new System.Windows.Forms.Button();
             this.buttonEmpUpdate = new System.Windows.Forms.Button();
             this.buttonEmpAdd = new System.Windows.Forms.Button();
-            this.comboBoxEmpCatagory = new System.Windows.Forms.ComboBox();
             this.panelEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,15 @@
             this.panelEmployee.Size = new System.Drawing.Size(200, 522);
             this.panelEmployee.TabIndex = 0;
             // 
+            // comboBoxEmpCatagory
+            // 
+            this.comboBoxEmpCatagory.FormattingEnabled = true;
+            this.comboBoxEmpCatagory.Location = new System.Drawing.Point(12, 302);
+            this.comboBoxEmpCatagory.Name = "comboBoxEmpCatagory";
+            this.comboBoxEmpCatagory.Size = new System.Drawing.Size(169, 21);
+            this.comboBoxEmpCatagory.TabIndex = 3;
+            this.comboBoxEmpCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmpCatagory_SelectedIndexChanged);
+            // 
             // textBoxEmpAddress
             // 
             this.textBoxEmpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -79,7 +88,7 @@
             this.textBoxEmpAddress.Multiline = true;
             this.textBoxEmpAddress.Name = "textBoxEmpAddress";
             this.textBoxEmpAddress.Size = new System.Drawing.Size(169, 52);
-            this.textBoxEmpAddress.TabIndex = 22;
+            this.textBoxEmpAddress.TabIndex = 5;
             // 
             // labelEmpAddress
             // 
@@ -98,7 +107,7 @@
             this.textBoxEmpContact.Location = new System.Drawing.Point(12, 346);
             this.textBoxEmpContact.Name = "textBoxEmpContact";
             this.textBoxEmpContact.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpContact.TabIndex = 20;
+            this.textBoxEmpContact.TabIndex = 4;
             // 
             // labelEmpContact
             // 
@@ -128,7 +137,7 @@
             this.textBoxEmpSalary.Location = new System.Drawing.Point(12, 236);
             this.textBoxEmpSalary.Name = "textBoxEmpSalary";
             this.textBoxEmpSalary.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpSalary.TabIndex = 16;
+            this.textBoxEmpSalary.TabIndex = 2;
             // 
             // labelEmpSalary
             // 
@@ -147,7 +156,7 @@
             this.textBoxEmpName.Location = new System.Drawing.Point(12, 179);
             this.textBoxEmpName.Name = "textBoxEmpName";
             this.textBoxEmpName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpName.TabIndex = 14;
+            this.textBoxEmpName.TabIndex = 1;
             // 
             // labelEmpName
             // 
@@ -166,7 +175,7 @@
             this.textBoxEmpId.Location = new System.Drawing.Point(12, 126);
             this.textBoxEmpId.Name = "textBoxEmpId";
             this.textBoxEmpId.Size = new System.Drawing.Size(169, 20);
-            this.textBoxEmpId.TabIndex = 12;
+            this.textBoxEmpId.TabIndex = 0;
             // 
             // labelEmpId
             // 
@@ -200,7 +209,6 @@
             this.dataGridViewEmp.Size = new System.Drawing.Size(522, 402);
             this.dataGridViewEmp.TabIndex = 1;
             this.dataGridViewEmp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmp_CellClick);
-            //this.dataGridViewEmp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmp_CellContentClick);
             // 
             // buttonEmpClear
             // 
@@ -249,15 +257,6 @@
             this.buttonEmpAdd.Text = "ADD";
             this.buttonEmpAdd.UseVisualStyleBackColor = false;
             this.buttonEmpAdd.Click += new System.EventHandler(this.buttonEmpAdd_Click);
-            // 
-            // comboBoxEmpCatagory
-            // 
-            this.comboBoxEmpCatagory.FormattingEnabled = true;
-            this.comboBoxEmpCatagory.Location = new System.Drawing.Point(12, 302);
-            this.comboBoxEmpCatagory.Name = "comboBoxEmpCatagory";
-            this.comboBoxEmpCatagory.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxEmpCatagory.TabIndex = 23;
-            this.comboBoxEmpCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmpCatagory_SelectedIndexChanged);
             // 
             // FormEmployee
             // 

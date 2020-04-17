@@ -179,7 +179,7 @@ namespace Construction_Management_System
             dataGridViewUser.SelectedCells[4].Value = comboBoxUserType.Text;
             dataGridViewUser.SelectedCells[5].Value = textBoxUserContact.Text;
             dataGridViewUser.SelectedCells[6].Value = textBoxUserAddress.Text;
-            string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name={2}, User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
+            string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -198,10 +198,10 @@ namespace Construction_Management_System
             textBoxUserId.Text = row.Cells[0].Value.ToString();
             textBoxName.Text = row.Cells[1].Value.ToString();
             textBoxUserName.Text = row.Cells[2].Value.ToString();
-            textBoxUserPassword.Text = row.Cells[4].Value.ToString();
+            textBoxUserPassword.Text = row.Cells[3].Value.ToString();
             textBoxUserContact.Text = row.Cells[5].Value.ToString();
             textBoxUserAddress.Text = row.Cells[6].Value.ToString();
-            string aa = row.Cells[3].Value.ToString().ToUpper();
+            string aa = row.Cells[4].Value.ToString().ToUpper();
             string a;
             if (row.Cells[3].Value.ToString().ToUpper() != comboBoxUserType.Text.ToUpper())
             {

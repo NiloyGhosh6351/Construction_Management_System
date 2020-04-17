@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panelUser = new System.Windows.Forms.Panel();
+            this.textBoxUserContact = new System.Windows.Forms.TextBox();
+            this.lableUserContact = new System.Windows.Forms.Label();
+            this.comboBoxUserType = new System.Windows.Forms.ComboBox();
             this.textBoxUserAddress = new System.Windows.Forms.TextBox();
             this.labelUserAdress = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -46,9 +49,6 @@
             this.buttonUserDelete = new System.Windows.Forms.Button();
             this.buttonUserUpdate = new System.Windows.Forms.Button();
             this.buttonUserAdd = new System.Windows.Forms.Button();
-            this.comboBoxUserType = new System.Windows.Forms.ComboBox();
-            this.textBoxUserContact = new System.Windows.Forms.TextBox();
-            this.lableUserContact = new System.Windows.Forms.Label();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,36 @@
             this.panelUser.Size = new System.Drawing.Size(204, 507);
             this.panelUser.TabIndex = 0;
             // 
+            // textBoxUserContact
+            // 
+            this.textBoxUserContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxUserContact.Location = new System.Drawing.Point(11, 344);
+            this.textBoxUserContact.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxUserContact.Name = "textBoxUserContact";
+            this.textBoxUserContact.Size = new System.Drawing.Size(169, 20);
+            this.textBoxUserContact.TabIndex = 5;
+            // 
+            // lableUserContact
+            // 
+            this.lableUserContact.AutoSize = true;
+            this.lableUserContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lableUserContact.ForeColor = System.Drawing.Color.White;
+            this.lableUserContact.Location = new System.Drawing.Point(10, 325);
+            this.lableUserContact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lableUserContact.Name = "lableUserContact";
+            this.lableUserContact.Size = new System.Drawing.Size(55, 17);
+            this.lableUserContact.TabIndex = 32;
+            this.lableUserContact.Text = "Contact";
+            // 
+            // comboBoxUserType
+            // 
+            this.comboBoxUserType.FormattingEnabled = true;
+            this.comboBoxUserType.Location = new System.Drawing.Point(12, 289);
+            this.comboBoxUserType.Name = "comboBoxUserType";
+            this.comboBoxUserType.Size = new System.Drawing.Size(165, 21);
+            this.comboBoxUserType.TabIndex = 4;
+            this.comboBoxUserType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // textBoxUserAddress
             // 
             this.textBoxUserAddress.Location = new System.Drawing.Point(12, 394);
@@ -84,7 +114,7 @@
             this.textBoxUserAddress.Multiline = true;
             this.textBoxUserAddress.Name = "textBoxUserAddress";
             this.textBoxUserAddress.Size = new System.Drawing.Size(166, 75);
-            this.textBoxUserAddress.TabIndex = 12;
+            this.textBoxUserAddress.TabIndex = 6;
             this.textBoxUserAddress.TextChanged += new System.EventHandler(this.textBoxUserAdress_TextChanged);
             // 
             // labelUserAdress
@@ -105,7 +135,7 @@
             this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(167, 20);
-            this.textBoxName.TabIndex = 10;
+            this.textBoxName.TabIndex = 1;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // labelName
@@ -127,7 +157,7 @@
             this.textBoxUserPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserPassword.TabIndex = 30;
+            this.textBoxUserPassword.TabIndex = 3;
             this.textBoxUserPassword.TextChanged += new System.EventHandler(this.textBoxEmpCategory_TextChanged);
             // 
             // labelUserPassword
@@ -163,7 +193,7 @@
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserName.TabIndex = 28;
+            this.textBoxUserName.TabIndex = 2;
             this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxEmpPrice_TextChanged);
             // 
             // labelUserName
@@ -186,7 +216,7 @@
             this.textBoxUserId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserId.Name = "textBoxUserId";
             this.textBoxUserId.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserId.TabIndex = 24;
+            this.textBoxUserId.TabIndex = 0;
             this.textBoxUserId.TextChanged += new System.EventHandler(this.textBoxEmpId_TextChanged);
             // 
             // labelUserId
@@ -275,36 +305,6 @@
             this.buttonUserAdd.Text = "ADD";
             this.buttonUserAdd.UseVisualStyleBackColor = false;
             this.buttonUserAdd.Click += new System.EventHandler(this.buttonUserAdd_Click);
-            // 
-            // comboBoxUserType
-            // 
-            this.comboBoxUserType.FormattingEnabled = true;
-            this.comboBoxUserType.Location = new System.Drawing.Point(12, 289);
-            this.comboBoxUserType.Name = "comboBoxUserType";
-            this.comboBoxUserType.Size = new System.Drawing.Size(165, 21);
-            this.comboBoxUserType.TabIndex = 31;
-            this.comboBoxUserType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // textBoxUserContact
-            // 
-            this.textBoxUserContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserContact.Location = new System.Drawing.Point(11, 344);
-            this.textBoxUserContact.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxUserContact.Name = "textBoxUserContact";
-            this.textBoxUserContact.Size = new System.Drawing.Size(169, 20);
-            this.textBoxUserContact.TabIndex = 33;
-            // 
-            // lableUserContact
-            // 
-            this.lableUserContact.AutoSize = true;
-            this.lableUserContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lableUserContact.ForeColor = System.Drawing.Color.White;
-            this.lableUserContact.Location = new System.Drawing.Point(10, 325);
-            this.lableUserContact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lableUserContact.Name = "lableUserContact";
-            this.lableUserContact.Size = new System.Drawing.Size(55, 17);
-            this.lableUserContact.TabIndex = 32;
-            this.lableUserContact.Text = "Contact";
             // 
             // FormUser
             // 

@@ -55,3 +55,5 @@ C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Mana
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.FormSupplier.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.FormClient.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.Login.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.FormClient.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.Login.resources

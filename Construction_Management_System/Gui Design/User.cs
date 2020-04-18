@@ -13,7 +13,7 @@ namespace Construction_Management_System
 {
     public partial class FormUser : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public FormUser()
         {
             InitializeComponent();
@@ -135,7 +135,20 @@ namespace Construction_Management_System
             sqlcmd.Connection.Close();
             display_dataUser();
             MessageBox.Show("Item Added Successfully");
+            AddUser();
             buttonUserClear_Click(new object(), new EventArgs());
+        }
+        public void AddUser()
+        {
+            string sql = string.Format("insert into Login_User (UserName, Password, UserType) Values('{0}','{1}','{2}')", textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            MessageBox.Show("Add To LoginUser Database successfully");
+
+            sqlcmd.Connection.Close();
         }
 
         public void display_dataUser()

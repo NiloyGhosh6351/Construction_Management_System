@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panelLogin = new System.Windows.Forms.Panel();
-            this.labelUsername = new System.Windows.Forms.Label();
-            this.textBoxLoginUser = new System.Windows.Forms.TextBox();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.comboBoxLLoginUserType = new System.Windows.Forms.ComboBox();
+            this.labelUserType = new System.Windows.Forms.Label();
             this.textBoxUserPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.labelUserType = new System.Windows.Forms.Label();
-            this.comboBoxLLoginUserType = new System.Windows.Forms.ComboBox();
-            this.buttonLogin = new System.Windows.Forms.Button();
-            this.buttonReset = new System.Windows.Forms.Button();
+            this.textBoxLoginUser = new System.Windows.Forms.TextBox();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelHead = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
@@ -59,23 +59,49 @@
             this.panelLogin.Size = new System.Drawing.Size(253, 517);
             this.panelLogin.TabIndex = 0;
             // 
-            // labelUsername
+            // buttonReset
             // 
-            this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.ForeColor = System.Drawing.Color.White;
-            this.labelUsername.Location = new System.Drawing.Point(25, 171);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(81, 21);
-            this.labelUsername.TabIndex = 0;
-            this.labelUsername.Text = "Usename";
+            this.buttonReset.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonReset.Location = new System.Drawing.Point(34, 375);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 7;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = false;
             // 
-            // textBoxLoginUser
+            // buttonLogin
             // 
-            this.textBoxLoginUser.Location = new System.Drawing.Point(28, 198);
-            this.textBoxLoginUser.Name = "textBoxLoginUser";
-            this.textBoxLoginUser.Size = new System.Drawing.Size(200, 20);
-            this.textBoxLoginUser.TabIndex = 1;
+            this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonLogin.Location = new System.Drawing.Point(142, 375);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.TabIndex = 6;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBoxLLoginUserType
+            // 
+            this.comboBoxLLoginUserType.FormattingEnabled = true;
+            this.comboBoxLLoginUserType.Items.AddRange(new object[] {
+            "Admin",
+            "Manager"});
+            this.comboBoxLLoginUserType.Location = new System.Drawing.Point(28, 325);
+            this.comboBoxLLoginUserType.Name = "comboBoxLLoginUserType";
+            this.comboBoxLLoginUserType.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxLLoginUserType.TabIndex = 5;
+            // 
+            // labelUserType
+            // 
+            this.labelUserType.AutoSize = true;
+            this.labelUserType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserType.ForeColor = System.Drawing.Color.White;
+            this.labelUserType.Location = new System.Drawing.Point(25, 300);
+            this.labelUserType.Name = "labelUserType";
+            this.labelUserType.Size = new System.Drawing.Size(84, 21);
+            this.labelUserType.TabIndex = 4;
+            this.labelUserType.Text = "User Type";
             // 
             // textBoxUserPassword
             // 
@@ -95,53 +121,30 @@
             this.labelPassword.TabIndex = 2;
             this.labelPassword.Text = "Passeord";
             // 
-            // labelUserType
+            // textBoxLoginUser
             // 
-            this.labelUserType.AutoSize = true;
-            this.labelUserType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserType.ForeColor = System.Drawing.Color.White;
-            this.labelUserType.Location = new System.Drawing.Point(25, 300);
-            this.labelUserType.Name = "labelUserType";
-            this.labelUserType.Size = new System.Drawing.Size(84, 21);
-            this.labelUserType.TabIndex = 4;
-            this.labelUserType.Text = "User Type";
+            this.textBoxLoginUser.Location = new System.Drawing.Point(28, 198);
+            this.textBoxLoginUser.Name = "textBoxLoginUser";
+            this.textBoxLoginUser.Size = new System.Drawing.Size(200, 20);
+            this.textBoxLoginUser.TabIndex = 1;
             // 
-            // comboBoxLLoginUserType
+            // labelUsername
             // 
-            this.comboBoxLLoginUserType.FormattingEnabled = true;
-            this.comboBoxLLoginUserType.Location = new System.Drawing.Point(28, 325);
-            this.comboBoxLLoginUserType.Name = "comboBoxLLoginUserType";
-            this.comboBoxLLoginUserType.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxLLoginUserType.TabIndex = 5;
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonLogin.Location = new System.Drawing.Point(142, 375);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
-            this.buttonLogin.TabIndex = 6;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonReset.Location = new System.Drawing.Point(34, 375);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(75, 23);
-            this.buttonReset.TabIndex = 7;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = false;
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.Color.White;
+            this.labelUsername.Location = new System.Drawing.Point(25, 171);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(81, 21);
+            this.labelUsername.TabIndex = 0;
+            this.labelUsername.Text = "Usename";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.Main_Pic;
-            this.pictureBox1.Location = new System.Drawing.Point(252, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(374, 106);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(526, 503);
+            this.pictureBox1.Size = new System.Drawing.Size(404, 398);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;

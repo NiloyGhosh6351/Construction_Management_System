@@ -46,5 +46,13 @@ namespace Construction_Management_System.Gui_Design
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormHome f1 = new FormHome();
+            f1.Show();
+            this.Hide(); ;
+        }
     }
 }

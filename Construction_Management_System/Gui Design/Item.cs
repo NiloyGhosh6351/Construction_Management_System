@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Construction_Management_System.Gui_Design;
 
 namespace Construction_Management_System
 {
     public partial class FormItem : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public FormItem()
         {
             InitializeComponent();
@@ -87,7 +88,7 @@ namespace Construction_Management_System
         {
             //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
             //dataGridViewItem.Rows.RemoveAt(rowIndex);
-            string sql = string.Format("delete " + " from Item where Item_ID={0}",textBoxItemId.Text);
+            string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -96,7 +97,7 @@ namespace Construction_Management_System
             sqlcmd.Connection.Close();
             display_data();
             MessageBox.Show("Delete Successfully");
-            buttonItemClear_Click(new object(),new EventArgs());
+            buttonItemClear_Click(new object(), new EventArgs());
         }
 
         private void buttonItemUpdate_Click(object sender, EventArgs e)
@@ -123,8 +124,8 @@ namespace Construction_Management_System
         {
             selectedRow = e.RowIndex;
             DataGridViewRow row = dataGridViewItem.Rows[selectedRow];
-            textBoxItemId.Text = row.Cells[0].Value.ToString();       
-            textBoxItemName.Text = row.Cells[1].Value.ToString();       
+            textBoxItemId.Text = row.Cells[0].Value.ToString();
+            textBoxItemName.Text = row.Cells[1].Value.ToString();
             textBoxItemPrice.Text = row.Cells[2].Value.ToString();
             textBoxSupplierName.Text = row.Cells[4].Value.ToString();
             textBoxItemQuantity.Text = row.Cells[5].Value.ToString();
@@ -153,6 +154,69 @@ namespace Construction_Management_System
             textBoxItemQuantity.Clear();
             comboBoxItemCatagory.SelectedIndex = -1;
             textBoxSupplierName.Clear();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxItemQuantity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelItemQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxItemPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelItemPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxItemName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelItemName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxItemId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelItemId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           this.Close();
+            FormHome f1 = new FormHome();
+            f1.Show();
+            this.Hide();
+        }
+
+        public static implicit operator FormItem(FormManager v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

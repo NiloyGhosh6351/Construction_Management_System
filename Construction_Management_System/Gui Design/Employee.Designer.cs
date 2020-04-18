@@ -47,13 +47,16 @@
             this.buttonIEmpDelete = new System.Windows.Forms.Button();
             this.buttonEmpUpdate = new System.Windows.Forms.Button();
             this.buttonEmpAdd = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEmployee
             // 
             this.panelEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelEmployee.Controls.Add(this.pictureBox1);
             this.panelEmployee.Controls.Add(this.comboBoxEmpCatagory);
             this.panelEmployee.Controls.Add(this.textBoxEmpAddress);
             this.panelEmployee.Controls.Add(this.labelEmpAddress);
@@ -75,7 +78,7 @@
             // comboBoxEmpCatagory
             // 
             this.comboBoxEmpCatagory.FormattingEnabled = true;
-            this.comboBoxEmpCatagory.Location = new System.Drawing.Point(12, 302);
+            this.comboBoxEmpCatagory.Location = new System.Drawing.Point(12, 329);
             this.comboBoxEmpCatagory.Name = "comboBoxEmpCatagory";
             this.comboBoxEmpCatagory.Size = new System.Drawing.Size(169, 21);
             this.comboBoxEmpCatagory.TabIndex = 3;
@@ -84,7 +87,7 @@
             // textBoxEmpAddress
             // 
             this.textBoxEmpAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpAddress.Location = new System.Drawing.Point(12, 401);
+            this.textBoxEmpAddress.Location = new System.Drawing.Point(12, 428);
             this.textBoxEmpAddress.Multiline = true;
             this.textBoxEmpAddress.Name = "textBoxEmpAddress";
             this.textBoxEmpAddress.Size = new System.Drawing.Size(169, 52);
@@ -95,7 +98,7 @@
             this.labelEmpAddress.AutoSize = true;
             this.labelEmpAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpAddress.ForeColor = System.Drawing.Color.White;
-            this.labelEmpAddress.Location = new System.Drawing.Point(9, 381);
+            this.labelEmpAddress.Location = new System.Drawing.Point(9, 408);
             this.labelEmpAddress.Name = "labelEmpAddress";
             this.labelEmpAddress.Size = new System.Drawing.Size(57, 17);
             this.labelEmpAddress.TabIndex = 21;
@@ -104,7 +107,7 @@
             // textBoxEmpContact
             // 
             this.textBoxEmpContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpContact.Location = new System.Drawing.Point(12, 346);
+            this.textBoxEmpContact.Location = new System.Drawing.Point(12, 373);
             this.textBoxEmpContact.Name = "textBoxEmpContact";
             this.textBoxEmpContact.Size = new System.Drawing.Size(169, 20);
             this.textBoxEmpContact.TabIndex = 4;
@@ -114,7 +117,7 @@
             this.labelEmpContact.AutoSize = true;
             this.labelEmpContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpContact.ForeColor = System.Drawing.Color.White;
-            this.labelEmpContact.Location = new System.Drawing.Point(9, 326);
+            this.labelEmpContact.Location = new System.Drawing.Point(9, 353);
             this.labelEmpContact.Name = "labelEmpContact";
             this.labelEmpContact.Size = new System.Drawing.Size(55, 17);
             this.labelEmpContact.TabIndex = 19;
@@ -125,7 +128,7 @@
             this.labelEmpCategory.AutoSize = true;
             this.labelEmpCategory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpCategory.ForeColor = System.Drawing.Color.White;
-            this.labelEmpCategory.Location = new System.Drawing.Point(9, 268);
+            this.labelEmpCategory.Location = new System.Drawing.Point(9, 295);
             this.labelEmpCategory.Name = "labelEmpCategory";
             this.labelEmpCategory.Size = new System.Drawing.Size(128, 17);
             this.labelEmpCategory.TabIndex = 17;
@@ -134,7 +137,7 @@
             // textBoxEmpSalary
             // 
             this.textBoxEmpSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpSalary.Location = new System.Drawing.Point(12, 236);
+            this.textBoxEmpSalary.Location = new System.Drawing.Point(12, 263);
             this.textBoxEmpSalary.Name = "textBoxEmpSalary";
             this.textBoxEmpSalary.Size = new System.Drawing.Size(169, 20);
             this.textBoxEmpSalary.TabIndex = 2;
@@ -144,7 +147,7 @@
             this.labelEmpSalary.AutoSize = true;
             this.labelEmpSalary.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpSalary.ForeColor = System.Drawing.Color.White;
-            this.labelEmpSalary.Location = new System.Drawing.Point(9, 216);
+            this.labelEmpSalary.Location = new System.Drawing.Point(9, 243);
             this.labelEmpSalary.Name = "labelEmpSalary";
             this.labelEmpSalary.Size = new System.Drawing.Size(46, 17);
             this.labelEmpSalary.TabIndex = 15;
@@ -153,7 +156,7 @@
             // textBoxEmpName
             // 
             this.textBoxEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpName.Location = new System.Drawing.Point(12, 179);
+            this.textBoxEmpName.Location = new System.Drawing.Point(12, 206);
             this.textBoxEmpName.Name = "textBoxEmpName";
             this.textBoxEmpName.Size = new System.Drawing.Size(169, 20);
             this.textBoxEmpName.TabIndex = 1;
@@ -163,7 +166,7 @@
             this.labelEmpName.AutoSize = true;
             this.labelEmpName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpName.ForeColor = System.Drawing.Color.White;
-            this.labelEmpName.Location = new System.Drawing.Point(9, 159);
+            this.labelEmpName.Location = new System.Drawing.Point(9, 186);
             this.labelEmpName.Name = "labelEmpName";
             this.labelEmpName.Size = new System.Drawing.Size(108, 17);
             this.labelEmpName.TabIndex = 13;
@@ -172,7 +175,7 @@
             // textBoxEmpId
             // 
             this.textBoxEmpId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxEmpId.Location = new System.Drawing.Point(12, 126);
+            this.textBoxEmpId.Location = new System.Drawing.Point(12, 153);
             this.textBoxEmpId.Name = "textBoxEmpId";
             this.textBoxEmpId.Size = new System.Drawing.Size(169, 20);
             this.textBoxEmpId.TabIndex = 0;
@@ -182,7 +185,7 @@
             this.labelEmpId.AutoSize = true;
             this.labelEmpId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmpId.ForeColor = System.Drawing.Color.White;
-            this.labelEmpId.Location = new System.Drawing.Point(9, 106);
+            this.labelEmpId.Location = new System.Drawing.Point(9, 133);
             this.labelEmpId.Name = "labelEmpId";
             this.labelEmpId.Size = new System.Drawing.Size(86, 17);
             this.labelEmpId.TabIndex = 11;
@@ -193,7 +196,7 @@
             this.labelEmployee.AutoSize = true;
             this.labelEmployee.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmployee.ForeColor = System.Drawing.Color.White;
-            this.labelEmployee.Location = new System.Drawing.Point(22, 56);
+            this.labelEmployee.Location = new System.Drawing.Point(21, 70);
             this.labelEmployee.Name = "labelEmployee";
             this.labelEmployee.Size = new System.Drawing.Size(150, 37);
             this.labelEmployee.TabIndex = 0;
@@ -258,6 +261,17 @@
             this.buttonEmpAdd.UseVisualStyleBackColor = false;
             this.buttonEmpAdd.Click += new System.EventHandler(this.buttonEmpAdd_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,11 +285,13 @@
             this.Controls.Add(this.dataGridViewEmp);
             this.Controls.Add(this.panelEmployee);
             this.Name = "FormEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.FormEmployee_Load);
             this.panelEmployee.ResumeLayout(false);
             this.panelEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -301,5 +317,6 @@
         private System.Windows.Forms.Button buttonEmpUpdate;
         private System.Windows.Forms.Button buttonEmpAdd;
         private System.Windows.Forms.ComboBox comboBoxEmpCatagory;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

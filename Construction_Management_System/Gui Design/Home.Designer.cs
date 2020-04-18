@@ -49,6 +49,8 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.labelClient = new System.Windows.Forms.Label();
             this.buttonClient = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -73,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.buttonLogout);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,6 +301,18 @@
             this.buttonClient.UseVisualStyleBackColor = false;
             this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonLogout.ForeColor = System.Drawing.Color.Black;
+            this.buttonLogout.Location = new System.Drawing.Point(34, 443);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(118, 60);
+            this.buttonLogout.TabIndex = 2;
+            this.buttonLogout.Text = "LOG OUT";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.White;
@@ -435,6 +450,8 @@
         private System.Windows.Forms.Label labelClient;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button buttonClient;
+        private System.Windows.Forms.Button buttonLogout;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -47,13 +47,16 @@
             this.buttonItemUpdate = new System.Windows.Forms.Button();
             this.buttonItemDelete = new System.Windows.Forms.Button();
             this.buttonItemClear = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.comboBoxItemCatagory);
             this.panel1.Controls.Add(this.textBoxItemQuantity);
             this.panel1.Controls.Add(this.labelItemQuantity);
@@ -75,7 +78,7 @@
             // comboBoxItemCatagory
             // 
             this.comboBoxItemCatagory.FormattingEnabled = true;
-            this.comboBoxItemCatagory.Location = new System.Drawing.Point(16, 345);
+            this.comboBoxItemCatagory.Location = new System.Drawing.Point(16, 395);
             this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
             this.comboBoxItemCatagory.Size = new System.Drawing.Size(168, 21);
             this.comboBoxItemCatagory.TabIndex = 4;
@@ -84,26 +87,28 @@
             // textBoxItemQuantity
             // 
             this.textBoxItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemQuantity.Location = new System.Drawing.Point(15, 290);
+            this.textBoxItemQuantity.Location = new System.Drawing.Point(15, 340);
             this.textBoxItemQuantity.Name = "textBoxItemQuantity";
             this.textBoxItemQuantity.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemQuantity.TabIndex = 3;
+            this.textBoxItemQuantity.TextChanged += new System.EventHandler(this.textBoxItemQuantity_TextChanged);
             // 
             // labelItemQuantity
             // 
             this.labelItemQuantity.AutoSize = true;
             this.labelItemQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelItemQuantity.ForeColor = System.Drawing.Color.White;
-            this.labelItemQuantity.Location = new System.Drawing.Point(12, 270);
+            this.labelItemQuantity.Location = new System.Drawing.Point(12, 320);
             this.labelItemQuantity.Name = "labelItemQuantity";
             this.labelItemQuantity.Size = new System.Drawing.Size(94, 17);
             this.labelItemQuantity.TabIndex = 11;
             this.labelItemQuantity.Text = "Item Quantity";
+            this.labelItemQuantity.Click += new System.EventHandler(this.labelItemQuantity_Click);
             // 
             // textBoxSupplierName
             // 
             this.textBoxSupplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxSupplierName.Location = new System.Drawing.Point(16, 397);
+            this.textBoxSupplierName.Location = new System.Drawing.Point(16, 447);
             this.textBoxSupplierName.Name = "textBoxSupplierName";
             this.textBoxSupplierName.Size = new System.Drawing.Size(169, 20);
             this.textBoxSupplierName.TabIndex = 5;
@@ -114,7 +119,7 @@
             this.labelSupplierName.AutoSize = true;
             this.labelSupplierName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSupplierName.ForeColor = System.Drawing.Color.White;
-            this.labelSupplierName.Location = new System.Drawing.Point(13, 377);
+            this.labelSupplierName.Location = new System.Drawing.Point(13, 427);
             this.labelSupplierName.Name = "labelSupplierName";
             this.labelSupplierName.Size = new System.Drawing.Size(99, 17);
             this.labelSupplierName.TabIndex = 9;
@@ -126,79 +131,87 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(13, 325);
+            this.label5.Location = new System.Drawing.Point(13, 375);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Item Category";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBoxItemPrice
             // 
             this.textBoxItemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemPrice.Location = new System.Drawing.Point(16, 234);
+            this.textBoxItemPrice.Location = new System.Drawing.Point(16, 284);
             this.textBoxItemPrice.Name = "textBoxItemPrice";
             this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemPrice.TabIndex = 2;
+            this.textBoxItemPrice.TextChanged += new System.EventHandler(this.textBoxItemPrice_TextChanged);
             // 
             // labelItemPrice
             // 
             this.labelItemPrice.AutoSize = true;
             this.labelItemPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelItemPrice.ForeColor = System.Drawing.Color.White;
-            this.labelItemPrice.Location = new System.Drawing.Point(13, 214);
+            this.labelItemPrice.Location = new System.Drawing.Point(13, 264);
             this.labelItemPrice.Name = "labelItemPrice";
             this.labelItemPrice.Size = new System.Drawing.Size(70, 17);
             this.labelItemPrice.TabIndex = 5;
             this.labelItemPrice.Text = "Item Price";
+            this.labelItemPrice.Click += new System.EventHandler(this.labelItemPrice_Click);
             // 
             // textBoxItemName
             // 
             this.textBoxItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemName.Location = new System.Drawing.Point(16, 177);
+            this.textBoxItemName.Location = new System.Drawing.Point(16, 227);
             this.textBoxItemName.Name = "textBoxItemName";
             this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemName.TabIndex = 1;
+            this.textBoxItemName.TextChanged += new System.EventHandler(this.textBoxItemName_TextChanged);
             // 
             // labelItemName
             // 
             this.labelItemName.AutoSize = true;
             this.labelItemName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelItemName.ForeColor = System.Drawing.Color.White;
-            this.labelItemName.Location = new System.Drawing.Point(13, 157);
+            this.labelItemName.Location = new System.Drawing.Point(13, 207);
             this.labelItemName.Name = "labelItemName";
             this.labelItemName.Size = new System.Drawing.Size(76, 17);
             this.labelItemName.TabIndex = 3;
             this.labelItemName.Text = "Item Name";
+            this.labelItemName.Click += new System.EventHandler(this.labelItemName_Click);
             // 
             // textBoxItemId
             // 
             this.textBoxItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemId.Location = new System.Drawing.Point(16, 124);
+            this.textBoxItemId.Location = new System.Drawing.Point(16, 174);
             this.textBoxItemId.Name = "textBoxItemId";
             this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemId.TabIndex = 0;
+            this.textBoxItemId.TextChanged += new System.EventHandler(this.textBoxItemId_TextChanged);
             // 
             // labelItemId
             // 
             this.labelItemId.AutoSize = true;
             this.labelItemId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelItemId.ForeColor = System.Drawing.Color.White;
-            this.labelItemId.Location = new System.Drawing.Point(13, 104);
+            this.labelItemId.Location = new System.Drawing.Point(13, 154);
             this.labelItemId.Name = "labelItemId";
             this.labelItemId.Size = new System.Drawing.Size(54, 17);
             this.labelItemId.TabIndex = 1;
             this.labelItemId.Text = "Item ID";
+            this.labelItemId.Click += new System.EventHandler(this.labelItemId_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(50, 40);
+            this.label1.Location = new System.Drawing.Point(50, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "ITEM";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridViewItem
             // 
@@ -258,6 +271,17 @@
             this.buttonItemClear.UseVisualStyleBackColor = false;
             this.buttonItemClear.Click += new System.EventHandler(this.buttonItemClear_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FormItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +301,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -302,5 +327,6 @@
         private System.Windows.Forms.TextBox textBoxItemQuantity;
         private System.Windows.Forms.Label labelItemQuantity;
         private System.Windows.Forms.ComboBox comboBoxItemCatagory;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

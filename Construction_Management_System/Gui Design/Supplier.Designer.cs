@@ -45,13 +45,16 @@
             this.buttonSupplierDelete = new System.Windows.Forms.Button();
             this.buttonSupplierUpdate = new System.Windows.Forms.Button();
             this.buttonSupplierAdd = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelUser.Controls.Add(this.pictureBox1);
             this.panelUser.Controls.Add(this.comboBoxItemCatagory);
             this.panelUser.Controls.Add(this.textBoxSupplierAddress);
             this.panelUser.Controls.Add(this.labelSupplierAddress);
@@ -244,6 +247,17 @@
             this.buttonSupplierAdd.UseVisualStyleBackColor = false;
             this.buttonSupplierAdd.Click += new System.EventHandler(this.buttonSupplierAdd_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FormSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,11 +272,13 @@
             this.Controls.Add(this.panelUser);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier";
             this.Load += new System.EventHandler(this.FormSupplier_Load);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +302,6 @@
         private System.Windows.Forms.Label labelSupplierAddress;
         private System.Windows.Forms.Label labelSupplierItem;
         private System.Windows.Forms.ComboBox comboBoxItemCatagory;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

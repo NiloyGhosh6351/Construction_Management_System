@@ -49,13 +49,16 @@
             this.buttonUserDelete = new System.Windows.Forms.Button();
             this.buttonUserUpdate = new System.Windows.Forms.Button();
             this.buttonUserAdd = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelUser.Controls.Add(this.pictureBox1);
             this.panelUser.Controls.Add(this.textBoxUserContact);
             this.panelUser.Controls.Add(this.lableUserContact);
             this.panelUser.Controls.Add(this.comboBoxUserType);
@@ -80,7 +83,7 @@
             // textBoxUserContact
             // 
             this.textBoxUserContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserContact.Location = new System.Drawing.Point(11, 344);
+            this.textBoxUserContact.Location = new System.Drawing.Point(11, 364);
             this.textBoxUserContact.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserContact.Name = "textBoxUserContact";
             this.textBoxUserContact.Size = new System.Drawing.Size(169, 20);
@@ -91,7 +94,7 @@
             this.lableUserContact.AutoSize = true;
             this.lableUserContact.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lableUserContact.ForeColor = System.Drawing.Color.White;
-            this.lableUserContact.Location = new System.Drawing.Point(10, 325);
+            this.lableUserContact.Location = new System.Drawing.Point(10, 345);
             this.lableUserContact.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lableUserContact.Name = "lableUserContact";
             this.lableUserContact.Size = new System.Drawing.Size(55, 17);
@@ -101,7 +104,7 @@
             // comboBoxUserType
             // 
             this.comboBoxUserType.FormattingEnabled = true;
-            this.comboBoxUserType.Location = new System.Drawing.Point(12, 289);
+            this.comboBoxUserType.Location = new System.Drawing.Point(12, 309);
             this.comboBoxUserType.Name = "comboBoxUserType";
             this.comboBoxUserType.Size = new System.Drawing.Size(165, 21);
             this.comboBoxUserType.TabIndex = 4;
@@ -109,7 +112,7 @@
             // 
             // textBoxUserAddress
             // 
-            this.textBoxUserAddress.Location = new System.Drawing.Point(12, 394);
+            this.textBoxUserAddress.Location = new System.Drawing.Point(12, 414);
             this.textBoxUserAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserAddress.Multiline = true;
             this.textBoxUserAddress.Name = "textBoxUserAddress";
@@ -122,7 +125,7 @@
             this.labelUserAdress.AutoSize = true;
             this.labelUserAdress.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserAdress.ForeColor = System.Drawing.Color.White;
-            this.labelUserAdress.Location = new System.Drawing.Point(11, 373);
+            this.labelUserAdress.Location = new System.Drawing.Point(11, 393);
             this.labelUserAdress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserAdress.Name = "labelUserAdress";
             this.labelUserAdress.Size = new System.Drawing.Size(63, 19);
@@ -131,7 +134,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(15, 133);
+            this.textBoxName.Location = new System.Drawing.Point(15, 153);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(167, 20);
@@ -143,7 +146,7 @@
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.White;
-            this.labelName.Location = new System.Drawing.Point(13, 112);
+            this.labelName.Location = new System.Drawing.Point(13, 132);
             this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(49, 19);
@@ -153,7 +156,7 @@
             // textBoxUserPassword
             // 
             this.textBoxUserPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserPassword.Location = new System.Drawing.Point(12, 234);
+            this.textBoxUserPassword.Location = new System.Drawing.Point(12, 254);
             this.textBoxUserPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(169, 20);
@@ -165,7 +168,7 @@
             this.labelUserPassword.AutoSize = true;
             this.labelUserPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserPassword.ForeColor = System.Drawing.Color.White;
-            this.labelUserPassword.Location = new System.Drawing.Point(10, 215);
+            this.labelUserPassword.Location = new System.Drawing.Point(10, 235);
             this.labelUserPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserPassword.Name = "labelUserPassword";
             this.labelUserPassword.Size = new System.Drawing.Size(66, 17);
@@ -178,7 +181,7 @@
             this.labelUserType.AutoSize = true;
             this.labelUserType.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserType.ForeColor = System.Drawing.Color.White;
-            this.labelUserType.Location = new System.Drawing.Point(11, 267);
+            this.labelUserType.Location = new System.Drawing.Point(11, 287);
             this.labelUserType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserType.Name = "labelUserType";
             this.labelUserType.Size = new System.Drawing.Size(71, 19);
@@ -189,7 +192,7 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserName.Location = new System.Drawing.Point(13, 184);
+            this.textBoxUserName.Location = new System.Drawing.Point(13, 204);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(169, 20);
@@ -201,7 +204,7 @@
             this.labelUserName.AutoSize = true;
             this.labelUserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.ForeColor = System.Drawing.Color.White;
-            this.labelUserName.Location = new System.Drawing.Point(12, 165);
+            this.labelUserName.Location = new System.Drawing.Point(12, 185);
             this.labelUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(69, 17);
@@ -212,7 +215,7 @@
             // textBoxUserId
             // 
             this.textBoxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxUserId.Location = new System.Drawing.Point(15, 79);
+            this.textBoxUserId.Location = new System.Drawing.Point(15, 99);
             this.textBoxUserId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUserId.Name = "textBoxUserId";
             this.textBoxUserId.Size = new System.Drawing.Size(169, 20);
@@ -224,7 +227,7 @@
             this.labelUserId.AutoSize = true;
             this.labelUserId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserId.ForeColor = System.Drawing.Color.White;
-            this.labelUserId.Location = new System.Drawing.Point(16, 60);
+            this.labelUserId.Location = new System.Drawing.Point(16, 80);
             this.labelUserId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUserId.Name = "labelUserId";
             this.labelUserId.Size = new System.Drawing.Size(53, 17);
@@ -237,7 +240,7 @@
             this.labelUser.AutoSize = true;
             this.labelUser.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.ForeColor = System.Drawing.Color.White;
-            this.labelUser.Location = new System.Drawing.Point(55, 10);
+            this.labelUser.Location = new System.Drawing.Point(55, 30);
             this.labelUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(84, 37);
@@ -306,6 +309,17 @@
             this.buttonUserAdd.UseVisualStyleBackColor = false;
             this.buttonUserAdd.Click += new System.EventHandler(this.buttonUserAdd_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +339,7 @@
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,6 +371,7 @@
         private System.Windows.Forms.ComboBox comboBoxUserType;
         private System.Windows.Forms.TextBox textBoxUserContact;
         private System.Windows.Forms.Label lableUserContact;
+        private System.Windows.Forms.PictureBox pictureBox1;
         //=======
 
 

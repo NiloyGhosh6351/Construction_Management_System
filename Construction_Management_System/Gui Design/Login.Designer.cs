@@ -37,8 +37,8 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxLoginUser = new System.Windows.Forms.TextBox();
             this.labelUsername = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelHead = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -117,9 +117,9 @@
             this.labelPassword.ForeColor = System.Drawing.Color.White;
             this.labelPassword.Location = new System.Drawing.Point(25, 235);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(78, 21);
+            this.labelPassword.Size = new System.Drawing.Size(82, 21);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Passeord";
+            this.labelPassword.Text = "Password";
             // 
             // textBoxLoginUser
             // 
@@ -139,16 +139,6 @@
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "Usename";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.Main_Pic;
-            this.pictureBox1.Location = new System.Drawing.Point(374, 106);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(404, 398);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // labelHead
             // 
             this.labelHead.AutoSize = true;
@@ -160,6 +150,16 @@
             this.labelHead.TabIndex = 3;
             this.labelHead.Text = "Constraction Material Management System";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.Main_Pic;
+            this.pictureBox1.Location = new System.Drawing.Point(246, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(532, 503);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +170,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelLogin);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();

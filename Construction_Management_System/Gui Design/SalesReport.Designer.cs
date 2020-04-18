@@ -31,13 +31,16 @@
             this.panelUser = new System.Windows.Forms.Panel();
             this.labelUser = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelUser.Controls.Add(this.pictureBox1);
             this.panelUser.Controls.Add(this.labelUser);
             this.panelUser.Location = new System.Drawing.Point(-6, 1);
             this.panelUser.Margin = new System.Windows.Forms.Padding(2);
@@ -69,6 +72,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(546, 456);
             this.dataGridView1.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FormSalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,10 +93,13 @@
             this.Controls.Add(this.panelUser);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSalesReport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Report";
+            this.Load += new System.EventHandler(this.FormSalesReport_Load);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,5 +109,6 @@
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Label labelUser;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

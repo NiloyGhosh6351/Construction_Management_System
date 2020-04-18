@@ -13,7 +13,7 @@ namespace Construction_Management_System
 {
     public partial class FormUser : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public FormUser()
         {
             InitializeComponent();
@@ -241,6 +241,14 @@ namespace Construction_Management_System
             textBoxUserContact.Clear();
             textBoxUserAddress.Clear();
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormHome f1 = new FormHome();
+            f1.Show();
+            this.Hide();
         }
     }
 

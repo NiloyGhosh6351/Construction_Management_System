@@ -14,7 +14,7 @@ namespace Construction_Management_System.Gui_Design
 {
     public partial class Login : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
         public Login()
         {
             InitializeComponent();

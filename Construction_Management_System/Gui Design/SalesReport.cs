@@ -28,10 +28,7 @@ namespace Construction_Management_System
 
         private void FormSalesReport_Load(object sender, EventArgs e)
         {
-            this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
-            this.Hide();
+
         }
     }
 }

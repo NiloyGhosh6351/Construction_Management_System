@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBoxItemCatagory = new System.Windows.Forms.ComboBox();
             this.textBoxItemQuantity = new System.Windows.Forms.TextBox();
             this.labelItemQuantity = new System.Windows.Forms.Label();
@@ -47,10 +48,9 @@
             this.buttonItemUpdate = new System.Windows.Forms.Button();
             this.buttonItemDelete = new System.Windows.Forms.Button();
             this.buttonItemClear = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +74,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 507);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // comboBoxItemCatagory
             // 
@@ -271,17 +282,6 @@
             this.buttonItemClear.UseVisualStyleBackColor = false;
             this.buttonItemClear.Click += new System.EventHandler(this.buttonItemClear_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FormItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,8 +300,8 @@
             this.Load += new System.EventHandler(this.Item_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).EndInit();
             this.ResumeLayout(false);
 
         }

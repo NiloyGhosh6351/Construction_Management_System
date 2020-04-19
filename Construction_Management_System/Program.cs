@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Gui_Design;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Construction_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHome());
+            Application.Run(new Login());
         }
     }
 }

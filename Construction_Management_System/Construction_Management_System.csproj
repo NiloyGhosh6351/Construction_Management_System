@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gui Design\Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Client.Designer.cs">
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Client_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Client_Manager.Designer.cs">
+      <DependentUpon>Client_Manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui Design\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +75,36 @@
     </Compile>
     <Compile Include="Gui Design\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Item_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Item_Manager.Designer.cs">
+      <DependentUpon>Item_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Sales_Report_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Sales_Report_Manager.Designer.cs">
+      <DependentUpon>Sales_Report_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Supplier_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Supplier_Manager.Designer.cs">
+      <DependentUpon>Supplier_Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +126,12 @@
     <Compile Include="Gui Design\Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gui Design\Client.resx">
+      <DependentUpon>Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Client_Manager.resx">
+      <DependentUpon>Client_Manager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +140,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Item_Manager.resx">
+      <DependentUpon>Item_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Sales_Report_Manager.resx">
+      <DependentUpon>Sales_Report_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Supplier_Manager.resx">
+      <DependentUpon>Supplier_Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -142,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\owner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\Main Pic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,5 +29,10 @@ namespace Construction_Management_System.Gui_Design
 
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

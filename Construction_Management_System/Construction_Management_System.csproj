@@ -76,6 +76,18 @@
     <Compile Include="Gui Design\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui Design\ItemCatagory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\ItemCatagory.Designer.cs">
+      <DependentUpon>ItemCatagory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\ItemPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\ItemPrice.Designer.cs">
+      <DependentUpon>ItemPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui Design\Item_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,12 @@
     </Compile>
     <Compile Include="Gui Design\Manager.Designer.cs">
       <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui Design\Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui Design\Sales_Report_Manager.cs">
       <SubType>Form</SubType>
@@ -141,6 +159,12 @@
     <EmbeddedResource Include="Gui Design\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\ItemCatagory.resx">
+      <DependentUpon>ItemCatagory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\ItemPrice.resx">
+      <DependentUpon>ItemPrice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Item_Manager.resx">
       <DependentUpon>Item_Manager.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Sales_Report_Manager.resx">
       <DependentUpon>Sales_Report_Manager.cs</DependentUpon>

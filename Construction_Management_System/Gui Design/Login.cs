@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Configuration;
 using System.Text;
@@ -14,10 +15,13 @@ namespace Construction_Management_System.Gui_Design
 {
     public partial class Login : Form
     {
-        string Connectionstring = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30";
+        string Connectionstring;
         public Login()
         {
             InitializeComponent();
+            string currentLocation = Directory.GetCurrentDirectory();
+            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
+            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
         }
 
         private void button1_Click(object sender, EventArgs e)

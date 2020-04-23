@@ -51,5 +51,12 @@ namespace Construction_Management_System.Gui_Design
             f1.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Sales open = new Sales();
+            open.Show();
+            this.Hide();
+        }
     }
 }

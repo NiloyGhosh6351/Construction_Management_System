@@ -70,3 +70,6 @@ C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Manag
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.ItemCatagory.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.ItemPrice.resources
 C:\Users\asifm\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.Sales.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.ItemCatagory.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.ItemPrice.resources
+C:\Users\ANUP\Documents\GitHub\Construction_Management_System\Construction_Management_System\obj\Debug\Construction_Management_System.Gui_Design.Sales.resources

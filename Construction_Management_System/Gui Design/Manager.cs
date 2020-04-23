@@ -58,5 +58,20 @@ namespace Construction_Management_System.Gui_Design
             open.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transport_Manager openform = new Transport_Manager();
+            openform.Show();
+            this.Hide();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SalesReport_Manager openform = new SalesReport_Manager();
+            openform.Show();
+            this.Hide();
+        }
     }
 }

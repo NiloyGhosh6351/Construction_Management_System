@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Construction_Management_System.Gui_Design;
 
 namespace Construction_Management_System
 {
@@ -47,6 +48,7 @@ namespace Construction_Management_System
             //Open Item Form
             FormItem openform = new FormItem();
             openform.Show();
+            this.Hide();
            
         }
 
@@ -65,6 +67,7 @@ namespace Construction_Management_System
             //open user Form
             FormUser openwindow = new FormUser();
             openwindow.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,6 +75,7 @@ namespace Construction_Management_System
             //open Employee Form
             FormEmployee openEmployee = new FormEmployee();
             openEmployee.Show();
+            this.Hide();
 
 
         }
@@ -81,6 +85,8 @@ namespace Construction_Management_System
             //open Supplier Form
             FormSupplier openSupplier = new FormSupplier();
             openSupplier.Show();
+            this.Hide();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -88,6 +94,32 @@ namespace Construction_Management_System
             //open Sales Report Form
             FormSalesReport opensalesReport = new FormSalesReport();
             opensalesReport.Show();
+            this.Hide();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonClient_Click(object sender, EventArgs e)
+        {
+            FormClient OpenClient = new FormClient();
+            OpenClient.Show();
+            this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login f1 = new Login();
+            f1.Show();
+            this.Hide();
         }
     }
 }

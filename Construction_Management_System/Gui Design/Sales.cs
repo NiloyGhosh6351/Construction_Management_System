@@ -16,6 +16,7 @@ namespace Construction_Management_System.Gui_Design
     {
         bool selectionCombo = false;
         bool selectionCombo1 = false;
+        bool selectionCombo2 = false;
         float discount, discountGiven;
         double totalprice;
         string Connectionstring;
@@ -27,6 +28,8 @@ namespace Construction_Management_System.Gui_Design
             string currentLocation = Directory.GetCurrentDirectory();
             string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30",projectDir);
+            dataGridViewTotal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewTotal.MultiSelect = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -75,6 +78,36 @@ namespace Construction_Management_System.Gui_Design
 
             selectionCombo1 = true;
 
+            string sql2 = string.Format("select * " + " from Transportation_Manager");
+            SqlConnection con2 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd2 = new SqlCommand(sql2, con2);
+            DataTable dt2 = new DataTable();
+            sqlcmd2.Connection.Open();
+            dt2.Load(sqlcmd2.ExecuteReader());
+            sqlcmd2.Connection.Close();
+            comboBoxTransportation.DataSource = dt2;
+            comboBoxTransportation.DisplayMember = "Car_Number";
+            comboBoxTransportation.ValueMember = "Transportation_Id";
+
+            selectionCombo2 = true;
+            textBoxAfterDiscount.Text = "";
+
+        }
+        private void caltotal()
+        {
+            double cal2=0;
+            for(int i=0; i < dataGridViewTotal.Rows.Count; i++)
+            {
+                try
+                {
+                    cal2 += Convert.ToDouble(dataGridViewTotal.Rows[i].Cells[4].Value);
+                }
+                catch (Exception r)
+                {
+
+                }
+                textBoxGrantTotal.Text = cal2.ToString();
+            }
         }
 
         private void comboBoxClientId_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,18 +170,39 @@ namespace Construction_Management_System.Gui_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount, Total, Transportation) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text,totalprice.ToString(), comboBoxTransportation.Text);
-            SqlConnection con = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con);
-            DataTable dt = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            //MessageBox.Show("Add successfully");
+            try
+            {
+                if (textBoxAfterDiscount.Text == "")
+                {
+                    totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
+                }
+                string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount, Total) Values('{0}','{1}','{2}','{3}','{4}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString());
+                SqlConnection con = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con);
+                DataTable dt = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                //MessageBox.Show("Add successfully");
 
-            sqlcmd.Connection.Close();
-            display_dataSales();
-            MessageBox.Show("Item Added Successfully");
-            //buttonItemClear_Click(new object(), new EventArgs());
+                sqlcmd.Connection.Close();
+                display_dataSales();
+                MessageBox.Show("Item Added Successfully");
+                //buttonItemClear_Click(new object(), new EventArgs());
+                textBoxDiscount.Text = "";
+                textBoxDiscountPrice.Text = "";
+                textBoxSalesQuantity.Text = "";
+                textBoxSalesPrice.Text = "";
+                textBoxSalesTotal.Text = "";
+                comboBoxSalesItem.Text = "";
+
+                caltotal();
+                textBoxAfterDiscount.Text = "";
+            }
+            catch (Exception o)
+            {
+                MessageBox.Show("Selected Duplicate Item");
+            }
+            
         }
 
         private void textBoxDiscount_TextChanged(object sender, EventArgs e)
@@ -227,6 +281,90 @@ namespace Construction_Management_System.Gui_Design
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void comboBoxTransportation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectionCombo2)
+                {
+                    //display_data();
+                    SqlConnection con = new SqlConnection(Connectionstring);
+                    SqlCommand sqlcmd = new SqlCommand("select * from Transportation_Manager where Booking_Condition='Available' and Car_Number='" + comboBoxTransportation.Text.ToString()+"'", con);
+                    DataTable dt = new DataTable();
+                    sqlcmd.Connection.Open();
+                    dt.Load(sqlcmd.ExecuteReader());
+                    sqlcmd.Connection.Close();
+                    //textBoxSalesAvailable.Text = dt.Rows[0][1].ToString();
+                    //textBoxClientContact.Text = dt.Rows[0][3].ToString();
+                    if(dt.Rows.Count==0)
+                    {
+                        textBoxSalesAvailable.Text = "Not Available";
+                    }
+                    else
+                    {
+                        textBoxSalesAvailable.Text = "Available";
+                    }
+                }
+            }
+            catch (Exception h)
+            {
+
+            }
+        }
+
+        private void dataGridViewTotal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBooked_Click(object sender, EventArgs e)
+        {
+            if (textBoxSalesAvailable.Text == "Available")
+            {
+                string sql = string.Format("update Transportation_Manager set Booking_Condition='Booked'  where  Car_Number='{0}' ",comboBoxTransportation.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("Update Successfully");
+
+                sqlcmd.Connection.Close();
+                textBoxSalesAvailable.Text = "Not Available";
+            }
+        }
+
+        private void buttonUnbooked_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSalesAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSalesClear_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format("delete from Sales_Price_Cart");
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            sqlcmd.Connection.Close();
+
+            dataGridViewTotal.DataSource = null;
+
+            textBoxGrantTotal.Text = "";
+            totalprice = 0;
         }
 
         private void textBoxSalesTotal_TextChanged(object sender, EventArgs e)

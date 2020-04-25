@@ -64,6 +64,7 @@ namespace Construction_Management_System.Gui_Design
             comboBoxBooked.DisplayMember = "Booking_Condition";
             comboBoxBooked.ValueMember = "Id";
             display_Tran();
+
         }
 
         private void buttonTransAdd_Click(object sender, EventArgs e)
@@ -108,8 +109,6 @@ namespace Construction_Management_System.Gui_Design
             textBoxTranContact.Clear();
             textBoxTranAddress.Clear();
             comboBoxBooked.SelectedIndex = -1;
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -131,7 +130,7 @@ namespace Construction_Management_System.Gui_Design
             dataGridViewTran.SelectedCells[5].Value = textBoxTranAddress.Text;
             dataGridViewTran.SelectedCells[6].Value = comboBoxBooked.Text;
 
-            string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, comboBoxBooked.Text, textBoxTranId.Text);
+            string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -153,10 +152,11 @@ namespace Construction_Management_System.Gui_Design
             textBoxTranLicence.Text = row.Cells[3].Value.ToString();
             textBoxTranContact.Text = row.Cells[4].Value.ToString();
             textBoxTranAddress.Text = row.Cells[5].Value.ToString();
+            //textBoxShowBooking.Text = row.Cells[7].Value.ToString();
 
-            string aa = row.Cells[3].Value.ToString().ToUpper();
+            string aa = row.Cells[6].Value.ToString().ToUpper();
             string a;
-            if (row.Cells[3].Value.ToString().ToUpper() != comboBoxBooked.Text.ToUpper())
+            if (row.Cells[6].Value.ToString().ToUpper() != comboBoxBooked.Text.ToUpper())
             {
                 for (int i = 0; i < comboBoxBooked.Items.Count; i++)
                 {
@@ -169,6 +169,11 @@ namespace Construction_Management_System.Gui_Design
                     }
                 }
             }
+        }
+
+        private void comboBoxBooked_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

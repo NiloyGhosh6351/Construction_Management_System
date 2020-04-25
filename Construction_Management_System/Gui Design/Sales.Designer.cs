@@ -43,6 +43,7 @@
             this.textBoxSalesTotal = new System.Windows.Forms.TextBox();
             this.labelSales = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonSalesClear = new System.Windows.Forms.Button();
             this.buttonSalesDelete = new System.Windows.Forms.Button();
             this.buttonSalesUpdate = new System.Windows.Forms.Button();
@@ -69,11 +70,10 @@
             this.comboBoxSalesItem = new System.Windows.Forms.ComboBox();
             this.textBoxClientName = new System.Windows.Forms.TextBox();
             this.textBoxSalesId = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSales
@@ -174,6 +174,7 @@
             this.buttonUnbooked.TabIndex = 45;
             this.buttonUnbooked.Text = "UNBOOKED";
             this.buttonUnbooked.UseVisualStyleBackColor = true;
+            this.buttonUnbooked.Click += new System.EventHandler(this.buttonUnbooked_Click);
             // 
             // buttonBooked
             // 
@@ -183,6 +184,7 @@
             this.buttonBooked.TabIndex = 44;
             this.buttonBooked.Text = "BOOKED";
             this.buttonBooked.UseVisualStyleBackColor = true;
+            this.buttonBooked.Click += new System.EventHandler(this.buttonBooked_Click);
             // 
             // label3
             // 
@@ -267,6 +269,16 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(24, 468);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1110, 328);
+            this.dataGridView1.TabIndex = 35;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // buttonSalesClear
             // 
             this.buttonSalesClear.BackColor = System.Drawing.Color.Yellow;
@@ -277,6 +289,7 @@
             this.buttonSalesClear.TabIndex = 34;
             this.buttonSalesClear.Text = "CLEAR";
             this.buttonSalesClear.UseVisualStyleBackColor = false;
+            this.buttonSalesClear.Click += new System.EventHandler(this.buttonSalesClear_Click);
             // 
             // buttonSalesDelete
             // 
@@ -310,6 +323,7 @@
             this.buttonSalesAdd.TabIndex = 31;
             this.buttonSalesAdd.Text = "ADD";
             this.buttonSalesAdd.UseVisualStyleBackColor = false;
+            this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
             // 
             // dateTimePicker1
             // 
@@ -386,6 +400,7 @@
             this.comboBoxTransportation.Name = "comboBoxTransportation";
             this.comboBoxTransportation.Size = new System.Drawing.Size(176, 21);
             this.comboBoxTransportation.TabIndex = 23;
+            this.comboBoxTransportation.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransportation_SelectedIndexChanged);
             // 
             // labelTransportation
             // 
@@ -466,6 +481,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -485,6 +501,7 @@
             this.dataGridViewTotal.Name = "dataGridViewTotal";
             this.dataGridViewTotal.Size = new System.Drawing.Size(333, 204);
             this.dataGridViewTotal.TabIndex = 10;
+            this.dataGridViewTotal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTotal_CellContentClick);
             // 
             // textBoxSalesQuantity
             // 
@@ -517,16 +534,6 @@
             this.textBoxSalesId.Size = new System.Drawing.Size(121, 20);
             this.textBoxSalesId.TabIndex = 1;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 468);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1110, 328);
-            this.dataGridView1.TabIndex = 35;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,8 +546,8 @@
             this.panelSales.ResumeLayout(false);
             this.panelSales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).EndInit();
             this.ResumeLayout(false);
 
         }

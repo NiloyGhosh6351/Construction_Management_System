@@ -168,5 +168,15 @@ namespace Construction_Management_System.Gui_Design
             textBoxClientAddress.Text = row.Cells[4].Value.ToString();
         }
 
+        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+            DataGridViewRow row = dataGridViewClient.Rows[selectedRow];
+            textBoxClientId.Text = row.Cells[0].Value.ToString();
+            textBoxClientName.Text = row.Cells[1].Value.ToString();
+            textBoxClientEmail.Text = row.Cells[2].Value.ToString();
+            textBoxClientContact.Text = row.Cells[3].Value.ToString();
+            textBoxClientAddress.Text = row.Cells[4].Value.ToString();
+        }
     }
 }

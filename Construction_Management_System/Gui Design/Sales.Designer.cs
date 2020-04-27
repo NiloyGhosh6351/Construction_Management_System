@@ -47,7 +47,6 @@
             this.buttonSalesDelete = new System.Windows.Forms.Button();
             this.buttonSalesUpdate = new System.Windows.Forms.Button();
             this.buttonSalesAdd = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.labelTotal = new System.Windows.Forms.Label();
             this.textBoxGrantTotal = new System.Windows.Forms.TextBox();
             this.labelDiscount = new System.Windows.Forms.Label();
@@ -96,7 +95,6 @@
             this.panelSales.Controls.Add(this.buttonSalesDelete);
             this.panelSales.Controls.Add(this.buttonSalesUpdate);
             this.panelSales.Controls.Add(this.buttonSalesAdd);
-            this.panelSales.Controls.Add(this.dateTimePicker1);
             this.panelSales.Controls.Add(this.labelTotal);
             this.panelSales.Controls.Add(this.textBoxGrantTotal);
             this.panelSales.Controls.Add(this.labelDiscount);
@@ -265,6 +263,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1110, 328);
             this.dataGridView1.TabIndex = 35;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // buttonSalesClear
@@ -289,6 +288,7 @@
             this.buttonSalesDelete.TabIndex = 33;
             this.buttonSalesDelete.Text = "DELETE";
             this.buttonSalesDelete.UseVisualStyleBackColor = false;
+            this.buttonSalesDelete.Click += new System.EventHandler(this.buttonSalesDelete_Click);
             // 
             // buttonSalesUpdate
             // 
@@ -300,6 +300,7 @@
             this.buttonSalesUpdate.TabIndex = 32;
             this.buttonSalesUpdate.Text = "UPDATE";
             this.buttonSalesUpdate.UseVisualStyleBackColor = false;
+            this.buttonSalesUpdate.Click += new System.EventHandler(this.buttonSalesUpdate_Click);
             // 
             // buttonSalesAdd
             // 
@@ -312,13 +313,6 @@
             this.buttonSalesAdd.Text = "ADD";
             this.buttonSalesAdd.UseVisualStyleBackColor = false;
             this.buttonSalesAdd.Click += new System.EventHandler(this.buttonSalesAdd_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(452, 329);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 30;
             // 
             // labelTotal
             // 
@@ -564,7 +558,6 @@
         private System.Windows.Forms.TextBox textBoxGrantTotal;
         private System.Windows.Forms.Label labelDiscount;
         private System.Windows.Forms.TextBox textBoxDiscount;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button buttonSalesClear;
         private System.Windows.Forms.Button buttonSalesDelete;
         private System.Windows.Forms.Button buttonSalesUpdate;

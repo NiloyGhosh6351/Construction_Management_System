@@ -20,6 +20,7 @@ namespace Construction_Management_System.Gui_Design
         float discount, discountGiven;
         double totalprice;
         string Connectionstring;
+        int selectedRow;
         public Sales()
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace Construction_Management_System.Gui_Design
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30",projectDir);
             dataGridViewTotal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTotal.MultiSelect = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -421,6 +424,106 @@ namespace Construction_Management_System.Gui_Design
             //textBoxGrantTotal.Text = "";
             //totalprice = 0;
             //dataGridViewTotal.DataSource = null;
+        }
+
+        private void buttonSalesDelete_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format("delete Sales,Sales_Price_Cart from Sales inner join Sales_Price_Cart on Sales.key=Sales_Price_Cart.key where Sales_ID={0}", textBoxSalesId.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            sqlcmd.Connection.Close();
+            //display_data();
+            MessageBox.Show("Delete Successfully");
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRow = e.RowIndex;
+            DataGridViewRow row = dataGridView1.Rows[selectedRow];
+            textBoxSalesId.Text = row.Cells[0].Value.ToString();
+            comboBoxClientId.Text = row.Cells[1].Value.ToString();
+            textBoxClientName.Text = row.Cells[2].Value.ToString();
+            textBoxClientContact.Text = row.Cells[3].Value.ToString();
+            comboBoxTransportation.Text = row.Cells[4].Value.ToString();
+            //DateTime.Now = row.Cells[5].Value.ToString();
+            comboBoxSalesItem.Text = row.Cells[6].Value.ToString();
+            textBoxSalesPrice.Text = row.Cells[7].Value.ToString();
+            textBoxSalesQuantity.Text = row.Cells[8].Value.ToString();
+            textBoxDiscount.Text = row.Cells[9].Value.ToString();
+            textBoxSalesTotal.Text = row.Cells[10].Value.ToString();
+            string bb = row.Cells[4].Value.ToString().ToUpper();
+            string cc = row.Cells[6].Value.ToString().ToUpper();
+            string aa = row.Cells[1].Value.ToString().ToUpper();
+            string a;
+            if (aa != comboBoxClientId.Text.ToUpper())
+            {
+                for (int i = 0; i < comboBoxClientId.Items.Count; i++)
+                {
+                    a = comboBoxClientId.GetItemText(comboBoxClientId.Items[i]).ToUpper();
+
+                    if (aa == a)
+                    {
+                        comboBoxClientId.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            string b;
+            if (bb != comboBoxTransportation.Text.ToUpper())
+            {
+                for (int i = 0; i < comboBoxTransportation.Items.Count; i++)
+                {
+                    b = comboBoxTransportation.GetItemText(comboBoxTransportation.Items[i]).ToUpper();
+
+                    if (bb == b)
+                    {
+                        comboBoxTransportation.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            string c;
+            if (cc != comboBoxSalesItem.Text.ToUpper())
+            {
+                for (int i = 0; i < comboBoxSalesItem.Items.Count; i++)
+                {
+                    c = comboBoxSalesItem.GetItemText(comboBoxSalesItem.Items[i]).ToUpper();
+
+                    if (cc == c)
+                    {
+                        comboBoxSalesItem.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void buttonSalesUpdate_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dataGridViewRow = dataGridView1.Rows[selectedRow];
+            dataGridView1.SelectedCells[0].Value = textBoxSalesId.Text;
+            dataGridView1.SelectedCells[1].Value = comboBoxClientId.Text;
+            dataGridView1.SelectedCells[2].Value = textBoxClientName.Text;
+            dataGridView1.SelectedCells[3].Value = textBoxClientContact.Text;
+            dataGridView1.SelectedCells[4].Value = comboBoxTransportation.Text;
+            dataGridView1.SelectedCells[6].Value = comboBoxSalesItem.Text;
+            dataGridView1.SelectedCells[7].Value = textBoxSalesPrice.Text;
+            dataGridView1.SelectedCells[8].Value = textBoxSalesQuantity.Text;
+            dataGridView1.SelectedCells[9].Value = textBoxDiscountPrice.Text;
+            dataGridView1.SelectedCells[10].Value = textBoxSalesTotal.Text;
+            string sql = string.Format("update sales set Client_ID=Sales_Price_Cart.Price,Client_Name=Sales_Price_Cart.Quantity,Contact=Sales_Price_Cart.Discount,Transportation=Sales_Price_Cart.Total from Sales Sales inner join Sales_Price_Cart Sales_Price_Cart on Sales.Sales_ID=Sales_Price_Cart.Item ",textBoxSalesId.Text,comboBoxClientId.Text,textBoxClientName.Text,textBoxClientContact.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            MessageBox.Show("Update Successfully");
+
+            sqlcmd.Connection.Close();
         }
 
         private void textBoxSalesTotal_TextChanged(object sender, EventArgs e)

@@ -33,7 +33,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxSalesAvailable = new System.Windows.Forms.TextBox();
-            this.buttonUnbooked = new System.Windows.Forms.Button();
             this.buttonBooked = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxDiscountPrice = new System.Windows.Forms.TextBox();
@@ -83,7 +82,6 @@
             this.panelSales.Controls.Add(this.label5);
             this.panelSales.Controls.Add(this.label4);
             this.panelSales.Controls.Add(this.textBoxSalesAvailable);
-            this.panelSales.Controls.Add(this.buttonUnbooked);
             this.panelSales.Controls.Add(this.buttonBooked);
             this.panelSales.Controls.Add(this.label3);
             this.panelSales.Controls.Add(this.textBoxDiscountPrice);
@@ -165,16 +163,6 @@
             this.textBoxSalesAvailable.Name = "textBoxSalesAvailable";
             this.textBoxSalesAvailable.Size = new System.Drawing.Size(121, 20);
             this.textBoxSalesAvailable.TabIndex = 46;
-            // 
-            // buttonUnbooked
-            // 
-            this.buttonUnbooked.Location = new System.Drawing.Point(317, 326);
-            this.buttonUnbooked.Name = "buttonUnbooked";
-            this.buttonUnbooked.Size = new System.Drawing.Size(90, 23);
-            this.buttonUnbooked.TabIndex = 45;
-            this.buttonUnbooked.Text = "UNBOOKED";
-            this.buttonUnbooked.UseVisualStyleBackColor = true;
-            this.buttonUnbooked.Click += new System.EventHandler(this.buttonUnbooked_Click);
             // 
             // buttonBooked
             // 
@@ -585,7 +573,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxSalesTotal;
-        private System.Windows.Forms.Button buttonUnbooked;
         private System.Windows.Forms.Button buttonBooked;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxDiscountPrice;

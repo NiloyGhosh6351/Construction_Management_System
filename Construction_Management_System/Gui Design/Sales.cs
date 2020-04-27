@@ -92,6 +92,8 @@ namespace Construction_Management_System.Gui_Design
             selectionCombo2 = true;
             textBoxAfterDiscount.Text = "";
 
+            buttonSalesAdd_Click(new object(), new EventArgs());
+
         }
         private void caltotal()
         {
@@ -172,31 +174,45 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                if (textBoxAfterDiscount.Text == "")
-                {
-                    totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
-                }
-                string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount, Total) Values('{0}','{1}','{2}','{3}','{4}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString());
+                string sql2 = string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}",comboBoxSalesItem.Text,textBoxSalesId.Text);
+                DataTable dt4 = new DataTable();
                 SqlConnection con = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con);
-                DataTable dt = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                //MessageBox.Show("Add successfully");
+                SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
+                sqlcmd2.Connection.Open();
+                dt4.Load(sqlcmd2.ExecuteReader());
+                sqlcmd2.Connection.Close();
+                if (dt4.Rows.Count==0)
+                {
+                    if (textBoxAfterDiscount.Text == "")
+                    {
+                        totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
+                    }
+                    string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text);
+                    SqlCommand sqlcmd = new SqlCommand(sql, con);
+                    DataTable dt = new DataTable();
+                    sqlcmd.Connection.Open();
+                    sqlcmd.ExecuteNonQuery();
+                    //MessageBox.Show("Add successfully");
 
-                sqlcmd.Connection.Close();
-                display_dataSales();
-                MessageBox.Show("Item Added Successfully");
-                //buttonItemClear_Click(new object(), new EventArgs());
-                textBoxDiscount.Text = "";
-                textBoxDiscountPrice.Text = "";
-                textBoxSalesQuantity.Text = "";
-                textBoxSalesPrice.Text = "";
-                textBoxSalesTotal.Text = "";
-                comboBoxSalesItem.Text = "";
+                    sqlcmd.Connection.Close();
+                    display_dataSales();
+                    MessageBox.Show("Item Added Successfully");
+                    //buttonItemClear_Click(new object(), new EventArgs());
+                    textBoxDiscount.Text = "";
+                    textBoxDiscountPrice.Text = "";
+                    textBoxSalesQuantity.Text = "";
+                    textBoxSalesPrice.Text = "";
+                    textBoxSalesTotal.Text = "";
+                    comboBoxSalesItem.Text = "";
 
-                caltotal();
-                textBoxAfterDiscount.Text = "";
+                    caltotal();
+                    textBoxAfterDiscount.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Duplicate Item cannot be inserted");
+                }
+                
             }
             catch (Exception o)
             {
@@ -260,7 +276,7 @@ namespace Construction_Management_System.Gui_Design
 
         public void display_dataSales()
         {
-            string sql = string.Format("select * " + " from Sales_Price_Cart");
+            string sql = string.Format("select * " + " from Sales_Price_Cart where Sales_ID={0}",textBoxSalesId.Text);
             SqlConnection con = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con);
             DataTable dt = new DataTable();
@@ -348,23 +364,63 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string sql = string.Format("insert into sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString());
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+            }
+            catch(Exception ex)
+            {
+                
+            }
 
+
+
+            SqlConnection con = new SqlConnection(Connectionstring);
+            string sql2 = string.Format("select * from sales inner join Sales_Price_Cart  ON sales.Sales_ID=Sales_Price_Cart.Sales_ID order by Sales.Date desc", textBoxSalesId.Text);
+            DataTable dt = new DataTable();
+            SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
+            sqlcmd2.Connection.Open();
+            dt.Load(sqlcmd2.ExecuteReader());
+            sqlcmd2.Connection.Close();
+            dt.Columns.Remove("Sales_ID1");
+            dataGridView1.DataSource = dt;
+            dataGridViewTotal.DataSource = null;
+            //DataTable dt = dataGridViewTotal.DataSource as DataTable;
+            //DataTable dt1 = new DataTable();
+            //dt1 = dt.Copy();
+            //dt1.Columns.Add("Sales_ID", typeof(String));
+            //dt1.Columns.Add("Client_ID", typeof(String));
+            //dt1.Columns.Add("Client_Name", typeof(String));
+            //dt1.Columns.Add("Transportation", typeof(String));
+            //dt1.Columns.Add("Date", typeof(DateTime));
+            //dt1.Rows[0][5] = textBoxSalesId.Text;
+            //dt1.Rows[0][6] = comboBoxClientId.Text;
+            //dt1.Rows[0][7] = textBoxClientName.Text;
+            //dt1.Rows[0][8] = comboBoxTransportation.Text;
+            //dt1.Rows[0][9] = DateTime.Now.ToString();
+            //dataGridView1.DataSource = dt1;
         }
 
         private void buttonSalesClear_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete from Sales_Price_Cart");
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
+            //string sql = string.Format("delete from Sales_Price_Cart where Sales_ID={0}",textBoxSalesId.Text);
+            //SqlConnection con1 = new SqlConnection(Connectionstring);
+            //SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            //DataTable dt1 = new DataTable();
+            //sqlcmd.Connection.Open();
+            //sqlcmd.ExecuteNonQuery();
+            //sqlcmd.Connection.Close();
 
-            dataGridViewTotal.DataSource = null;
+            //dataGridViewTotal.DataSource = null;
 
-            textBoxGrantTotal.Text = "";
-            totalprice = 0;
+            //textBoxGrantTotal.Text = "";
+            //totalprice = 0;
+            //dataGridViewTotal.DataSource = null;
         }
 
         private void textBoxSalesTotal_TextChanged(object sender, EventArgs e)

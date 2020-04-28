@@ -106,6 +106,12 @@
     <Compile Include="Gui Design\Manager.Designer.cs">
       <DependentUpon>Manager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui Design\Manager_ItemCatagory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Manager_ItemCatagory.Designer.cs">
+      <DependentUpon>Manager_ItemCatagory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui Design\Sales.cs">
       <SubType>Form</SubType>
     </Compile>

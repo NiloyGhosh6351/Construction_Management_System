@@ -98,7 +98,7 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonItemAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Quantity, Supplier_Name) Values('{0}','{1}','{2}','{3}','{4}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemQuantity.Text, comboBoxSupplierName.Text);
+            string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price,Item_Quantity,Total_Price, Supplier_Name) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemManagerPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -133,10 +133,10 @@ namespace Construction_Management_System.Gui_Design
             dataGridView1.SelectedCells[1].Value = textBoxItemName.Text;
             dataGridView1.SelectedCells[2].Value = comboBoxItemCatagory.Text;
             
-            dataGridView1.SelectedCells[3].Value = textBoxItemQuantity.Text;
-           
-            dataGridView1.SelectedCells[4].Value = comboBoxSupplierName.Text;
-            string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Quantity={3}, Supplier_Name='{4}',  where  Item_ID={5} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemQuantity.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
+            dataGridView1.SelectedCells[4].Value = textBoxItemQuantity.Text;
+            dataGridView1.SelectedCells[5].Value = textBoxItemTotal.Text;
+            dataGridView1.SelectedCells[6].Value = comboBoxSupplierName.Text;
+            string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Quantity={3},Total_Price={4}, Supplier_Name='{5}'  where  Item_ID={6} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -152,8 +152,9 @@ namespace Construction_Management_System.Gui_Design
         {
             textBoxItemId.Clear();
             textBoxItemName.Clear();
-            
             textBoxItemQuantity.Clear();
+            textBoxItemTotal.Clear();
+            textBoxItemManagerPrice.Clear();
             
             comboBoxItemCatagory.SelectedIndex = -1;
             comboBoxSupplierName.SelectedIndex = -1;
@@ -171,6 +172,7 @@ namespace Construction_Management_System.Gui_Design
            
             //textBoxSupplierName.Text = row.Cells[4].Value.ToString();
             textBoxItemQuantity.Text = row.Cells[4].Value.ToString();
+            textBoxItemTotal.Text = row.Cells[5].Value.ToString();
            
             string bb = row.Cells[6].Value.ToString().ToUpper();
             string aa = row.Cells[2].Value.ToString().ToUpper();
@@ -206,7 +208,38 @@ namespace Construction_Management_System.Gui_Design
 
         }
 
+        private void textBoxItemQuantity_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxItemTotal.Text = (float.Parse(textBoxItemManagerPrice.Text) * float.Parse(textBoxItemQuantity.Text)).ToString();
+            }
+            catch (Exception q)
+            {
 
+            }
+        }
 
+        private void comboBoxItemCatagory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectionCombo)
+                {
+                    display_data();
+                    SqlConnection con1 = new SqlConnection(Connectionstring);
+                    SqlCommand sqlcmd = new SqlCommand("select * from Item_Price where Item_Catagory='" + comboBoxItemCatagory.Text.ToString() + "'", con1);
+                    DataTable dt1 = new DataTable();
+                    sqlcmd.Connection.Open();
+                    dt1.Load(sqlcmd.ExecuteReader());
+                    sqlcmd.Connection.Close();
+                    textBoxItemManagerPrice.Text = dt1.Rows[0][1].ToString();
+                }
+            }
+            catch (Exception h)
+            {
+
+            }
+        }
     }
 }

@@ -124,7 +124,7 @@ namespace Construction_Management_System
             dataGridViewItem.SelectedCells[4].Value = textBoxItemQuantity.Text;
             dataGridViewItem.SelectedCells[5].Value = textBoxItemTotal.Text;
             dataGridViewItem.SelectedCells[6].Value = comboBoxSupplierName.Text;
-            string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}',  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemPrice.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
+            string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();

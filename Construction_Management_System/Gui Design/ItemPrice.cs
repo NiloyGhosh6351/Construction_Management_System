@@ -15,6 +15,7 @@ namespace Construction_Management_System.Gui_Design
     public partial class ItemPrice : Form
     {
         string Connectionstring;
+        int selectedRow;
         public ItemPrice()
         {
             InitializeComponent();
@@ -24,18 +25,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridViewItemPrice.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewItemPrice.MultiSelect = false;
         }
-        int selectedRow;
-
-        private void labelItemPrice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             try
@@ -46,16 +35,13 @@ namespace Construction_Management_System.Gui_Design
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("Add successfully");
-
                 sqlcmd.Connection.Close();
                 display_dataPrice();
-                MessageBox.Show("Item Added Successfully");
-                //buttonItemClear_Click(new object(), new EventArgs());
+                MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             }
             catch (Exception d)
             {
-                MessageBox.Show("Duplicate price is not allowed");
+                MessageBox.Show("DUPLICATE PRICE IS NOT ALLOWED");
             }
 
         }
@@ -71,8 +57,7 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataPrice();
         }
@@ -108,7 +93,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewItemPrice.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -135,11 +119,6 @@ namespace Construction_Management_System.Gui_Design
                     }
                 }
             }
-        }
-
-        private void comboBoxItemPriceCatagory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

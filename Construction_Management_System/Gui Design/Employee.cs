@@ -15,6 +15,7 @@ namespace Construction_Management_System
     public partial class FormEmployee : Form
     {
         string Connectionstring;
+        int selectedRow;
         public FormEmployee()
         {
             InitializeComponent();
@@ -24,13 +25,6 @@ namespace Construction_Management_System
             dataGridViewEmp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewEmp.MultiSelect = false;
         }
-        int selectedRow;
-
-        private void labelEmployee_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormEmployee_Load(object sender, EventArgs e)
         {
             string sql = string.Format("select * " + " from Employee_Catagory");
@@ -43,8 +37,8 @@ namespace Construction_Management_System
             comboBoxEmpCatagory.DataSource = dt1;
             comboBoxEmpCatagory.DisplayMember = "Employee_Catagory";
             comboBoxEmpCatagory.ValueMember = "Id";
+            comboBoxEmpCatagory.Text = "";
         }
-
         private void buttonEmpAdd_Click(object sender, EventArgs e)
         {
             string sql = string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text);
@@ -53,11 +47,9 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             dispaly_dataEmp();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonEmpClear_Click(new object(), new EventArgs());
         }
 
@@ -70,7 +62,6 @@ namespace Construction_Management_System
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewEmp.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -88,14 +79,11 @@ namespace Construction_Management_System
 
         private void comboBoxEmpCatagory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(comboBoxItemCatagory.SelectedValue.ToString());
             dispaly_dataEmp();
         }
 
         private void buttonIEmpDelete_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
-            //dataGridViewItem.Rows.RemoveAt(rowIndex);
             string sql = string.Format("delete " + " from Employee where Employee_ID={0}", textBoxEmpId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -104,7 +92,7 @@ namespace Construction_Management_System
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             dispaly_dataEmp();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonEmpClear_Click(new object(), new EventArgs());
         }
 
@@ -123,8 +111,7 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             dispaly_dataEmp();
         }

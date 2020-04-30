@@ -15,6 +15,7 @@ namespace Construction_Management_System.Gui_Design
     public partial class Client_Manager : Form
     {
         string Connectionstring;
+        int selectedRow;
         public Client_Manager()
         {
             InitializeComponent();
@@ -25,12 +26,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridViewClient.MultiSelect = false;
 
         }
-        int selectedRow;
-        private void labelClientContact_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -51,33 +46,6 @@ namespace Construction_Management_System.Gui_Design
             display_dataClient();
 
         }
-
-
-        private void textBoxClientId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxClientName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxClientEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxClientContact_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxClientAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonClientAdd_Click(object sender, EventArgs e)
         {
             string sql = string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text);
@@ -86,11 +54,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataClient();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonClientClear_Click(new object(), new EventArgs());
 
         }
@@ -104,7 +70,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewClient.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -125,12 +90,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataClient();
-
-
         }
 
         private void buttonIClientDelete_Click(object sender, EventArgs e)
@@ -143,7 +105,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataClient();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonClientClear_Click(new object(), new EventArgs());
 
         }

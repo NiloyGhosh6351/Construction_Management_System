@@ -15,6 +15,7 @@ namespace Construction_Management_System.Gui_Design
     public partial class Supplier_Manager : Form
     {
         string Connectionstring;
+        int selectedRow;
         public Supplier_Manager()
         {
             InitializeComponent();
@@ -24,12 +25,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
         }
-        int selectedRow;
-
-
-
-        
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,11 +56,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataSupplier();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonSupplierClear_Click(new object(), new EventArgs());
         }
         public void display_dataSupplier()
@@ -77,7 +70,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridView1.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -93,7 +85,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataSupplier();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonSupplierClear_Click(new object(), new EventArgs());
         }
 
@@ -102,7 +94,6 @@ namespace Construction_Management_System.Gui_Design
             textBoxSupplierId.Clear();
             textBoxSupplierName.Clear();
             textBoxSupplierContact.Clear();
-
             comboBoxItemCatagory.SelectedIndex = -1;
             textBoxSupplierAddress.Clear();
         }
@@ -122,8 +113,7 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataSupplier();
         }

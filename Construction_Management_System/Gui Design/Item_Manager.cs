@@ -17,6 +17,7 @@ namespace Construction_Management_System.Gui_Design
     {
         bool selectionCombo = false;
         string Connectionstring;
+        int selectedRow;
         public Item_Manager()
         {
             InitializeComponent();
@@ -26,26 +27,13 @@ namespace Construction_Management_System.Gui_Design
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
         }
-        int selectedRow;
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
             FormManager f1 = new FormManager();
             f1.Show();
             this.Hide();
-
-
-
-
-
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void buttonAddCatagory_Click(object sender, EventArgs e)
         {
             Manager_ItemCatagory openform = new Manager_ItemCatagory();
@@ -78,9 +66,10 @@ namespace Construction_Management_System.Gui_Design
             comboBoxSupplierName.ValueMember = "Supplier_ID";
 
             selectionCombo = true;
+            comboBoxItemCatagory.Text = "";
+            comboBoxSupplierName.Text = "";
             display_data();
         }
-
         public void display_data()
         {
             string sql = string.Format("select * " + " from Item");
@@ -90,7 +79,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridView1.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -104,11 +92,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_data();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonItemClear_Click(new object(), new EventArgs());
         }
 
@@ -122,7 +108,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_data();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonItemClear_Click(new object(), new EventArgs());
         }
 
@@ -131,8 +117,7 @@ namespace Construction_Management_System.Gui_Design
             DataGridViewRow dataGridViewRow = dataGridView1.Rows[selectedRow];
             dataGridView1.SelectedCells[0].Value = textBoxItemId.Text;
             dataGridView1.SelectedCells[1].Value = textBoxItemName.Text;
-            dataGridView1.SelectedCells[2].Value = comboBoxItemCatagory.Text;
-            
+            dataGridView1.SelectedCells[2].Value = comboBoxItemCatagory.Text;           
             dataGridView1.SelectedCells[4].Value = textBoxItemQuantity.Text;
             dataGridView1.SelectedCells[5].Value = textBoxItemTotal.Text;
             dataGridView1.SelectedCells[6].Value = comboBoxSupplierName.Text;
@@ -142,12 +127,10 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_data();
         }
-
         private void buttonItemClear_Click(object sender, EventArgs e)
         {
             textBoxItemId.Clear();
@@ -155,25 +138,17 @@ namespace Construction_Management_System.Gui_Design
             textBoxItemQuantity.Clear();
             textBoxItemTotal.Clear();
             textBoxItemManagerPrice.Clear();
-            
             comboBoxItemCatagory.SelectedIndex = -1;
             comboBoxSupplierName.SelectedIndex = -1;
-            //textBoxSupplierName.Clear();
         }
-
-       
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
             DataGridViewRow row = dataGridView1.Rows[selectedRow];
             textBoxItemId.Text = row.Cells[0].Value.ToString();
             textBoxItemName.Text = row.Cells[1].Value.ToString();
-           
-            //textBoxSupplierName.Text = row.Cells[4].Value.ToString();
             textBoxItemQuantity.Text = row.Cells[4].Value.ToString();
-            textBoxItemTotal.Text = row.Cells[5].Value.ToString();
-           
+            textBoxItemTotal.Text = row.Cells[5].Value.ToString();          
             string bb = row.Cells[6].Value.ToString().ToUpper();
             string aa = row.Cells[2].Value.ToString().ToUpper();
             string a;

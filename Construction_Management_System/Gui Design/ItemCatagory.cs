@@ -15,6 +15,7 @@ namespace Construction_Management_System.Gui_Design
     public partial class ItemCatagory : Form
     {
         string Connectionstring;
+        int selectedRow;
         public ItemCatagory()
         {
             InitializeComponent();
@@ -24,17 +25,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridViewCatagory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCatagory.MultiSelect = false;
         }
-        int selectedRow;
-        private void labelCatagory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBoxCatagory_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -51,11 +41,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataCatagory();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
         }
         public void display_dataCatagory()
         {
@@ -66,7 +54,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewCatagory.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -84,8 +71,7 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataCatagory();
         }
@@ -100,7 +86,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataCatagory();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonCatagoryClear_Click(new object(), new EventArgs());
         }
 
@@ -108,11 +94,6 @@ namespace Construction_Management_System.Gui_Design
         {
             textBoxCatagoryId.Clear();
             textBoxCatagoryName.Clear();
-        }
-
-        private void dataGridViewCatagory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dataGridViewCatagory_CellClick(object sender, DataGridViewCellEventArgs e)

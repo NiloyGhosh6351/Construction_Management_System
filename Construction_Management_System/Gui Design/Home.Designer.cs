@@ -84,7 +84,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 515);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label7
             // 
@@ -104,7 +103,6 @@
             this.label6.Size = new System.Drawing.Size(142, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Construction Material";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // panel2
             // 
@@ -127,7 +125,6 @@
             this.label1.Size = new System.Drawing.Size(48, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "ITEM";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonHomeItem
             // 
@@ -192,7 +189,6 @@
             this.label4.Size = new System.Drawing.Size(83, 21);
             this.label4.TabIndex = 2;
             this.label4.Text = "SUPPLIER";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button6
             // 
@@ -289,7 +285,6 @@
             this.labelClient.Size = new System.Drawing.Size(64, 21);
             this.labelClient.TabIndex = 2;
             this.labelClient.Text = "CLIENT";
-            this.labelClient.Click += new System.EventHandler(this.label8_Click);
             // 
             // buttonClient
             // 
@@ -345,7 +340,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 1;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click_1);
             // 
             // pictureBox6
             // 
@@ -379,7 +373,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FormHome
             // 
@@ -396,7 +389,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.FormHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

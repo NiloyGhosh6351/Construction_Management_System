@@ -14,8 +14,8 @@ namespace Construction_Management_System.Gui_Design
 {
     public partial class Transport_Manager : Form
     {
-        public string Connectionstring { get; }
-
+        string Connectionstring;
+        int selectedRow;
         public Transport_Manager()
         {
             InitializeComponent();
@@ -25,13 +25,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridViewTran.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTran.MultiSelect = false;
         }
-        int selectedRow;
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSalesDelete_Click(object sender, EventArgs e)
         {
             string sql = string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text);
@@ -42,15 +35,9 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_Tran();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonTranClear_Click(new object(), new EventArgs());
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
         private void Transport_Manager_Load(object sender, EventArgs e)
         {
             string sql = string.Format("select * " + " from Booking");
@@ -63,10 +50,9 @@ namespace Construction_Management_System.Gui_Design
             comboBoxBooked.DataSource = dt1;
             comboBoxBooked.DisplayMember = "Booking_Condition";
             comboBoxBooked.ValueMember = "Id";
+            comboBoxBooked.Text = "";
             display_Tran();
-
         }
-
         private void buttonTransAdd_Click(object sender, EventArgs e)
         {
             string sql = string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text);
@@ -75,13 +61,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_Tran();
-
-
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonTranClear_Click(new object(), new EventArgs());
         }
 
@@ -94,12 +76,10 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewTran.DataSource = dt1;
             sqlcmd.Connection.Close();
         }
-
         private void buttonTranClear_Click(object sender, EventArgs e)
         {
             textBoxTranId.Clear();
@@ -136,8 +116,7 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_Tran();
         }
@@ -152,7 +131,6 @@ namespace Construction_Management_System.Gui_Design
             textBoxTranLicence.Text = row.Cells[3].Value.ToString();
             textBoxTranContact.Text = row.Cells[4].Value.ToString();
             textBoxTranAddress.Text = row.Cells[5].Value.ToString();
-            //textBoxShowBooking.Text = row.Cells[7].Value.ToString();
 
             string aa = row.Cells[6].Value.ToString().ToUpper();
             string a;
@@ -169,11 +147,6 @@ namespace Construction_Management_System.Gui_Design
                     }
                 }
             }
-        }
-
-        private void comboBoxBooked_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

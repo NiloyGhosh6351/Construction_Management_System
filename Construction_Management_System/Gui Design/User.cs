@@ -15,6 +15,7 @@ namespace Construction_Management_System
     public partial class FormUser : Form
     {
         string Connectionstring;
+        int selectedRow;
         public FormUser()
         {
             InitializeComponent();
@@ -24,15 +25,9 @@ namespace Construction_Management_System
             dataGridViewUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewUser.MultiSelect = false;
         }
-        int selectedRow;
-
-        private void labelUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormUser_Load(object sender, EventArgs e)
         {
+            
             string sql = string.Format("select * " + " from User_Type");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -43,89 +38,9 @@ namespace Construction_Management_System
             comboBoxUserType.DataSource = dt1;
             comboBoxUserType.DisplayMember = "User_Type";
             comboBoxUserType.ValueMember = "Id";
+            comboBoxUserType.Text = "";
             display_dataUser();
         }
-
-        private void labelEmpId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEmpAddress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpContact_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEmpContact_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpCategory_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEmpCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEmpSalary_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelEmpName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxEmpId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelUserType_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxUserAdress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonUserAdd_Click(object sender, EventArgs e)
         {
             string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
@@ -134,11 +49,9 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataUser();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             AddUser();
             buttonUserClear_Click(new object(), new EventArgs());
         }
@@ -150,8 +63,7 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add To LoginUser Database successfully");
-
+            MessageBox.Show("ADD TO LOGINUSER DATABASE SUCCESSFULLY");
             sqlcmd.Connection.Close();
         }
 
@@ -164,7 +76,6 @@ namespace Construction_Management_System
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewUser.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -172,8 +83,6 @@ namespace Construction_Management_System
 
         private void buttonUserDelete_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
-            //dataGridViewItem.Rows.RemoveAt(rowIndex);
             string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -182,7 +91,7 @@ namespace Construction_Management_System
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataUser();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonUserClear_Click(new object(), new EventArgs());
         }
 
@@ -202,8 +111,7 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataUser();
         }

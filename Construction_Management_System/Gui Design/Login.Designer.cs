@@ -62,18 +62,19 @@
             // buttonReset
             // 
             this.buttonReset.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonReset.Location = new System.Drawing.Point(34, 375);
+            this.buttonReset.Location = new System.Drawing.Point(148, 376);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 7;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = false;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonLogin.Location = new System.Drawing.Point(142, 375);
+            this.buttonLogin.Location = new System.Drawing.Point(30, 375);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(75, 23);
             this.buttonLogin.TabIndex = 6;
@@ -90,7 +91,7 @@
             this.comboBoxLLoginUserType.Location = new System.Drawing.Point(28, 325);
             this.comboBoxLLoginUserType.Name = "comboBoxLLoginUserType";
             this.comboBoxLLoginUserType.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxLLoginUserType.TabIndex = 5;
+            this.comboBoxLLoginUserType.TabIndex = 2;
             // 
             // labelUserType
             // 
@@ -108,7 +109,7 @@
             this.textBoxUserPassword.Location = new System.Drawing.Point(28, 262);
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(200, 20);
-            this.textBoxUserPassword.TabIndex = 3;
+            this.textBoxUserPassword.TabIndex = 1;
             // 
             // labelPassword
             // 
@@ -126,7 +127,7 @@
             this.textBoxLoginUser.Location = new System.Drawing.Point(28, 198);
             this.textBoxLoginUser.Name = "textBoxLoginUser";
             this.textBoxLoginUser.Size = new System.Drawing.Size(200, 20);
-            this.textBoxLoginUser.TabIndex = 1;
+            this.textBoxLoginUser.TabIndex = 0;
             // 
             // labelUsername
             // 
@@ -153,9 +154,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.Main_Pic;
-            this.pictureBox1.Location = new System.Drawing.Point(246, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(250, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 503);
+            this.pictureBox1.Size = new System.Drawing.Size(528, 514);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;

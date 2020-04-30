@@ -95,7 +95,7 @@
             this.textBoxPrice.Location = new System.Drawing.Point(19, 269);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(165, 20);
-            this.textBoxPrice.TabIndex = 12;
+            this.textBoxPrice.TabIndex = 1;
             // 
             // labelPrice
             // 
@@ -114,8 +114,7 @@
             this.comboBoxItemPriceCatagory.Location = new System.Drawing.Point(16, 208);
             this.comboBoxItemPriceCatagory.Name = "comboBoxItemPriceCatagory";
             this.comboBoxItemPriceCatagory.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxItemPriceCatagory.TabIndex = 8;
-            this.comboBoxItemPriceCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemPriceCatagory_SelectedIndexChanged);
+            this.comboBoxItemPriceCatagory.TabIndex = 0;
             // 
             // labelCatagory
             // 
@@ -138,7 +137,6 @@
             this.labelItemPrice.Size = new System.Drawing.Size(164, 37);
             this.labelItemPrice.TabIndex = 1;
             this.labelItemPrice.Text = "ITEM PRICE";
-            this.labelItemPrice.Click += new System.EventHandler(this.labelItemPrice_Click);
             // 
             // dataGridViewItemPrice
             // 
@@ -149,7 +147,6 @@
             this.dataGridViewItemPrice.Size = new System.Drawing.Size(519, 413);
             this.dataGridViewItemPrice.TabIndex = 1;
             this.dataGridViewItemPrice.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemPrice_CellClick);
-            this.dataGridViewItemPrice.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ItemPrice
             // 

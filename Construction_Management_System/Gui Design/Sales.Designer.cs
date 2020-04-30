@@ -120,7 +120,6 @@
             this.panelSales.Name = "panelSales";
             this.panelSales.Size = new System.Drawing.Size(1160, 844);
             this.panelSales.TabIndex = 0;
-            this.panelSales.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSales_Paint);
             // 
             // textBoxAfterDiscount
             // 
@@ -131,7 +130,6 @@
             this.textBoxAfterDiscount.ReadOnly = true;
             this.textBoxAfterDiscount.Size = new System.Drawing.Size(121, 39);
             this.textBoxAfterDiscount.TabIndex = 50;
-            this.textBoxAfterDiscount.TextChanged += new System.EventHandler(this.textBoxAfterDiscount_TextChanged);
             // 
             // label5
             // 
@@ -160,7 +158,7 @@
             this.textBoxSalesAvailable.Location = new System.Drawing.Point(466, 299);
             this.textBoxSalesAvailable.Name = "textBoxSalesAvailable";
             this.textBoxSalesAvailable.Size = new System.Drawing.Size(121, 20);
-            this.textBoxSalesAvailable.TabIndex = 46;
+            this.textBoxSalesAvailable.TabIndex = 10;
             // 
             // buttonBooked
             // 
@@ -189,8 +187,7 @@
             this.textBoxDiscountPrice.Name = "textBoxDiscountPrice";
             this.textBoxDiscountPrice.ReadOnly = true;
             this.textBoxDiscountPrice.Size = new System.Drawing.Size(121, 20);
-            this.textBoxDiscountPrice.TabIndex = 42;
-            this.textBoxDiscountPrice.TextChanged += new System.EventHandler(this.textBoxDiscountPrice_TextChanged);
+            this.textBoxDiscountPrice.TabIndex = 8;
             // 
             // label2
             // 
@@ -209,7 +206,7 @@
             this.textBoxSalesPrice.Name = "textBoxSalesPrice";
             this.textBoxSalesPrice.ReadOnly = true;
             this.textBoxSalesPrice.Size = new System.Drawing.Size(121, 20);
-            this.textBoxSalesPrice.TabIndex = 40;
+            this.textBoxSalesPrice.TabIndex = 5;
             // 
             // label1
             // 
@@ -231,7 +228,6 @@
             this.textBoxSalesTotal.ReadOnly = true;
             this.textBoxSalesTotal.Size = new System.Drawing.Size(121, 39);
             this.textBoxSalesTotal.TabIndex = 38;
-            this.textBoxSalesTotal.TextChanged += new System.EventHandler(this.textBoxSalesTotal_TextChanged);
             // 
             // labelSales
             // 
@@ -349,7 +345,7 @@
             this.textBoxDiscount.Location = new System.Drawing.Point(236, 165);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.Size = new System.Drawing.Size(121, 20);
-            this.textBoxDiscount.TabIndex = 26;
+            this.textBoxDiscount.TabIndex = 7;
             this.textBoxDiscount.TextChanged += new System.EventHandler(this.textBoxDiscount_TextChanged);
             // 
             // labelQuantity
@@ -380,7 +376,7 @@
             this.comboBoxTransportation.Location = new System.Drawing.Point(236, 299);
             this.comboBoxTransportation.Name = "comboBoxTransportation";
             this.comboBoxTransportation.Size = new System.Drawing.Size(176, 21);
-            this.comboBoxTransportation.TabIndex = 23;
+            this.comboBoxTransportation.TabIndex = 9;
             this.comboBoxTransportation.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransportation_SelectedIndexChanged);
             // 
             // labelTransportation
@@ -410,7 +406,7 @@
             this.textBoxClientContact.Location = new System.Drawing.Point(68, 278);
             this.textBoxClientContact.Name = "textBoxClientContact";
             this.textBoxClientContact.Size = new System.Drawing.Size(121, 20);
-            this.textBoxClientContact.TabIndex = 19;
+            this.textBoxClientContact.TabIndex = 3;
             // 
             // labelClientName
             // 
@@ -451,7 +447,7 @@
             this.comboBoxClientId.Location = new System.Drawing.Point(68, 165);
             this.comboBoxClientId.Name = "comboBoxClientId";
             this.comboBoxClientId.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxClientId.TabIndex = 15;
+            this.comboBoxClientId.TabIndex = 1;
             this.comboBoxClientId.SelectedIndexChanged += new System.EventHandler(this.comboBoxClientId_SelectedIndexChanged);
             // 
             // button2
@@ -462,7 +458,6 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -482,14 +477,13 @@
             this.dataGridViewTotal.Name = "dataGridViewTotal";
             this.dataGridViewTotal.Size = new System.Drawing.Size(333, 204);
             this.dataGridViewTotal.TabIndex = 10;
-            this.dataGridViewTotal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTotal_CellContentClick);
             // 
             // textBoxSalesQuantity
             // 
             this.textBoxSalesQuantity.Location = new System.Drawing.Point(651, 114);
             this.textBoxSalesQuantity.Name = "textBoxSalesQuantity";
             this.textBoxSalesQuantity.Size = new System.Drawing.Size(121, 20);
-            this.textBoxSalesQuantity.TabIndex = 7;
+            this.textBoxSalesQuantity.TabIndex = 6;
             this.textBoxSalesQuantity.TextChanged += new System.EventHandler(this.textBoxSalesQuantity_TextChanged);
             // 
             // comboBoxSalesItem
@@ -498,7 +492,7 @@
             this.comboBoxSalesItem.Location = new System.Drawing.Point(236, 114);
             this.comboBoxSalesItem.Name = "comboBoxSalesItem";
             this.comboBoxSalesItem.Size = new System.Drawing.Size(176, 21);
-            this.comboBoxSalesItem.TabIndex = 6;
+            this.comboBoxSalesItem.TabIndex = 4;
             this.comboBoxSalesItem.SelectedIndexChanged += new System.EventHandler(this.comboBoxSalesItem_SelectedIndexChanged);
             // 
             // textBoxClientName
@@ -506,14 +500,14 @@
             this.textBoxClientName.Location = new System.Drawing.Point(68, 224);
             this.textBoxClientName.Name = "textBoxClientName";
             this.textBoxClientName.Size = new System.Drawing.Size(121, 20);
-            this.textBoxClientName.TabIndex = 5;
+            this.textBoxClientName.TabIndex = 2;
             // 
             // textBoxSalesId
             // 
             this.textBoxSalesId.Location = new System.Drawing.Point(68, 114);
             this.textBoxSalesId.Name = "textBoxSalesId";
             this.textBoxSalesId.Size = new System.Drawing.Size(121, 20);
-            this.textBoxSalesId.TabIndex = 1;
+            this.textBoxSalesId.TabIndex = 0;
             // 
             // Sales
             // 

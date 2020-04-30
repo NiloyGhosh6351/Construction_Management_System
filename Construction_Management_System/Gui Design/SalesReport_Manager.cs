@@ -78,5 +78,7 @@ namespace Construction_Management_System.Gui_Design
             string where = string.Format(" where convert(varchar,Date,101)>'{0}' ", today);
             refreshTable2(where);
         }
+
+       
     }
 }

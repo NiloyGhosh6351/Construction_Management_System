@@ -16,18 +16,11 @@ namespace Construction_Management_System.Gui_Design
         {
             InitializeComponent();
         }
-
-        private void FormManager_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonHomeItem_Click(object sender, EventArgs e)
         {
             Item_Manager openform = new Item_Manager();
             openform.Show();
             this.Hide();
-
         }
 
         private void buttonClient_Click(object sender, EventArgs e)

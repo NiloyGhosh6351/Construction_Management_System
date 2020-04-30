@@ -38,31 +38,6 @@ namespace Construction_Management_System.Gui_Design
             display_dataClient();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelSupplierId_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelSupplierAddress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxSupplierAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -79,11 +54,9 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataClient();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCESSFULLY");
             buttonClientClear_Click(new object(), new EventArgs());
         }
         public void display_dataClient()
@@ -95,7 +68,6 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewClient.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -103,8 +75,6 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonClientDelete_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
-            //dataGridViewItem.Rows.RemoveAt(rowIndex);
             string sql = string.Format("delete " + " from Client where Client_ID={0}", textBoxClientId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -113,7 +83,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataClient();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESFULLY");
             buttonClientClear_Click(new object(), new EventArgs());
         }
 
@@ -131,8 +101,7 @@ namespace Construction_Management_System.Gui_Design
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataClient();
         }
@@ -145,12 +114,6 @@ namespace Construction_Management_System.Gui_Design
             textBoxClientEmail.Clear();
             textBoxClientAddress.Clear();
         }
-
-        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dataGridViewClient_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;

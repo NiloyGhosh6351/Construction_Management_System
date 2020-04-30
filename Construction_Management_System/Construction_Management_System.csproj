@@ -186,6 +186,9 @@
     <EmbeddedResource Include="Gui Design\Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Manager_ItemCatagory.resx">
+      <DependentUpon>Manager_ItemCatagory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>

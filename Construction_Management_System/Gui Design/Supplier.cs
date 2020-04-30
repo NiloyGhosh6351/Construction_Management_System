@@ -15,6 +15,7 @@ namespace Construction_Management_System
     public partial class FormSupplier : Form
     {
         string Connectionstring;
+        int selectedRow;
         public FormSupplier()
         {
             InitializeComponent();
@@ -23,16 +24,9 @@ namespace Construction_Management_System
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewSupplier.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSupplier.MultiSelect = false;
-        }
-        int selectedRow;
-
-        private void labelUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        }      
         private void FormSupplier_Load(object sender, EventArgs e)
-        {
+        {         
             string sql = string.Format("select * " + " from Item_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -43,6 +37,7 @@ namespace Construction_Management_System
             comboBoxItemCatagory.DataSource = dt1;
             comboBoxItemCatagory.DisplayMember = "Item_Catagory";
             comboBoxItemCatagory.ValueMember = "Id";
+            comboBoxItemCatagory.Text = "";
             display_dataSupplier();
         }
 
@@ -54,11 +49,9 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_dataSupplier();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonSupplierClear_Click(new object(), new EventArgs());
         }
 
@@ -71,7 +64,6 @@ namespace Construction_Management_System
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewSupplier.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -79,8 +71,6 @@ namespace Construction_Management_System
 
         private void buttonSupplierDelete_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
-            //dataGridViewItem.Rows.RemoveAt(rowIndex);
             string sql = string.Format("delete " + " from Supplier where Supplier_ID={0}", textBoxSupplierId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -89,7 +79,7 @@ namespace Construction_Management_System
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_dataSupplier();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonSupplierClear_Click(new object(), new EventArgs());
         }
 
@@ -108,8 +98,7 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
             display_dataSupplier();
         }
@@ -118,8 +107,7 @@ namespace Construction_Management_System
         {
             textBoxSupplierId.Clear();
             textBoxSupplierName.Clear();
-            textBoxSupplierContact.Clear();
-        
+            textBoxSupplierContact.Clear();      
             comboBoxItemCatagory.SelectedIndex = -1;
             textBoxSupplierAddress.Clear();
         }

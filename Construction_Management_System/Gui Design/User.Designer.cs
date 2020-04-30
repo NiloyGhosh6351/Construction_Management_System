@@ -108,7 +108,6 @@
             this.comboBoxUserType.Name = "comboBoxUserType";
             this.comboBoxUserType.Size = new System.Drawing.Size(165, 21);
             this.comboBoxUserType.TabIndex = 4;
-            this.comboBoxUserType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBoxUserAddress
             // 
@@ -118,7 +117,6 @@
             this.textBoxUserAddress.Name = "textBoxUserAddress";
             this.textBoxUserAddress.Size = new System.Drawing.Size(166, 75);
             this.textBoxUserAddress.TabIndex = 6;
-            this.textBoxUserAddress.TextChanged += new System.EventHandler(this.textBoxUserAdress_TextChanged);
             // 
             // labelUserAdress
             // 
@@ -139,7 +137,6 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(167, 20);
             this.textBoxName.TabIndex = 1;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // labelName
             // 
@@ -161,7 +158,6 @@
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(169, 20);
             this.textBoxUserPassword.TabIndex = 3;
-            this.textBoxUserPassword.TextChanged += new System.EventHandler(this.textBoxEmpCategory_TextChanged);
             // 
             // labelUserPassword
             // 
@@ -174,7 +170,6 @@
             this.labelUserPassword.Size = new System.Drawing.Size(66, 17);
             this.labelUserPassword.TabIndex = 29;
             this.labelUserPassword.Text = "Password";
-            this.labelUserPassword.Click += new System.EventHandler(this.labelEmpCategory_Click);
             // 
             // labelUserType
             // 
@@ -187,7 +182,6 @@
             this.labelUserType.Size = new System.Drawing.Size(71, 19);
             this.labelUserType.TabIndex = 5;
             this.labelUserType.Text = "UserType";
-            this.labelUserType.Click += new System.EventHandler(this.labelUserType_Click);
             // 
             // textBoxUserName
             // 
@@ -197,7 +191,6 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(169, 20);
             this.textBoxUserName.TabIndex = 2;
-            this.textBoxUserName.TextChanged += new System.EventHandler(this.textBoxEmpPrice_TextChanged);
             // 
             // labelUserName
             // 
@@ -210,7 +203,6 @@
             this.labelUserName.Size = new System.Drawing.Size(69, 17);
             this.labelUserName.TabIndex = 27;
             this.labelUserName.Text = "Username";
-            this.labelUserName.Click += new System.EventHandler(this.labelEmpSalary_Click);
             // 
             // textBoxUserId
             // 
@@ -220,7 +212,6 @@
             this.textBoxUserId.Name = "textBoxUserId";
             this.textBoxUserId.Size = new System.Drawing.Size(169, 20);
             this.textBoxUserId.TabIndex = 0;
-            this.textBoxUserId.TextChanged += new System.EventHandler(this.textBoxEmpId_TextChanged);
             // 
             // labelUserId
             // 
@@ -233,7 +224,6 @@
             this.labelUserId.Size = new System.Drawing.Size(53, 17);
             this.labelUserId.TabIndex = 23;
             this.labelUserId.Text = "User ID";
-            this.labelUserId.Click += new System.EventHandler(this.labelEmpId_Click);
             // 
             // labelUser
             // 
@@ -246,7 +236,6 @@
             this.labelUser.Size = new System.Drawing.Size(84, 37);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "USER";
-            this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
             // 
             // dataGridViewUser
             // 

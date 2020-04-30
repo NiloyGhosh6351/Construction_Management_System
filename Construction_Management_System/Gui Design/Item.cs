@@ -17,6 +17,7 @@ namespace Construction_Management_System
     {
         bool selectionCombo = false;
         string Connectionstring;
+        int selectedRow;
         public FormItem()
         {
             InitializeComponent();
@@ -26,18 +27,6 @@ namespace Construction_Management_System
             dataGridViewItem.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewItem.MultiSelect = false;
         }
-        int selectedRow;
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Item_Load(object sender, EventArgs e)
         {
             string sql = string.Format("select * " + " from Item_Catagory");
@@ -63,6 +52,8 @@ namespace Construction_Management_System
             comboBoxSupplierName.ValueMember = "Supplier_ID";
 
             selectionCombo = true;
+            comboBoxItemCatagory.Text = "";
+            comboBoxSupplierName.Text = "";
             display_data();
         }
 
@@ -74,11 +65,9 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Add successfully");
-
             sqlcmd.Connection.Close();
             display_data();
-            MessageBox.Show("Item Added Successfully");
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
             buttonItemClear_Click(new object(), new EventArgs());
 
         }
@@ -92,7 +81,6 @@ namespace Construction_Management_System
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt1);
             dataGridViewItem.DataSource = dt1;
             sqlcmd.Connection.Close();
@@ -100,8 +88,6 @@ namespace Construction_Management_System
 
         private void buttonItemDelete_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dataGridViewItem.CurrentCell.RowIndex;
-            //dataGridViewItem.Rows.RemoveAt(rowIndex);
             string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
@@ -110,7 +96,7 @@ namespace Construction_Management_System
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
             display_data();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
             buttonItemClear_Click(new object(), new EventArgs());
         }
 
@@ -130,8 +116,7 @@ namespace Construction_Management_System
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCCESSFULLY");
             sqlcmd.Connection.Close();
             display_data();
         }
@@ -142,7 +127,6 @@ namespace Construction_Management_System
             textBoxItemId.Text = row.Cells[0].Value.ToString();
             textBoxItemName.Text = row.Cells[1].Value.ToString();
             textBoxItemPrice.Text = row.Cells[3].Value.ToString();
-            //textBoxSupplierName.Text = row.Cells[4].Value.ToString();
             textBoxItemQuantity.Text = row.Cells[4].Value.ToString();
             textBoxItemTotal.Text = row.Cells[5].Value.ToString();
             string bb = row.Cells[6].Value.ToString().ToUpper();
@@ -187,14 +171,7 @@ namespace Construction_Management_System
             textBoxItemTotal.Clear();
             comboBoxItemCatagory.SelectedIndex = -1;
             comboBoxSupplierName.SelectedIndex = -1;
-            //textBoxSupplierName.Clear();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBoxItemQuantity_TextChanged(object sender, EventArgs e)
         {
             try
@@ -206,47 +183,6 @@ namespace Construction_Management_System
 
             }
         }
-
-        private void labelItemQuantity_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxItemPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelItemPrice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxItemName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelItemName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxItemId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelItemId_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
            this.Close();
@@ -294,11 +230,6 @@ namespace Construction_Management_System
             {
 
             }
-        }
-
-        private void textBoxItemTotal_TextChanged(object sender, EventArgs e)
-        {
-          
         }
     }
 }

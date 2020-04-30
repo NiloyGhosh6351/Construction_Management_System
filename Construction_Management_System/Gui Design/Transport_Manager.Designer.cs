@@ -86,7 +86,6 @@
             this.comboBoxBooked.Name = "comboBoxBooked";
             this.comboBoxBooked.Size = new System.Drawing.Size(154, 21);
             this.comboBoxBooked.TabIndex = 31;
-            this.comboBoxBooked.SelectedIndexChanged += new System.EventHandler(this.comboBoxBooked_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -229,7 +228,6 @@
             this.label1.Size = new System.Drawing.Size(203, 30);
             this.label1.TabIndex = 13;
             this.label1.Text = "TRANSPORTATION";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridViewTran
             // 
@@ -240,7 +238,6 @@
             this.dataGridViewTran.Size = new System.Drawing.Size(493, 452);
             this.dataGridViewTran.TabIndex = 1;
             this.dataGridViewTran.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTran_CellClick);
-            this.dataGridViewTran.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // buttonTranClear
             // 

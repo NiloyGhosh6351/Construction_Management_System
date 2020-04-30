@@ -85,11 +85,10 @@
             // textBoxClientContact
             // 
             this.textBoxClientContact.Location = new System.Drawing.Point(30, 355);
-            this.textBoxClientContact.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxClientContact.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxClientContact.Name = "textBoxClientContact";
             this.textBoxClientContact.Size = new System.Drawing.Size(152, 20);
-            this.textBoxClientContact.TabIndex = 20;
-            this.textBoxClientContact.TextChanged += new System.EventHandler(this.textBoxClientContact_TextChanged);
+            this.textBoxClientContact.TabIndex = 3;
             // 
             // labelClientEmail
             // 
@@ -106,12 +105,11 @@
             // textBoxClientAddress
             // 
             this.textBoxClientAddress.Location = new System.Drawing.Point(30, 405);
-            this.textBoxClientAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxClientAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxClientAddress.Multiline = true;
             this.textBoxClientAddress.Name = "textBoxClientAddress";
             this.textBoxClientAddress.Size = new System.Drawing.Size(152, 56);
-            this.textBoxClientAddress.TabIndex = 16;
-            this.textBoxClientAddress.TextChanged += new System.EventHandler(this.textBoxClientAddress_TextChanged);
+            this.textBoxClientAddress.TabIndex = 4;
             // 
             // labelSupplierAddress
             // 
@@ -128,11 +126,10 @@
             // textBoxClientEmail
             // 
             this.textBoxClientEmail.Location = new System.Drawing.Point(31, 303);
-            this.textBoxClientEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxClientEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxClientEmail.Name = "textBoxClientEmail";
             this.textBoxClientEmail.Size = new System.Drawing.Size(152, 20);
-            this.textBoxClientEmail.TabIndex = 13;
-            this.textBoxClientEmail.TextChanged += new System.EventHandler(this.textBoxClientEmail_TextChanged);
+            this.textBoxClientEmail.TabIndex = 2;
             // 
             // labelClientContact
             // 
@@ -145,16 +142,14 @@
             this.labelClientContact.Size = new System.Drawing.Size(60, 19);
             this.labelClientContact.TabIndex = 17;
             this.labelClientContact.Text = "Contact";
-            this.labelClientContact.Click += new System.EventHandler(this.labelClientContact_Click);
             // 
             // textBoxClientName
             // 
             this.textBoxClientName.Location = new System.Drawing.Point(30, 247);
-            this.textBoxClientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxClientName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxClientName.Name = "textBoxClientName";
             this.textBoxClientName.Size = new System.Drawing.Size(152, 20);
-            this.textBoxClientName.TabIndex = 11;
-            this.textBoxClientName.TextChanged += new System.EventHandler(this.textBoxClientName_TextChanged);
+            this.textBoxClientName.TabIndex = 1;
             // 
             // labelClientName
             // 
@@ -171,11 +166,10 @@
             // textBoxClientId
             // 
             this.textBoxClientId.Location = new System.Drawing.Point(30, 187);
-            this.textBoxClientId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxClientId.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxClientId.Name = "textBoxClientId";
             this.textBoxClientId.Size = new System.Drawing.Size(152, 20);
-            this.textBoxClientId.TabIndex = 10;
-            this.textBoxClientId.TextChanged += new System.EventHandler(this.textBoxClientId_TextChanged);
+            this.textBoxClientId.TabIndex = 0;
             // 
             // labelClientId
             // 

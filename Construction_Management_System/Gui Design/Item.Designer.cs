@@ -100,8 +100,7 @@
             this.textBoxItemTotal.Location = new System.Drawing.Point(16, 514);
             this.textBoxItemTotal.Name = "textBoxItemTotal";
             this.textBoxItemTotal.Size = new System.Drawing.Size(171, 20);
-            this.textBoxItemTotal.TabIndex = 18;
-            this.textBoxItemTotal.TextChanged += new System.EventHandler(this.textBoxItemTotal_TextChanged);
+            this.textBoxItemTotal.TabIndex = 5;
             // 
             // buttonAddPrice
             // 
@@ -121,7 +120,7 @@
             this.comboBoxSupplierName.Location = new System.Drawing.Point(14, 571);
             this.comboBoxSupplierName.Name = "comboBoxSupplierName";
             this.comboBoxSupplierName.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxSupplierName.TabIndex = 16;
+            this.comboBoxSupplierName.TabIndex = 6;
             // 
             // buttonAddCatagory
             // 
@@ -156,7 +155,6 @@
             this.labelSupplierName.Size = new System.Drawing.Size(99, 17);
             this.labelSupplierName.TabIndex = 9;
             this.labelSupplierName.Text = "Supplier Name";
-            this.labelSupplierName.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBoxItemPrice
             // 
@@ -164,8 +162,7 @@
             this.textBoxItemPrice.Location = new System.Drawing.Point(18, 367);
             this.textBoxItemPrice.Name = "textBoxItemPrice";
             this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemPrice.TabIndex = 2;
-            this.textBoxItemPrice.TextChanged += new System.EventHandler(this.textBoxItemPrice_TextChanged);
+            this.textBoxItemPrice.TabIndex = 3;
             // 
             // labelItemQuantity
             // 
@@ -177,7 +174,6 @@
             this.labelItemQuantity.Size = new System.Drawing.Size(94, 17);
             this.labelItemQuantity.TabIndex = 11;
             this.labelItemQuantity.Text = "Item Quantity";
-            this.labelItemQuantity.Click += new System.EventHandler(this.labelItemQuantity_Click);
             // 
             // textBoxItemQuantity
             // 
@@ -185,7 +181,7 @@
             this.textBoxItemQuantity.Location = new System.Drawing.Point(17, 461);
             this.textBoxItemQuantity.Name = "textBoxItemQuantity";
             this.textBoxItemQuantity.Size = new System.Drawing.Size(171, 20);
-            this.textBoxItemQuantity.TabIndex = 3;
+            this.textBoxItemQuantity.TabIndex = 4;
             this.textBoxItemQuantity.TextChanged += new System.EventHandler(this.textBoxItemQuantity_TextChanged);
             // 
             // labelItemPrice
@@ -198,7 +194,6 @@
             this.labelItemPrice.Size = new System.Drawing.Size(70, 17);
             this.labelItemPrice.TabIndex = 5;
             this.labelItemPrice.Text = "Item Price";
-            this.labelItemPrice.Click += new System.EventHandler(this.labelItemPrice_Click);
             // 
             // comboBoxItemCatagory
             // 
@@ -206,7 +201,7 @@
             this.comboBoxItemCatagory.Location = new System.Drawing.Point(19, 281);
             this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
             this.comboBoxItemCatagory.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxItemCatagory.TabIndex = 4;
+            this.comboBoxItemCatagory.TabIndex = 2;
             this.comboBoxItemCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemCatagory_SelectedIndexChanged);
             // 
             // label5
@@ -219,7 +214,6 @@
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Item Category";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBoxItemName
             // 
@@ -228,7 +222,6 @@
             this.textBoxItemName.Name = "textBoxItemName";
             this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemName.TabIndex = 1;
-            this.textBoxItemName.TextChanged += new System.EventHandler(this.textBoxItemName_TextChanged);
             // 
             // labelItemName
             // 
@@ -240,7 +233,6 @@
             this.labelItemName.Size = new System.Drawing.Size(76, 17);
             this.labelItemName.TabIndex = 3;
             this.labelItemName.Text = "Item Name";
-            this.labelItemName.Click += new System.EventHandler(this.labelItemName_Click);
             // 
             // textBoxItemId
             // 
@@ -249,7 +241,6 @@
             this.textBoxItemId.Name = "textBoxItemId";
             this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemId.TabIndex = 0;
-            this.textBoxItemId.TextChanged += new System.EventHandler(this.textBoxItemId_TextChanged);
             // 
             // labelItemId
             // 
@@ -261,7 +252,6 @@
             this.labelItemId.Size = new System.Drawing.Size(54, 17);
             this.labelItemId.TabIndex = 1;
             this.labelItemId.Text = "Item ID";
-            this.labelItemId.Click += new System.EventHandler(this.labelItemId_Click);
             // 
             // label1
             // 
@@ -273,7 +263,6 @@
             this.label1.Size = new System.Drawing.Size(82, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "ITEM";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridViewItem
             // 

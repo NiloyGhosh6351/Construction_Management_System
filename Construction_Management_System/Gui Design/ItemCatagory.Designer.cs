@@ -97,14 +97,14 @@
             this.textBoxCatagoryName.Location = new System.Drawing.Point(35, 265);
             this.textBoxCatagoryName.Name = "textBoxCatagoryName";
             this.textBoxCatagoryName.Size = new System.Drawing.Size(150, 20);
-            this.textBoxCatagoryName.TabIndex = 4;
+            this.textBoxCatagoryName.TabIndex = 1;
             // 
             // textBoxCatagoryId
             // 
             this.textBoxCatagoryId.Location = new System.Drawing.Point(35, 210);
             this.textBoxCatagoryId.Name = "textBoxCatagoryId";
             this.textBoxCatagoryId.Size = new System.Drawing.Size(150, 20);
-            this.textBoxCatagoryId.TabIndex = 2;
+            this.textBoxCatagoryId.TabIndex = 0;
             // 
             // labelCatagory
             // 
@@ -116,7 +116,6 @@
             this.labelCatagory.Size = new System.Drawing.Size(157, 37);
             this.labelCatagory.TabIndex = 0;
             this.labelCatagory.Text = "CATAGORY";
-            this.labelCatagory.Click += new System.EventHandler(this.labelCatagory_Click);
             // 
             // dataGridViewCatagory
             // 
@@ -127,7 +126,6 @@
             this.dataGridViewCatagory.Size = new System.Drawing.Size(496, 380);
             this.dataGridViewCatagory.TabIndex = 1;
             this.dataGridViewCatagory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCatagory_CellClick);
-            this.dataGridViewCatagory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCatagory_CellContentClick);
             // 
             // buttonCatagoryClear
             // 

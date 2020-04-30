@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelUser = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.radioButtonMonthly = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioButtonWeekly = new System.Windows.Forms.RadioButton();
@@ -36,8 +38,8 @@
             this.radioButtonDaily = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -46,6 +48,8 @@
             // panelUser
             // 
             this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelUser.Controls.Add(this.label2);
+            this.panelUser.Controls.Add(this.label1);
             this.panelUser.Controls.Add(this.button1);
             this.panelUser.Controls.Add(this.dateTimePicker2);
             this.panelUser.Controls.Add(this.radioButtonMonthly);
@@ -60,12 +64,29 @@
             this.panelUser.Size = new System.Drawing.Size(220, 520);
             this.panelUser.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(54, 315);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Show";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(9, 186);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 22;
+            // 
             // radioButtonMonthly
             // 
             this.radioButtonMonthly.AutoSize = true;
             this.radioButtonMonthly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonMonthly.ForeColor = System.Drawing.Color.White;
-            this.radioButtonMonthly.Location = new System.Drawing.Point(61, 312);
+            this.radioButtonMonthly.Location = new System.Drawing.Point(61, 429);
             this.radioButtonMonthly.Name = "radioButtonMonthly";
             this.radioButtonMonthly.Size = new System.Drawing.Size(93, 25);
             this.radioButtonMonthly.TabIndex = 21;
@@ -90,7 +111,7 @@
             this.radioButtonWeekly.AutoSize = true;
             this.radioButtonWeekly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonWeekly.ForeColor = System.Drawing.Color.White;
-            this.radioButtonWeekly.Location = new System.Drawing.Point(61, 281);
+            this.radioButtonWeekly.Location = new System.Drawing.Point(61, 398);
             this.radioButtonWeekly.Name = "radioButtonWeekly";
             this.radioButtonWeekly.Size = new System.Drawing.Size(85, 25);
             this.radioButtonWeekly.TabIndex = 20;
@@ -116,7 +137,7 @@
             this.radioButtonDaily.AutoSize = true;
             this.radioButtonDaily.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonDaily.ForeColor = System.Drawing.Color.White;
-            this.radioButtonDaily.Location = new System.Drawing.Point(61, 250);
+            this.radioButtonDaily.Location = new System.Drawing.Point(61, 367);
             this.radioButtonDaily.Name = "radioButtonDaily";
             this.radioButtonDaily.Size = new System.Drawing.Size(68, 25);
             this.radioButtonDaily.TabIndex = 19;
@@ -127,7 +148,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 161);
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 268);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 18;
@@ -141,22 +162,29 @@
             this.dataGridView1.Size = new System.Drawing.Size(506, 458);
             this.dataGridView1.TabIndex = 4;
             // 
-            // dateTimePicker2
+            // label1
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(9, 116);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 22;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(9, 221);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 37);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "TO";
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(54, 206);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(9, 137);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 37);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "FROM";
             // 
             // SalesReport_Manager
             // 
@@ -190,5 +218,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

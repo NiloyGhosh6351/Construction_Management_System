@@ -416,7 +416,6 @@
             this.Name = "FormManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manager";
-            this.Load += new System.EventHandler(this.FormManager_Load);
             this.panelManager.ResumeLayout(false);
             this.panelManager.PerformLayout();
             this.panel6.ResumeLayout(false);

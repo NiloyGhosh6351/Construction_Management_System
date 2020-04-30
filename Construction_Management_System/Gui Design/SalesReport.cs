@@ -29,20 +29,13 @@ namespace Construction_Management_System
             FormHome f1 = new FormHome();
             f1.Show();
             this.Hide();
-
         }
 
         private void FormSalesReport_Load(object sender, EventArgs e)
         {
             refreshTable2("");
-
-
         }
 
-        private void panelUser_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         public void refreshTable2(string where)
         {
             SqlConnection con = new SqlConnection(Connectionstring);
@@ -86,5 +79,6 @@ namespace Construction_Management_System
             string where = string.Format(" where convert(varchar,Date,101)>'{0}' ", today);
             refreshTable2(where);
         }
+
     }
 }

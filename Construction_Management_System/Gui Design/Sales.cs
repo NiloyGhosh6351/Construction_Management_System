@@ -34,12 +34,6 @@ namespace Construction_Management_System.Gui_Design
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -47,12 +41,6 @@ namespace Construction_Management_System.Gui_Design
             f1.Show();
             this.Hide();
         }
-
-        private void panelSales_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Sales_Load(object sender, EventArgs e)
         {
             string sql1 = string.Format("select * " + " from Client");
@@ -96,7 +84,9 @@ namespace Construction_Management_System.Gui_Design
 
             selectionCombo2 = true;
             textBoxAfterDiscount.Text = "";
-
+            comboBoxClientId.Text = "";
+            comboBoxSalesItem.Text = "";
+            comboBoxTransportation.Text = "";
             buttonSalesAdd_Click(new object(), new EventArgs());
 
         }
@@ -123,7 +113,6 @@ namespace Construction_Management_System.Gui_Design
             {
                 if (selectionCombo)
                 {
-                    //display_data();
                     SqlConnection con1 = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd1 = new SqlCommand("select * from Client where Client_ID= '" + comboBoxClientId.Text.ToString() + "'", con1);
                     DataTable dt1 = new DataTable();
@@ -146,7 +135,6 @@ namespace Construction_Management_System.Gui_Design
             {
                 if (selectionCombo1)
                 {
-                    //display_data();
                     SqlConnection con = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd = new SqlCommand("select * from Item_Price where Item_Catagory= '" + comboBoxSalesItem.Text.ToString() + "'", con);
                     DataTable dt = new DataTable();
@@ -154,7 +142,6 @@ namespace Construction_Management_System.Gui_Design
                     dt.Load(sqlcmd.ExecuteReader());
                     sqlcmd.Connection.Close();
                     textBoxSalesPrice.Text = dt.Rows[0][1].ToString();
-                    //textBoxClientContact.Text = dt.Rows[0][3].ToString();
                 }
             }
             catch (Exception h)
@@ -197,12 +184,9 @@ namespace Construction_Management_System.Gui_Design
                     DataTable dt = new DataTable();
                     sqlcmd.Connection.Open();
                     sqlcmd.ExecuteNonQuery();
-                    //MessageBox.Show("Add successfully");
-
                     sqlcmd.Connection.Close();
                     display_dataSales();
-                    MessageBox.Show("Item Added Successfully");
-                    //buttonItemClear_Click(new object(), new EventArgs());
+                    MessageBox.Show("ITEM ADDED SUCCESSFULLY");
                     textBoxDiscount.Text = "";
                     textBoxDiscountPrice.Text = "";
                     textBoxSalesQuantity.Text = "";
@@ -215,13 +199,13 @@ namespace Construction_Management_System.Gui_Design
                 }
                 else
                 {
-                    MessageBox.Show("Duplicate Item cannot be inserted");
+                    MessageBox.Show("DUPLICATE ITEM CANNOT BE INSERTED");
                 }
                 
             }
             catch (Exception o)
             {
-                MessageBox.Show("Selected Duplicate Item");
+                MessageBox.Show("SELECTED DUPLICATE ITEM");
             }
             
         }
@@ -261,24 +245,13 @@ namespace Construction_Management_System.Gui_Design
             }
             catch (Exception p)
             {
-                MessageBox.Show("Enter a Number or Fill Quantity");
+                MessageBox.Show("ENTER A NUMBER OR FILL QUANTITY");
                 textBoxDiscount.Text = "";
                 textBoxDiscountPrice.Text = "";
                 textBoxAfterDiscount.Text = "";
             }
             
         }
-
-        private void textBoxDiscountPrice_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBoxAfterDiscount_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         public void display_dataSales()
         {
             string sql = string.Format("select * " + " from Sales_Price_Cart where Sales_ID={0}",textBoxSalesId.Text);
@@ -288,19 +261,10 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
-            //MessageBox.Show("Add successfully");
             data1.Fill(dt);
             dataGridViewTotal.DataSource = dt;
             sqlcmd.Connection.Close();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-       
-
         private void comboBoxTransportation_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -314,15 +278,13 @@ namespace Construction_Management_System.Gui_Design
                     sqlcmd.Connection.Open();
                     dt.Load(sqlcmd.ExecuteReader());
                     sqlcmd.Connection.Close();
-                    //textBoxSalesAvailable.Text = dt.Rows[0][1].ToString();
-                    //textBoxClientContact.Text = dt.Rows[0][3].ToString();
                     if(dt.Rows.Count==0)
                     {
-                        textBoxSalesAvailable.Text = "Not Available";
+                        textBoxSalesAvailable.Text = "NOT AVAILABLE";
                     }
                     else
                     {
-                        textBoxSalesAvailable.Text = "Available";
+                        textBoxSalesAvailable.Text = "AVAILABLE";
                     }
                 }
             }
@@ -331,17 +293,6 @@ namespace Construction_Management_System.Gui_Design
 
             }
         }
-
-        private void dataGridViewTotal_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonBooked_Click(object sender, EventArgs e)
         {
             if (textBoxSalesAvailable.Text == "Available")
@@ -352,22 +303,17 @@ namespace Construction_Management_System.Gui_Design
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("Update Successfully");
+                MessageBox.Show("UPDATE SUCCESSFULLY");
 
                 sqlcmd.Connection.Close();
-                textBoxSalesAvailable.Text = "Booked";
+                textBoxSalesAvailable.Text = "BOOKED";
             }
-        }
-
-        private void buttonUnbooked_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
             string a = textBoxSalesAvailable.Text;
-            if (a != "Not Available")
+            if (a != "NOT AVAILABLE")
             {
                 try
                 {
@@ -383,9 +329,6 @@ namespace Construction_Management_System.Gui_Design
                     
 
                 }
-
-
-
                 refreshTable2();
                 dataGridViewTotal.DataSource = null;
             }
@@ -430,15 +373,6 @@ namespace Construction_Management_System.Gui_Design
         }
         private void buttonSalesDelete_Click(object sender, EventArgs e)
         {
-            //string sql = string.Format("delete from Sales inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID where Sales_ID={0}", textBoxSalesId.Text);
-            //SqlConnection con = new SqlConnection(Connectionstring);
-            //SqlCommand sqlcmd = new SqlCommand(sql, con);
-            //DataTable dt = new DataTable();
-            //sqlcmd.Connection.Open();
-            //sqlcmd.ExecuteNonQuery();
-            //sqlcmd.Connection.Close();
-            //MessageBox.Show("Delete Successfully");
-
             string sql = string.Format("delete from Sales where Sales_ID={0}", textBoxSalesId.Text);
             SqlConnection con = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con);
@@ -446,7 +380,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
             sqlcmd.Connection.Close();
-            MessageBox.Show("Delete Successfully");
+            MessageBox.Show("DELETE SUCCESSFULLY");
 
             string sql1 = string.Format("delete from Sales_Price_Cart where Sales_ID={0}", textBoxSalesId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
@@ -455,9 +389,7 @@ namespace Construction_Management_System.Gui_Design
             sqlcmd1.Connection.Open();
             sqlcmd1.ExecuteNonQuery();
             sqlcmd1.Connection.Close();
-            MessageBox.Show("Delete Successfully");
-
-//            update_Database();
+            MessageBox.Show("DELETE SUCCESSFULLY");
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -469,7 +401,6 @@ namespace Construction_Management_System.Gui_Design
             textBoxClientName.Text = row.Cells[2].Value.ToString();
             textBoxClientContact.Text = row.Cells[3].Value.ToString();
             comboBoxTransportation.Text = row.Cells[4].Value.ToString();
-            //DateTime.Now = row.Cells[5].Value.ToString();
             comboBoxSalesItem.Text = row.Cells[6].Value.ToString();
             textBoxSalesPrice.Text = row.Cells[7].Value.ToString();
             textBoxSalesQuantity.Text = row.Cells[8].Value.ToString();
@@ -525,45 +456,14 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonSalesUpdate_Click(object sender, EventArgs e)
         {
-            //DataGridViewRow dataGridViewRow = dataGridView1.Rows[selectedRow];
-            //dataGridView1.SelectedCells[0].Value = textBoxSalesId.Text;
-            //dataGridView1.SelectedCells[1].Value = comboBoxClientId.Text;
-            //dataGridView1.SelectedCells[2].Value = textBoxClientName.Text;
-            //dataGridView1.SelectedCells[3].Value = textBoxClientContact.Text;
-            //dataGridView1.SelectedCells[4].Value = comboBoxTransportation.Text;
-            //dataGridView1.SelectedCells[6].Value = comboBoxSalesItem.Text;
-            //dataGridView1.SelectedCells[7].Value = textBoxSalesPrice.Text;
-            //dataGridView1.SelectedCells[8].Value = textBoxSalesQuantity.Text;
-            //dataGridView1.SelectedCells[9].Value = textBoxDiscountPrice.Text;
-            //dataGridView1.SelectedCells[10].Value = textBoxSalesTotal.Text;
-
-            //string sql = string.Format("update Sales set inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID where Sales_ID={0}",textBoxSalesId.Text);
-            //SqlConnection con1 = new SqlConnection(Connectionstring);
-            //SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            //DataTable dt1 = new DataTable();
-            //sqlcmd.Connection.Open();
-            //sqlcmd.ExecuteNonQuery();
-            //MessageBox.Show("Update Successfully");
-
-            //sqlcmd.Connection.Close();
-
             string sql = string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text,comboBoxTransportation.Text, textBoxSalesId.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             sqlcmd.Connection.Open();
             sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("Update Successfully");
-
+            MessageBox.Show("UPDATE SUCCESSFULLY");
             sqlcmd.Connection.Close();
-
-
-            // update_Database();
             refreshTable2();
-        }
-
-        private void textBoxSalesTotal_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         public void refreshTable2()

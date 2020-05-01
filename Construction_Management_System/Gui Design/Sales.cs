@@ -312,38 +312,30 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonSalesAdd_Click(object sender, EventArgs e)
         {
-            try
+            string a = textBoxSalesAvailable.Text;
+            if (a != "NOT AVAILABLE")
             {
-                string a = textBoxSalesAvailable.Text;
-                if (a != "NOT AVAILABLE")
+                try
                 {
-                    try
-                    {
-                        string sql = string.Format("insert into Sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString());
-                        SqlConnection con1 = new SqlConnection(Connectionstring);
-                        SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                        sqlcmd.Connection.Open();
-                        sqlcmd.ExecuteNonQuery();
-                        sqlcmd.Connection.Close();
-                    }
-                    catch (Exception ex)
-                    {
-
-
-                    }
-                    refreshTable2();
-                    dataGridViewTotal.DataSource = null;
+                    string sql = string.Format("insert into Sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString());
+                    SqlConnection con1 = new SqlConnection(Connectionstring);
+                    SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                    sqlcmd.Connection.Open();
+                    sqlcmd.ExecuteNonQuery();
+                    sqlcmd.Connection.Close();
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Selected Transport Not Available");
+                    
+
                 }
+                refreshTable2();
+                dataGridViewTotal.DataSource = null;
             }
-            catch (Exception q)
+            else
             {
-                MessageBox.Show("SELECT WRONG BUTTON");
+                MessageBox.Show("Selected Transport Not Available");
             }
-            
             
             //DataTable dt = dataGridViewTotal.DataSource as DataTable;
             //DataTable dt1 = new DataTable();
@@ -381,30 +373,23 @@ namespace Construction_Management_System.Gui_Design
         }
         private void buttonSalesDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sql = string.Format("delete from Sales where Sales_ID={0}", textBoxSalesId.Text);
-                SqlConnection con = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con);
-                DataTable dt = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
-                MessageBox.Show("DELETE SUCCESSFULLY");
+            string sql = string.Format("delete from Sales where Sales_ID={0}", textBoxSalesId.Text);
+            SqlConnection con = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con);
+            DataTable dt = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            sqlcmd.Connection.Close();
+            MessageBox.Show("DELETE SUCCESSFULLY");
 
-                string sql1 = string.Format("delete from Sales_Price_Cart where Sales_ID={0}", textBoxSalesId.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd1 = new SqlCommand(sql1, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd1.Connection.Open();
-                sqlcmd1.ExecuteNonQuery();
-                sqlcmd1.Connection.Close();
-                MessageBox.Show("DELETE SUCCESSFULLY");
-            }
-            catch (Exception w)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            string sql1 = string.Format("delete from Sales_Price_Cart where Sales_ID={0}", textBoxSalesId.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd1 = new SqlCommand(sql1, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd1.Connection.Open();
+            sqlcmd1.ExecuteNonQuery();
+            sqlcmd1.Connection.Close();
+            MessageBox.Show("DELETE SUCCESSFULLY");
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -471,21 +456,14 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonSalesUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sql = string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, textBoxSalesId.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
-                refreshTable2();
-            }
-            catch (Exception r)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            string sql = string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text,comboBoxTransportation.Text, textBoxSalesId.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            MessageBox.Show("UPDATE SUCCESSFULLY");
+            sqlcmd.Connection.Close();
+            refreshTable2();
         }
 
         public void refreshTable2()

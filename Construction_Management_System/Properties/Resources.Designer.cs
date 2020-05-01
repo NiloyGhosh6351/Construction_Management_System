@@ -73,6 +73,26 @@ namespace Construction_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap color {
+            get {
+                object obj = ResourceManager.GetObject("color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap color1 {
+            get {
+                object obj = ResourceManager.GetObject("color1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard {
             get {
                 object obj = ResourceManager.GetObject("dashboard", resourceCulture);
@@ -156,6 +176,26 @@ namespace Construction_Management_System.Properties {
         internal static System.Drawing.Bitmap supply1 {
             get {
                 object obj = ResourceManager.GetObject("supply1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transportation {
+            get {
+                object obj = ResourceManager.GetObject("transportation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transportation1 {
+            get {
+                object obj = ResourceManager.GetObject("transportation1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

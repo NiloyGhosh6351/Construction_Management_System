@@ -35,15 +35,22 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonICatagoryAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Item_Catagory (Id, Item_Catagory) Values('{0}','{1}')", textBoxCatagoryId.Text, textBoxCatagoryName.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_dataCatagory();
-            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
+            try
+            {
+                string sql = string.Format("insert into Item_Catagory (Id, Item_Catagory) Values('{0}','{1}')", textBoxCatagoryId.Text, textBoxCatagoryName.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_dataCatagory();
+                MessageBox.Show("ITEM ADDED SUCCESSFULLY");
+            }
+            catch (Exception s)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
         public void display_dataCatagory()
         {
@@ -62,32 +69,46 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonCatagoryUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewCatagory.Rows[selectedRow];
-            dataGridViewCatagory.SelectedCells[0].Value = textBoxCatagoryId.Text;
-            dataGridViewCatagory.SelectedCells[1].Value = textBoxCatagoryName.Text;
-            string sql = string.Format("update Item_Catagory set Id={0}, Item_Catagory='{1}'  where  Id={2} ", textBoxCatagoryId.Text, textBoxCatagoryName.Text, textBoxCatagoryId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
-            display_dataCatagory();
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewCatagory.Rows[selectedRow];
+                dataGridViewCatagory.SelectedCells[0].Value = textBoxCatagoryId.Text;
+                dataGridViewCatagory.SelectedCells[1].Value = textBoxCatagoryName.Text;
+                string sql = string.Format("update Item_Catagory set Id={0}, Item_Catagory='{1}'  where  Id={2} ", textBoxCatagoryId.Text, textBoxCatagoryName.Text, textBoxCatagoryId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCESSFULLY");
+                sqlcmd.Connection.Close();
+                display_dataCatagory();
+            }
+            catch (Exception d)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
 
         private void buttonCatagoryDelete_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete " + " from Item_Catagory where Id={0}", textBoxCatagoryId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_dataCatagory();
-            MessageBox.Show("DELETE SUCCESSFULLY");
-            buttonCatagoryClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("delete " + " from Item_Catagory where Id={0}", textBoxCatagoryId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_dataCatagory();
+                MessageBox.Show("DELETE SUCCESSFULLY");
+                buttonCatagoryClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception f)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
 
         private void buttonCatagoryClear_Click(object sender, EventArgs e)

@@ -59,17 +59,23 @@ namespace Construction_Management_System
 
         private void buttonItemAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price, Item_Quantity, Total_Price, Supplier_Name) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_data();
-            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
-            buttonItemClear_Click(new object(), new EventArgs());
-
+            try
+            {
+                string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price, Item_Quantity, Total_Price, Supplier_Name) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_data();
+                MessageBox.Show("ITEM ADDED SUCCESSFULLY");
+                buttonItemClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
 
         public void display_data()
@@ -88,37 +94,51 @@ namespace Construction_Management_System
 
         private void buttonItemDelete_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_data();
-            MessageBox.Show("DELETE SUCCESSFULLY");
-            buttonItemClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_data();
+                MessageBox.Show("DELETE SUCCESSFULLY");
+                buttonItemClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception v)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
 
         private void buttonItemUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewItem.Rows[selectedRow];
-            dataGridViewItem.SelectedCells[0].Value = textBoxItemId.Text;
-            dataGridViewItem.SelectedCells[1].Value = textBoxItemName.Text;
-            dataGridViewItem.SelectedCells[2].Value = comboBoxItemCatagory.Text;
-            dataGridViewItem.SelectedCells[3].Value = textBoxItemPrice.Text;
-            dataGridViewItem.SelectedCells[4].Value = textBoxItemQuantity.Text;
-            dataGridViewItem.SelectedCells[5].Value = textBoxItemTotal.Text;
-            dataGridViewItem.SelectedCells[6].Value = comboBoxSupplierName.Text;
-            string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCCESSFULLY");
-            sqlcmd.Connection.Close();
-            display_data();
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewItem.Rows[selectedRow];
+                dataGridViewItem.SelectedCells[0].Value = textBoxItemId.Text;
+                dataGridViewItem.SelectedCells[1].Value = textBoxItemName.Text;
+                dataGridViewItem.SelectedCells[2].Value = comboBoxItemCatagory.Text;
+                dataGridViewItem.SelectedCells[3].Value = textBoxItemPrice.Text;
+                dataGridViewItem.SelectedCells[4].Value = textBoxItemQuantity.Text;
+                dataGridViewItem.SelectedCells[5].Value = textBoxItemTotal.Text;
+                dataGridViewItem.SelectedCells[6].Value = comboBoxSupplierName.Text;
+                string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCCESSFULLY");
+                sqlcmd.Connection.Close();
+                display_data();
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
         }
         private void dataGridViewItem_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {

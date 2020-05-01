@@ -130,6 +130,12 @@
     <Compile Include="Gui Design\Supplier_Manager.Designer.cs">
       <DependentUpon>Supplier_Manager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui Design\Transport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui Design\Transport.Designer.cs">
+      <DependentUpon>Transport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui Design\Transport_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Supplier_Manager.resx">
       <DependentUpon>Supplier_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui Design\Transport.resx">
+      <DependentUpon>Transport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Transport_Manager.resx">
       <DependentUpon>Transport_Manager.cs</DependentUpon>

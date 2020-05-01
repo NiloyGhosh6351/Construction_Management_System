@@ -66,5 +66,13 @@ namespace Construction_Management_System.Gui_Design
             openform.Show();
             this.Hide();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Storage_Manager openform = new Storage_Manager();
+            openform.Show();
+            this.Hide();
+
+        }
     }
 }

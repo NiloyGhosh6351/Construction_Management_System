@@ -65,54 +65,78 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonTransAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_Tran();
-            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
-            buttonTranClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_Tran();
+                MessageBox.Show("ADDED SUCCESSFULLY");
+                buttonTranClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
 
         }
 
         private void buttonTranUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewTran.Rows[selectedRow];
-            dataGridViewTran.SelectedCells[0].Value = textBoxTranId.Text;
-            dataGridViewTran.SelectedCells[1].Value = textBoxTranCarNumber.Text;
-            dataGridViewTran.SelectedCells[2].Value = textBoxTranDriverName.Text;
-            dataGridViewTran.SelectedCells[3].Value = textBoxTranLicence.Text;
-            dataGridViewTran.SelectedCells[4].Value = textBoxTranContact.Text;
-            dataGridViewTran.SelectedCells[5].Value = textBoxTranAddress.Text;
-            dataGridViewTran.SelectedCells[6].Value = comboBoxBooked.Text;
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewTran.Rows[selectedRow];
+                dataGridViewTran.SelectedCells[0].Value = textBoxTranId.Text;
+                dataGridViewTran.SelectedCells[1].Value = textBoxTranCarNumber.Text;
+                dataGridViewTran.SelectedCells[2].Value = textBoxTranDriverName.Text;
+                dataGridViewTran.SelectedCells[3].Value = textBoxTranLicence.Text;
+                dataGridViewTran.SelectedCells[4].Value = textBoxTranContact.Text;
+                dataGridViewTran.SelectedCells[5].Value = textBoxTranAddress.Text;
+                dataGridViewTran.SelectedCells[6].Value = comboBoxBooked.Text;
 
-            string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
-            display_Tran();
+                string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCESSFULLY");
+                sqlcmd.Connection.Close();
+                display_Tran();
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
 
         }
 
         private void buttonTranDelete_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_Tran();
-            MessageBox.Show("DELETE SUCCESSFULLY");
-            buttonTranClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_Tran();
+                MessageBox.Show("DELETE SUCCESSFULLY");
+                buttonTranClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
 
         }
 

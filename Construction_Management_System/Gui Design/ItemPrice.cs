@@ -29,37 +29,53 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("insert into Item_Price (Item_Catagory, Item_Pricee) Values('{0}','{1}')", comboBoxItemPriceCatagory.Text, textBoxPrice.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
-                display_dataPrice();
-                MessageBox.Show("ITEM ADDED SUCCESSFULLY");
+                try
+                {
+                    string sql = string.Format("insert into Item_Price (Item_Catagory, Item_Pricee) Values('{0}','{1}')", comboBoxItemPriceCatagory.Text, textBoxPrice.Text);
+                    SqlConnection con1 = new SqlConnection(Connectionstring);
+                    SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                    DataTable dt1 = new DataTable();
+                    sqlcmd.Connection.Open();
+                    sqlcmd.ExecuteNonQuery();
+                    sqlcmd.Connection.Close();
+                    display_dataPrice();
+                    MessageBox.Show("ADDED SUCCESSFULLY");
+                }
+                catch (Exception d)
+                {
+                    MessageBox.Show("DUPLICATE PRICE IS NOT ALLOWED");
+                }
             }
-            catch (Exception d)
+            catch (Exception a)
             {
-                MessageBox.Show("DUPLICATE PRICE IS NOT ALLOWED");
+                MessageBox.Show("SELECT WRONG BUTTON");
             }
+            
 
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewItemPrice.Rows[selectedRow];
-            dataGridViewItemPrice.SelectedCells[0].Value = comboBoxItemPriceCatagory.Text;
-            dataGridViewItemPrice.SelectedCells[1].Value = textBoxPrice.Text;
-            string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
-            display_dataPrice();
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewItemPrice.Rows[selectedRow];
+                dataGridViewItemPrice.SelectedCells[0].Value = comboBoxItemPriceCatagory.Text;
+                dataGridViewItemPrice.SelectedCells[1].Value = textBoxPrice.Text;
+                string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCESSFULLY");
+                sqlcmd.Connection.Close();
+                display_dataPrice();
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

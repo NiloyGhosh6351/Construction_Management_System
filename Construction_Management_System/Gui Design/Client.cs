@@ -48,16 +48,24 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonClientAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_dataClient();
-            MessageBox.Show("ITEM ADDED SUCESSFULLY");
-            buttonClientClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_dataClient();
+                MessageBox.Show("ADDED SUCESSFULLY");
+                buttonClientClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
         public void display_dataClient()
         {
@@ -75,35 +83,51 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonClientDelete_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete " + " from Client where Client_ID={0}", textBoxClientId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            display_dataClient();
-            MessageBox.Show("DELETE SUCCESFULLY");
-            buttonClientClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("delete " + " from Client where Client_ID={0}", textBoxClientId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_dataClient();
+                MessageBox.Show("DELETE SUCCESFULLY");
+                buttonClientClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
         private void buttonClientUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewClient.Rows[selectedRow];
-            dataGridViewClient.SelectedCells[0].Value = textBoxClientId.Text;
-            dataGridViewClient.SelectedCells[1].Value = textBoxClientName.Text;
-            dataGridViewClient.SelectedCells[2].Value = textBoxClientContact.Text;
-            dataGridViewClient.SelectedCells[3].Value = textBoxClientEmail.Text;
-            dataGridViewClient.SelectedCells[4].Value = textBoxClientAddress.Text;
-            string sql = string.Format("update Client set Client_ID={0}, Client_Name='{1}', Client_Email='{2}', Client_Contact='{3}', Client_Address='{4}'  where  Client_ID={5} ", textBoxClientId.Text, textBoxClientName.Text, textBoxClientEmail.Text, textBoxClientContact.Text, textBoxClientAddress.Text, textBoxClientId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
-            display_dataClient();
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewClient.Rows[selectedRow];
+                dataGridViewClient.SelectedCells[0].Value = textBoxClientId.Text;
+                dataGridViewClient.SelectedCells[1].Value = textBoxClientName.Text;
+                dataGridViewClient.SelectedCells[2].Value = textBoxClientContact.Text;
+                dataGridViewClient.SelectedCells[3].Value = textBoxClientEmail.Text;
+                dataGridViewClient.SelectedCells[4].Value = textBoxClientAddress.Text;
+                string sql = string.Format("update Client set Client_ID={0}, Client_Name='{1}', Client_Email='{2}', Client_Contact='{3}', Client_Address='{4}'  where  Client_ID={5} ", textBoxClientId.Text, textBoxClientName.Text, textBoxClientEmail.Text, textBoxClientContact.Text, textBoxClientAddress.Text, textBoxClientId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCESSFULLY");
+                sqlcmd.Connection.Close();
+                display_dataClient();
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
         private void buttonClientClear_Click(object sender, EventArgs e)

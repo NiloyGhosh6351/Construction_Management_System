@@ -41,16 +41,24 @@ namespace Construction_Management_System
         }
         private void buttonEmpAdd_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            dispaly_dataEmp();
-            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
-            buttonEmpClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                dispaly_dataEmp();
+                MessageBox.Show("ADDED SUCCESSFULLY");
+                buttonEmpClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
         public void dispaly_dataEmp()
@@ -84,36 +92,52 @@ namespace Construction_Management_System
 
         private void buttonIEmpDelete_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("delete " + " from Employee where Employee_ID={0}", textBoxEmpId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            sqlcmd.Connection.Close();
-            dispaly_dataEmp();
-            MessageBox.Show("DELETE SUCCESSFULLY");
-            buttonEmpClear_Click(new object(), new EventArgs());
+            try
+            {
+                string sql = string.Format("delete " + " from Employee where Employee_ID={0}", textBoxEmpId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                dispaly_dataEmp();
+                MessageBox.Show("DELETE SUCCESSFULLY");
+                buttonEmpClear_Click(new object(), new EventArgs());
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
         private void buttonEmpUpdate_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataGridViewRow = dataGridViewEmp.Rows[selectedRow];
-            dataGridViewEmp.SelectedCells[0].Value = textBoxEmpId.Text;
-            dataGridViewEmp.SelectedCells[1].Value = textBoxEmpName.Text;
-            dataGridViewEmp.SelectedCells[2].Value = textBoxEmpSalary.Text;
-            dataGridViewEmp.SelectedCells[3].Value = comboBoxEmpCatagory.Text;
-            dataGridViewEmp.SelectedCells[4].Value = textBoxEmpContact.Text;
-            dataGridViewEmp.SelectedCells[5].Value = textBoxEmpAddress.Text;
-            string sql = string.Format("update Employee set Employee_ID={0}, Employee_Name='{1}', Employee_Salary={2}, Employee_Catagory='{3}', Employee_Contact='{4}', Employee_Address='{5}'  where  Employee_ID={6} ", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text, textBoxEmpId.Text);
-            SqlConnection con1 = new SqlConnection(Connectionstring);
-            SqlCommand sqlcmd = new SqlCommand(sql, con1);
-            DataTable dt1 = new DataTable();
-            sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
-            MessageBox.Show("UPDATE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
-            dispaly_dataEmp();
+            try
+            {
+                DataGridViewRow dataGridViewRow = dataGridViewEmp.Rows[selectedRow];
+                dataGridViewEmp.SelectedCells[0].Value = textBoxEmpId.Text;
+                dataGridViewEmp.SelectedCells[1].Value = textBoxEmpName.Text;
+                dataGridViewEmp.SelectedCells[2].Value = textBoxEmpSalary.Text;
+                dataGridViewEmp.SelectedCells[3].Value = comboBoxEmpCatagory.Text;
+                dataGridViewEmp.SelectedCells[4].Value = textBoxEmpContact.Text;
+                dataGridViewEmp.SelectedCells[5].Value = textBoxEmpAddress.Text;
+                string sql = string.Format("update Employee set Employee_ID={0}, Employee_Name='{1}', Employee_Salary={2}, Employee_Catagory='{3}', Employee_Contact='{4}', Employee_Address='{5}'  where  Employee_ID={6} ", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text, textBoxEmpId.Text);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                MessageBox.Show("UPDATE SUCCESSFULLY");
+                sqlcmd.Connection.Close();
+                dispaly_dataEmp();
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+            
         }
 
 

@@ -43,24 +43,17 @@ namespace Construction_Management_System
         }
         private void buttonUserAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
-                display_dataUser();
-                MessageBox.Show("ITEM ADDED SUCCESSFULLY");
-                AddUser();
-                buttonUserClear_Click(new object(), new EventArgs());
-            }
-            catch (Exception n)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            sqlcmd.Connection.Close();
+            display_dataUser();
+            MessageBox.Show("ITEM ADDED SUCCESSFULLY");
+            AddUser();
+            buttonUserClear_Click(new object(), new EventArgs());
         }
         public void AddUser()
         {
@@ -90,51 +83,37 @@ namespace Construction_Management_System
 
         private void buttonUserDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
-                display_dataUser();
-                MessageBox.Show("DELETE SUCCESSFULLY");
-                buttonUserClear_Click(new object(), new EventArgs());
-            }
-            catch (Exception m)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            sqlcmd.Connection.Close();
+            display_dataUser();
+            MessageBox.Show("DELETE SUCCESSFULLY");
+            buttonUserClear_Click(new object(), new EventArgs());
         }
 
         private void buttonUserUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridViewRow dataGridViewRow = dataGridViewUser.Rows[selectedRow];
-                dataGridViewUser.SelectedCells[0].Value = textBoxUserId.Text;
-                dataGridViewUser.SelectedCells[1].Value = textBoxName.Text;
-                dataGridViewUser.SelectedCells[2].Value = textBoxUserName.Text;
-                dataGridViewUser.SelectedCells[3].Value = textBoxUserPassword.Text;
-                dataGridViewUser.SelectedCells[4].Value = comboBoxUserType.Text;
-                dataGridViewUser.SelectedCells[5].Value = textBoxUserContact.Text;
-                dataGridViewUser.SelectedCells[6].Value = textBoxUserAddress.Text;
-                string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
-                display_dataUser();
-            }
-            catch (Exception p)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            DataGridViewRow dataGridViewRow = dataGridViewUser.Rows[selectedRow];
+            dataGridViewUser.SelectedCells[0].Value = textBoxUserId.Text;
+            dataGridViewUser.SelectedCells[1].Value = textBoxName.Text;
+            dataGridViewUser.SelectedCells[2].Value = textBoxUserName.Text;
+            dataGridViewUser.SelectedCells[3].Value = textBoxUserPassword.Text;
+            dataGridViewUser.SelectedCells[4].Value = comboBoxUserType.Text;
+            dataGridViewUser.SelectedCells[5].Value = textBoxUserContact.Text;
+            dataGridViewUser.SelectedCells[6].Value = textBoxUserAddress.Text;
+            string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            MessageBox.Show("UPDATE SUCCESSFULLY");
+            sqlcmd.Connection.Close();
+            display_dataUser();
         }
 
         private void dataGridViewUser_CellClick(object sender, DataGridViewCellEventArgs e)

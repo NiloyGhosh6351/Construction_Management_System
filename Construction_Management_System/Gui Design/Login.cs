@@ -26,44 +26,37 @@ namespace Construction_Management_System.Gui_Design
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            string sql = "select * from Login_User where UserName='" + textBoxLoginUser.Text + "' and Password='" + textBoxUserPassword.Text + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(sql,Connectionstring);
+            DataTable dt1 = new DataTable();
+            sda.Fill(dt1);
+            string combovalue = comboBoxLLoginUserType.SelectedItem.ToString();
+            if (dt1.Rows.Count > 0)
             {
-                string sql = "select * from Login_User where UserName='" + textBoxLoginUser.Text + "' and Password='" + textBoxUserPassword.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(sql, Connectionstring);
-                DataTable dt1 = new DataTable();
-                sda.Fill(dt1);
-                string combovalue = comboBoxLLoginUserType.SelectedItem.ToString();
-                if (dt1.Rows.Count > 0)
+                for (int i = 0; i < dt1.Rows.Count; i++)
                 {
-                    for (int i = 0; i < dt1.Rows.Count; i++)
-                    {
-                        if (dt1.Rows[i]["UserType"].ToString() == combovalue)
+                   if (dt1.Rows[i]["UserType"].ToString() == combovalue)
+                   {
+                        MessageBox.Show("YOU ARE LOGIN AS " + dt1.Rows[i][2]);
+                        if (comboBoxLLoginUserType.SelectedIndex == 0)
                         {
-                            MessageBox.Show("YOU ARE LOGIN AS " + dt1.Rows[i][2]);
-                            if (comboBoxLLoginUserType.SelectedIndex == 0)
-                            {
-                                FormHome a1 = new FormHome();
-                                a1.Show();
-                                this.Hide();
-                            }
-                            else
-                            {
-                                FormManager i1 = new FormManager();
-                                i1.Show();
-                                this.Hide();
-                            }
+                            FormHome a1 = new FormHome();
+                            a1.Show();
+                            this.Hide();
                         }
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("LOGIN FAILED");
+                        else
+                        {
+                            FormManager i1 = new FormManager();
+                            i1.Show();
+                            this.Hide();
+                        }
+                   }
                 }
             }
-            catch (Exception h)
+
+            else
             {
-                MessageBox.Show("PLEASE SELECT YOUR TYPE");
+                MessageBox.Show("LOGIN FAILED");
             }
         }
 

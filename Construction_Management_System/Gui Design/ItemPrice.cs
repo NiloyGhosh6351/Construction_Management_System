@@ -48,25 +48,18 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridViewRow dataGridViewRow = dataGridViewItemPrice.Rows[selectedRow];
-                dataGridViewItemPrice.SelectedCells[0].Value = comboBoxItemPriceCatagory.Text;
-                dataGridViewItemPrice.SelectedCells[1].Value = textBoxPrice.Text;
-                string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
-                SqlConnection con1 = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd = new SqlCommand(sql, con1);
-                DataTable dt1 = new DataTable();
-                sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
-                display_dataPrice();
-            }
-            catch (Exception g)
-            {
-                MessageBox.Show("SELECT WRONG BUTTON");
-            }
+            DataGridViewRow dataGridViewRow = dataGridViewItemPrice.Rows[selectedRow];
+            dataGridViewItemPrice.SelectedCells[0].Value = comboBoxItemPriceCatagory.Text;
+            dataGridViewItemPrice.SelectedCells[1].Value = textBoxPrice.Text;
+            string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
+            SqlConnection con1 = new SqlConnection(Connectionstring);
+            SqlCommand sqlcmd = new SqlCommand(sql, con1);
+            DataTable dt1 = new DataTable();
+            sqlcmd.Connection.Open();
+            sqlcmd.ExecuteNonQuery();
+            MessageBox.Show("UPDATE SUCCESSFULLY");
+            sqlcmd.Connection.Close();
+            display_dataPrice();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

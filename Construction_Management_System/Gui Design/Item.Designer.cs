@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxItemCatagory = new System.Windows.Forms.ComboBox();
-            this.textBoxItemQuantity = new System.Windows.Forms.TextBox();
-            this.labelItemQuantity = new System.Windows.Forms.Label();
+            this.labelItemTotal = new System.Windows.Forms.Label();
+            this.textBoxItemTotal = new System.Windows.Forms.TextBox();
+            this.buttonAddPrice = new System.Windows.Forms.Button();
+            this.comboBoxSupplierName = new System.Windows.Forms.ComboBox();
+            this.buttonAddCatagory = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelSupplierName = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBoxItemPrice = new System.Windows.Forms.TextBox();
+            this.labelItemQuantity = new System.Windows.Forms.Label();
+            this.textBoxItemQuantity = new System.Windows.Forms.TextBox();
             this.labelItemPrice = new System.Windows.Forms.Label();
+            this.comboBoxItemCatagory = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBoxItemName = new System.Windows.Forms.TextBox();
             this.labelItemName = new System.Windows.Forms.Label();
             this.textBoxItemId = new System.Windows.Forms.TextBox();
@@ -46,15 +52,9 @@
             this.buttonItemUpdate = new System.Windows.Forms.Button();
             this.buttonItemDelete = new System.Windows.Forms.Button();
             this.buttonItemClear = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.buttonAddCatagory = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelItemTotal = new System.Windows.Forms.Label();
-            this.textBoxItemTotal = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,8 +62,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.labelItemTotal);
             this.panel1.Controls.Add(this.textBoxItemTotal);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.buttonAddPrice);
+            this.panel1.Controls.Add(this.comboBoxSupplierName);
             this.panel1.Controls.Add(this.buttonAddCatagory);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.labelSupplierName);
@@ -83,35 +83,67 @@
             this.panel1.Size = new System.Drawing.Size(200, 663);
             this.panel1.TabIndex = 0;
             // 
-            // comboBoxItemCatagory
+            // labelItemTotal
             // 
-            this.comboBoxItemCatagory.FormattingEnabled = true;
-            this.comboBoxItemCatagory.Location = new System.Drawing.Point(19, 281);
-            this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
-            this.comboBoxItemCatagory.Size = new System.Drawing.Size(168, 21);
-            this.comboBoxItemCatagory.TabIndex = 4;
-            this.comboBoxItemCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemCatagory_SelectedIndexChanged);
+            this.labelItemTotal.AutoSize = true;
+            this.labelItemTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemTotal.ForeColor = System.Drawing.Color.White;
+            this.labelItemTotal.Location = new System.Drawing.Point(15, 494);
+            this.labelItemTotal.Name = "labelItemTotal";
+            this.labelItemTotal.Size = new System.Drawing.Size(73, 17);
+            this.labelItemTotal.TabIndex = 19;
+            this.labelItemTotal.Text = "Total Price";
             // 
-            // textBoxItemQuantity
+            // textBoxItemTotal
             // 
-            this.textBoxItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemQuantity.Location = new System.Drawing.Point(17, 461);
-            this.textBoxItemQuantity.Name = "textBoxItemQuantity";
-            this.textBoxItemQuantity.Size = new System.Drawing.Size(171, 20);
-            this.textBoxItemQuantity.TabIndex = 3;
-            this.textBoxItemQuantity.TextChanged += new System.EventHandler(this.textBoxItemQuantity_TextChanged);
+            this.textBoxItemTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemTotal.Location = new System.Drawing.Point(16, 514);
+            this.textBoxItemTotal.Name = "textBoxItemTotal";
+            this.textBoxItemTotal.Size = new System.Drawing.Size(171, 20);
+            this.textBoxItemTotal.TabIndex = 5;
             // 
-            // labelItemQuantity
+            // buttonAddPrice
             // 
-            this.labelItemQuantity.AutoSize = true;
-            this.labelItemQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItemQuantity.ForeColor = System.Drawing.Color.White;
-            this.labelItemQuantity.Location = new System.Drawing.Point(16, 441);
-            this.labelItemQuantity.Name = "labelItemQuantity";
-            this.labelItemQuantity.Size = new System.Drawing.Size(94, 17);
-            this.labelItemQuantity.TabIndex = 11;
-            this.labelItemQuantity.Text = "Item Quantity";
-            this.labelItemQuantity.Click += new System.EventHandler(this.labelItemQuantity_Click);
+            this.buttonAddPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonAddPrice.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddPrice.Location = new System.Drawing.Point(17, 393);
+            this.buttonAddPrice.Name = "buttonAddPrice";
+            this.buttonAddPrice.Size = new System.Drawing.Size(112, 32);
+            this.buttonAddPrice.TabIndex = 17;
+            this.buttonAddPrice.Text = "ADD  Price";
+            this.buttonAddPrice.UseVisualStyleBackColor = false;
+            this.buttonAddPrice.Click += new System.EventHandler(this.buttonAddPrice_Click);
+            // 
+            // comboBoxSupplierName
+            // 
+            this.comboBoxSupplierName.FormattingEnabled = true;
+            this.comboBoxSupplierName.Location = new System.Drawing.Point(14, 571);
+            this.comboBoxSupplierName.Name = "comboBoxSupplierName";
+            this.comboBoxSupplierName.Size = new System.Drawing.Size(168, 21);
+            this.comboBoxSupplierName.TabIndex = 6;
+            // 
+            // buttonAddCatagory
+            // 
+            this.buttonAddCatagory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonAddCatagory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddCatagory.Location = new System.Drawing.Point(18, 308);
+            this.buttonAddCatagory.Name = "buttonAddCatagory";
+            this.buttonAddCatagory.Size = new System.Drawing.Size(112, 32);
+            this.buttonAddCatagory.TabIndex = 14;
+            this.buttonAddCatagory.Text = "ADD CATAGORY";
+            this.buttonAddCatagory.UseVisualStyleBackColor = false;
+            this.buttonAddCatagory.Click += new System.EventHandler(this.buttonAddCatagory_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // labelSupplierName
             // 
@@ -123,19 +155,6 @@
             this.labelSupplierName.Size = new System.Drawing.Size(99, 17);
             this.labelSupplierName.TabIndex = 9;
             this.labelSupplierName.Text = "Supplier Name";
-            this.labelSupplierName.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(19, 261);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 17);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Item Category";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBoxItemPrice
             // 
@@ -143,8 +162,27 @@
             this.textBoxItemPrice.Location = new System.Drawing.Point(18, 367);
             this.textBoxItemPrice.Name = "textBoxItemPrice";
             this.textBoxItemPrice.Size = new System.Drawing.Size(169, 20);
-            this.textBoxItemPrice.TabIndex = 2;
-            this.textBoxItemPrice.TextChanged += new System.EventHandler(this.textBoxItemPrice_TextChanged);
+            this.textBoxItemPrice.TabIndex = 3;
+            // 
+            // labelItemQuantity
+            // 
+            this.labelItemQuantity.AutoSize = true;
+            this.labelItemQuantity.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItemQuantity.ForeColor = System.Drawing.Color.White;
+            this.labelItemQuantity.Location = new System.Drawing.Point(16, 441);
+            this.labelItemQuantity.Name = "labelItemQuantity";
+            this.labelItemQuantity.Size = new System.Drawing.Size(94, 17);
+            this.labelItemQuantity.TabIndex = 11;
+            this.labelItemQuantity.Text = "Item Quantity";
+            // 
+            // textBoxItemQuantity
+            // 
+            this.textBoxItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.textBoxItemQuantity.Location = new System.Drawing.Point(17, 461);
+            this.textBoxItemQuantity.Name = "textBoxItemQuantity";
+            this.textBoxItemQuantity.Size = new System.Drawing.Size(171, 20);
+            this.textBoxItemQuantity.TabIndex = 4;
+            this.textBoxItemQuantity.TextChanged += new System.EventHandler(this.textBoxItemQuantity_TextChanged);
             // 
             // labelItemPrice
             // 
@@ -156,7 +194,26 @@
             this.labelItemPrice.Size = new System.Drawing.Size(70, 17);
             this.labelItemPrice.TabIndex = 5;
             this.labelItemPrice.Text = "Item Price";
-            this.labelItemPrice.Click += new System.EventHandler(this.labelItemPrice_Click);
+            // 
+            // comboBoxItemCatagory
+            // 
+            this.comboBoxItemCatagory.FormattingEnabled = true;
+            this.comboBoxItemCatagory.Location = new System.Drawing.Point(19, 281);
+            this.comboBoxItemCatagory.Name = "comboBoxItemCatagory";
+            this.comboBoxItemCatagory.Size = new System.Drawing.Size(168, 21);
+            this.comboBoxItemCatagory.TabIndex = 2;
+            this.comboBoxItemCatagory.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemCatagory_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(19, 261);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Item Category";
             // 
             // textBoxItemName
             // 
@@ -165,7 +222,6 @@
             this.textBoxItemName.Name = "textBoxItemName";
             this.textBoxItemName.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemName.TabIndex = 1;
-            this.textBoxItemName.TextChanged += new System.EventHandler(this.textBoxItemName_TextChanged);
             // 
             // labelItemName
             // 
@@ -177,7 +233,6 @@
             this.labelItemName.Size = new System.Drawing.Size(76, 17);
             this.labelItemName.TabIndex = 3;
             this.labelItemName.Text = "Item Name";
-            this.labelItemName.Click += new System.EventHandler(this.labelItemName_Click);
             // 
             // textBoxItemId
             // 
@@ -186,7 +241,6 @@
             this.textBoxItemId.Name = "textBoxItemId";
             this.textBoxItemId.Size = new System.Drawing.Size(169, 20);
             this.textBoxItemId.TabIndex = 0;
-            this.textBoxItemId.TextChanged += new System.EventHandler(this.textBoxItemId_TextChanged);
             // 
             // labelItemId
             // 
@@ -198,7 +252,6 @@
             this.labelItemId.Size = new System.Drawing.Size(54, 17);
             this.labelItemId.TabIndex = 1;
             this.labelItemId.Text = "Item ID";
-            this.labelItemId.Click += new System.EventHandler(this.labelItemId_Click);
             // 
             // label1
             // 
@@ -210,7 +263,6 @@
             this.label1.Size = new System.Drawing.Size(82, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "ITEM";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridViewItem
             // 
@@ -270,66 +322,6 @@
             this.buttonItemClear.UseVisualStyleBackColor = false;
             this.buttonItemClear.Click += new System.EventHandler(this.buttonItemClear_Click);
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(14, 571);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(168, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // buttonAddCatagory
-            // 
-            this.buttonAddCatagory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.buttonAddCatagory.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddCatagory.Location = new System.Drawing.Point(18, 308);
-            this.buttonAddCatagory.Name = "buttonAddCatagory";
-            this.buttonAddCatagory.Size = new System.Drawing.Size(112, 32);
-            this.buttonAddCatagory.TabIndex = 14;
-            this.buttonAddCatagory.Text = "ADD CATAGORY";
-            this.buttonAddCatagory.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(17, 393);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 32);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "ADD CATAGORY";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // labelItemTotal
-            // 
-            this.labelItemTotal.AutoSize = true;
-            this.labelItemTotal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelItemTotal.ForeColor = System.Drawing.Color.White;
-            this.labelItemTotal.Location = new System.Drawing.Point(15, 494);
-            this.labelItemTotal.Name = "labelItemTotal";
-            this.labelItemTotal.Size = new System.Drawing.Size(73, 17);
-            this.labelItemTotal.TabIndex = 19;
-            this.labelItemTotal.Text = "Total Price";
-            // 
-            // textBoxItemTotal
-            // 
-            this.textBoxItemTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBoxItemTotal.Location = new System.Drawing.Point(16, 514);
-            this.textBoxItemTotal.Name = "textBoxItemTotal";
-            this.textBoxItemTotal.Size = new System.Drawing.Size(171, 20);
-            this.textBoxItemTotal.TabIndex = 18;
-            // 
             // FormItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,8 +340,8 @@
             this.Load += new System.EventHandler(this.Item_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,8 +367,8 @@
         private System.Windows.Forms.Label labelItemQuantity;
         private System.Windows.Forms.ComboBox comboBoxItemCatagory;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxSupplierName;
+        private System.Windows.Forms.Button buttonAddPrice;
         private System.Windows.Forms.Button buttonAddCatagory;
         private System.Windows.Forms.Label labelItemTotal;
         private System.Windows.Forms.TextBox textBoxItemTotal;

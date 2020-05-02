@@ -103,7 +103,6 @@ namespace Construction_Management_System.Gui_Design
             this.labelClientEmail.Size = new System.Drawing.Size(45, 19);
             this.labelClientEmail.TabIndex = 21;
             this.labelClientEmail.Text = "Email";
-            this.labelClientEmail.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // textBoxClientAddress
             // 
@@ -113,7 +112,6 @@ namespace Construction_Management_System.Gui_Design
             this.textBoxClientAddress.Name = "textBoxClientAddress";
             this.textBoxClientAddress.Size = new System.Drawing.Size(152, 56);
             this.textBoxClientAddress.TabIndex = 4;
-            this.textBoxClientAddress.TextChanged += new System.EventHandler(this.textBoxSupplierAddress_TextChanged);
             // 
             // labelSupplierAddress
             // 
@@ -126,7 +124,6 @@ namespace Construction_Management_System.Gui_Design
             this.labelSupplierAddress.Size = new System.Drawing.Size(63, 19);
             this.labelSupplierAddress.TabIndex = 19;
             this.labelSupplierAddress.Text = "Address";
-            this.labelSupplierAddress.Click += new System.EventHandler(this.labelSupplierAddress_Click);
             // 
             // textBoxClientEmail
             // 
@@ -187,7 +184,6 @@ namespace Construction_Management_System.Gui_Design
             this.labelClientId.Size = new System.Drawing.Size(65, 19);
             this.labelClientId.TabIndex = 12;
             this.labelClientId.Text = "Client ID";
-            this.labelClientId.Click += new System.EventHandler(this.labelSupplierId_Click);
             // 
             // labelClient
             // 
@@ -199,7 +195,6 @@ namespace Construction_Management_System.Gui_Design
             this.labelClient.Size = new System.Drawing.Size(123, 50);
             this.labelClient.TabIndex = 0;
             this.labelClient.Text = "Client";
-            this.labelClient.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonClientClear
             // 

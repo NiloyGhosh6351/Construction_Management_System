@@ -184,7 +184,6 @@
             this.labelUser.Size = new System.Drawing.Size(141, 37);
             this.labelUser.TabIndex = 0;
             this.labelUser.Text = "SUPPLIER";
-            this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
             // 
             // dataGridViewSupplier
             // 

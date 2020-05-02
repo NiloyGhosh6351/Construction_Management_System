@@ -16,18 +16,11 @@ namespace Construction_Management_System.Gui_Design
         {
             InitializeComponent();
         }
-
-        private void FormManager_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonHomeItem_Click(object sender, EventArgs e)
         {
             Item_Manager openform = new Item_Manager();
             openform.Show();
             this.Hide();
-
         }
 
         private void buttonClient_Click(object sender, EventArgs e)
@@ -50,6 +43,36 @@ namespace Construction_Management_System.Gui_Design
             Login f1 = new Login();
             f1.Show();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Sales open = new Sales();
+            open.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transport_Manager openform = new Transport_Manager();
+            openform.Show();
+            this.Hide();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SalesReport_Manager openform = new SalesReport_Manager();
+            openform.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Storage_Manager openform = new Storage_Manager();
+            openform.Show();
+            this.Hide();
+
         }
     }
 }

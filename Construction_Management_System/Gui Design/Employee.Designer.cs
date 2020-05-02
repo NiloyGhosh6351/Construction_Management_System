@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelEmployee = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBoxEmpCatagory = new System.Windows.Forms.ComboBox();
             this.textBoxEmpAddress = new System.Windows.Forms.TextBox();
             this.labelEmpAddress = new System.Windows.Forms.Label();
@@ -47,10 +48,9 @@
             this.buttonIEmpDelete = new System.Windows.Forms.Button();
             this.buttonEmpUpdate = new System.Windows.Forms.Button();
             this.buttonEmpAdd = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEmployee.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEmployee
@@ -74,6 +74,17 @@
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(200, 522);
             this.panelEmployee.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // comboBoxEmpCatagory
             // 
@@ -201,7 +212,6 @@
             this.labelEmployee.Size = new System.Drawing.Size(150, 37);
             this.labelEmployee.TabIndex = 0;
             this.labelEmployee.Text = "EMPLOYEE";
-            this.labelEmployee.Click += new System.EventHandler(this.labelEmployee_Click);
             // 
             // dataGridViewEmp
             // 
@@ -261,17 +271,6 @@
             this.buttonEmpAdd.UseVisualStyleBackColor = false;
             this.buttonEmpAdd.Click += new System.EventHandler(this.buttonEmpAdd_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,8 +289,8 @@
             this.Load += new System.EventHandler(this.FormEmployee_Load);
             this.panelEmployee.ResumeLayout(false);
             this.panelEmployee.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();
             this.ResumeLayout(false);
 
         }

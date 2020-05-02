@@ -16,5 +16,18 @@ namespace Construction_Management_System.Gui_Design
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormManager f1 = new FormManager();
+            f1.Show();
+            this.Hide();
+        }
     }
 }

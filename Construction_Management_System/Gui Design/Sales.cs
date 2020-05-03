@@ -166,48 +166,67 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql2 = string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}",comboBoxSalesItem.Text,textBoxSalesId.Text);
-                DataTable dt4 = new DataTable();
-                SqlConnection con = new SqlConnection(Connectionstring);
-                SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
-                sqlcmd2.Connection.Open();
-                dt4.Load(sqlcmd2.ExecuteReader());
-                sqlcmd2.Connection.Close();
-                if (dt4.Rows.Count==0)
+                string sql3 = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxSalesItem.Text);
+                SqlConnection con2 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd3 = new SqlCommand(sql3, con2);
+                DataTable dt5 = new DataTable();
+                sqlcmd3.Connection.Open();
+                dt5.Load(sqlcmd3.ExecuteReader());
+                sqlcmd3.Connection.Close();
+                MessageBox.Show(dt5.Rows[0][0].ToString());
+                double totalQuantity = Convert.ToDouble(dt5.Rows[0][0].ToString());
+                double currentQuantity = Convert.ToDouble(textBoxSalesQuantity.Text);
+                if (totalQuantity>=currentQuantity)
                 {
-                    if (textBoxAfterDiscount.Text == "")
+                    string sql2 = string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}", comboBoxSalesItem.Text, textBoxSalesId.Text);
+                    DataTable dt4 = new DataTable();
+                    SqlConnection con = new SqlConnection(Connectionstring);
+                    SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
+                    sqlcmd2.Connection.Open();
+                    dt4.Load(sqlcmd2.ExecuteReader());
+                    sqlcmd2.Connection.Close();
+                    if (dt4.Rows.Count == 0)
                     {
-                        totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
-                    }
-                    string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount_Price, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text);
-                    SqlCommand sqlcmd = new SqlCommand(sql, con);
-                    DataTable dt = new DataTable();
-                    sqlcmd.Connection.Open();
-                    sqlcmd.ExecuteNonQuery();
-                    sqlcmd.Connection.Close();
-                    display_dataSales();
-                    MessageBox.Show("ADDED SUCCESSFULLY");
-                    textBoxDiscount.Text = "";
-                    textBoxDiscountPrice.Text = "";
-                    textBoxSalesQuantity.Text = "";
-                    textBoxSalesPrice.Text = "";
-                    textBoxSalesTotal.Text = "";
-                    comboBoxSalesItem.Text = "";
+                        if (textBoxAfterDiscount.Text == "")
+                        {
+                            totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
+                        }
+                        string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount_Price, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text);
+                        SqlCommand sqlcmd = new SqlCommand(sql, con);
+                        DataTable dt = new DataTable();
+                        sqlcmd.Connection.Open();
+                        sqlcmd.ExecuteNonQuery();
+                        sqlcmd.Connection.Close();
+                        display_dataSales();
+                        MessageBox.Show("ADDED SUCCESSFULLY");
+                        textBoxDiscount.Text = "";
+                        textBoxDiscountPrice.Text = "";
+                        textBoxSalesQuantity.Text = "";
+                        textBoxSalesPrice.Text = "";
+                        textBoxSalesTotal.Text = "";
+                        comboBoxSalesItem.Text = "";
 
-                    caltotal();
-                    textBoxAfterDiscount.Text = "";
+                        caltotal();
+                        textBoxAfterDiscount.Text = "";
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("DUPLICATE ITEM CANNOT BE INSERTED");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("DUPLICATE ITEM CANNOT BE INSERTED");
+                    MessageBox.Show("Do not have enough quantity!!");
                 }
-                
+
             }
             catch (Exception o)
             {
                 MessageBox.Show("SELECTED DUPLICATE ITEM");
             }
-            
+
         }
 
         private void textBoxDiscount_TextChanged(object sender, EventArgs e)
@@ -330,6 +349,26 @@ namespace Construction_Management_System.Gui_Design
                     {
 
 
+                    }
+                    for (int i = 0; i < dataGridViewTotal.Rows.Count-1; i++)
+                    {
+                        string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", dataGridViewTotal.Rows[i].Cells[0].Value);
+                        SqlConnection con1 = new SqlConnection(Connectionstring);
+                        SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                        DataTable dt1 = new DataTable();
+                        sqlcmd.Connection.Open();
+                        dt1.Load(sqlcmd.ExecuteReader());
+                        sqlcmd.Connection.Close();
+
+                        double currnetQuantity = Convert.ToDouble(dt1.Rows[0][0].ToString());
+                        double newTotal = currnetQuantity - Convert.ToDouble(dataGridViewTotal.Rows[i].Cells[2].Value);
+
+                        string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, dataGridViewTotal.Rows[i].Cells[0].Value);
+                        SqlConnection con3 = new SqlConnection(Connectionstring);
+                        SqlCommand sqlcmd3 = new SqlCommand(sq2, con3);
+                        sqlcmd3.Connection.Open();
+                        sqlcmd3.ExecuteNonQuery();
+                        sqlcmd3.Connection.Close();
                     }
                     refreshTable2();
                     dataGridViewTotal.DataSource = null;
@@ -489,6 +528,8 @@ namespace Construction_Management_System.Gui_Design
             }
             
         }
+
+       
 
         public void refreshTable2()
         {

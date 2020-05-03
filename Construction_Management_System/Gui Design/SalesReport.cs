@@ -15,19 +15,20 @@ namespace Construction_Management_System
     public partial class FormSalesReport : Form
     {
         string Connectionstring;
-        public FormSalesReport()
+        Form prevForm;
+        public FormSalesReport(Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
             string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
+            this.prevForm = form;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
+            prevForm.Show();
             this.Hide();
         }
 

@@ -62,7 +62,7 @@ namespace Construction_Management_System.Gui_Design
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SalesReport_Manager openform = new SalesReport_Manager();
+            FormSalesReport openform = new FormSalesReport(this);
             openform.Show();
             this.Hide();
         }

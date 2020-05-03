@@ -45,7 +45,7 @@ namespace Construction_Management_System
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            FormSalesReport opensalesReport = new FormSalesReport();
+            FormSalesReport opensalesReport = new FormSalesReport(this);
             opensalesReport.Show();
             this.Hide();
         }

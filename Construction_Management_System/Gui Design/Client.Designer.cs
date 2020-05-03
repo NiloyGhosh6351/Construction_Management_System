@@ -252,6 +252,7 @@ namespace Construction_Management_System.Gui_Design
             // 
             this.dataGridViewClient.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClient.GridColor = System.Drawing.SystemColors.ControlText;
             this.dataGridViewClient.Location = new System.Drawing.Point(236, 46);
             this.dataGridViewClient.Name = "dataGridViewClient";
             this.dataGridViewClient.Size = new System.Drawing.Size(510, 345);

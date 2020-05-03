@@ -51,6 +51,11 @@ namespace Construction_Management_System.Gui_Design
                             this.Hide();
                         }
                    }
+
+                    if (dt1.Rows[i]["UserType"].ToString() != combovalue)
+                    {
+                        MessageBox.Show("Select Correct User Type");
+                    }
                 }
             }
 

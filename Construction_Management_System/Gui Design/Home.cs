@@ -75,6 +75,13 @@ namespace Construction_Management_System
 
         private void button5_Click(object sender, EventArgs e)
         {
+           // Storage openform = new Storage();
+           // openform.Show();
+            //this.Hide();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
             Storage openform = new Storage();
             openform.Show();
             this.Hide();

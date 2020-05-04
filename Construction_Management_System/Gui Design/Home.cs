@@ -21,7 +21,7 @@ namespace Construction_Management_System
         {
             FormItem openform = new FormItem();
             openform.Show();
-            this.Hide();          
+            this.Hide();
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -38,10 +38,10 @@ namespace Construction_Management_System
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            FormSupplier openSupplier = new FormSupplier();
+            FormSupplier openSupplier = new FormSupplier(this);
             openSupplier.Show();
             this.Hide();
-            
+
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -63,7 +63,7 @@ namespace Construction_Management_System
             this.Hide();
         }
 
-     
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -75,15 +75,8 @@ namespace Construction_Management_System
 
         private void button5_Click(object sender, EventArgs e)
         {
-           // Storage openform = new Storage();
-           // openform.Show();
-            //this.Hide();
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            Storage openform = new Storage();
-            openform.Show();
+            Storage storage = new Storage(this);
+            storage.Show();
             this.Hide();
         }
     }

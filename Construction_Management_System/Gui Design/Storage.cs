@@ -15,21 +15,22 @@ namespace Construction_Management_System.Gui_Design
     public partial class Storage : Form
     {
         string Connectionstring;
-        public Storage()
+        Form prevForm1;
+        public Storage(Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
             string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
-
+            this.prevForm1 = form;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
+            prevForm1.Show();
             this.Hide();
+
         }
 
         private void Storage_Load(object sender, EventArgs e)

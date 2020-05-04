@@ -118,29 +118,11 @@
     <Compile Include="Gui Design\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui Design\SalesReport_Manager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui Design\SalesReport_Manager.Designer.cs">
-      <DependentUpon>SalesReport_Manager.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui Design\Storage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gui Design\Storage.Designer.cs">
       <DependentUpon>Storage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui Design\Storage_Manager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui Design\Storage_Manager.Designer.cs">
-      <DependentUpon>Storage_Manager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui Design\Supplier_Manager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui Design\Supplier_Manager.Designer.cs">
-      <DependentUpon>Supplier_Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui Design\Transport.cs">
       <SubType>Form</SubType>
@@ -210,17 +192,8 @@
     <EmbeddedResource Include="Gui Design\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui Design\SalesReport_Manager.resx">
-      <DependentUpon>SalesReport_Manager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Storage.resx">
       <DependentUpon>Storage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui Design\Storage_Manager.resx">
-      <DependentUpon>Storage_Manager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui Design\Supplier_Manager.resx">
-      <DependentUpon>Supplier_Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui Design\Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>

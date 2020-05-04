@@ -32,7 +32,7 @@ namespace Construction_Management_System.Gui_Design
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Supplier_Manager openform = new Supplier_Manager();
+            FormSupplier openform = new FormSupplier(this);
             openform.Show();
             this.Hide();
         }
@@ -69,7 +69,7 @@ namespace Construction_Management_System.Gui_Design
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Storage_Manager openform = new Storage_Manager();
+            Storage openform = new Storage(this);
             openform.Show();
             this.Hide();
 

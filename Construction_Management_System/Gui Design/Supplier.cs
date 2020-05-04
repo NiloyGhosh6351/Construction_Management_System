@@ -16,7 +16,8 @@ namespace Construction_Management_System
     {
         string Connectionstring;
         int selectedRow;
-        public FormSupplier()
+        Form prevForm2;
+        public FormSupplier( Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
@@ -24,6 +25,7 @@ namespace Construction_Management_System
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewSupplier.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSupplier.MultiSelect = false;
+            this.prevForm2 = form;
         }      
         private void FormSupplier_Load(object sender, EventArgs e)
         {         
@@ -165,8 +167,7 @@ namespace Construction_Management_System
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
+            prevForm2.Show();
             this.Hide();
         }
     }

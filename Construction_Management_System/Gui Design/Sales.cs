@@ -529,7 +529,12 @@ namespace Construction_Management_System.Gui_Design
             
         }
 
-       
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            Storage storage = new Storage(this);
+            storage.Show();
+            this.Hide();
+        }
 
         public void refreshTable2()
         {

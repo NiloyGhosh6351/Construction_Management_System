@@ -68,15 +68,20 @@
             this.comboBoxSalesItem = new System.Windows.Forms.ComboBox();
             this.textBoxClientName = new System.Windows.Forms.TextBox();
             this.textBoxSalesId = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSales
             // 
             this.panelSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panelSales.Controls.Add(this.label6);
+            this.panelSales.Controls.Add(this.pictureBox8);
             this.panelSales.Controls.Add(this.textBoxAfterDiscount);
             this.panelSales.Controls.Add(this.label5);
             this.panelSales.Controls.Add(this.label4);
@@ -147,7 +152,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(463, 279);
+            this.label4.Location = new System.Drawing.Point(463, 281);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 17);
             this.label4.TabIndex = 47;
@@ -155,14 +160,14 @@
             // 
             // textBoxSalesAvailable
             // 
-            this.textBoxSalesAvailable.Location = new System.Drawing.Point(466, 299);
+            this.textBoxSalesAvailable.Location = new System.Drawing.Point(466, 301);
             this.textBoxSalesAvailable.Name = "textBoxSalesAvailable";
             this.textBoxSalesAvailable.Size = new System.Drawing.Size(121, 20);
             this.textBoxSalesAvailable.TabIndex = 10;
             // 
             // buttonBooked
             // 
-            this.buttonBooked.Location = new System.Drawing.Point(236, 326);
+            this.buttonBooked.Location = new System.Drawing.Point(236, 328);
             this.buttonBooked.Name = "buttonBooked";
             this.buttonBooked.Size = new System.Drawing.Size(75, 23);
             this.buttonBooked.TabIndex = 44;
@@ -373,7 +378,7 @@
             // comboBoxTransportation
             // 
             this.comboBoxTransportation.FormattingEnabled = true;
-            this.comboBoxTransportation.Location = new System.Drawing.Point(236, 299);
+            this.comboBoxTransportation.Location = new System.Drawing.Point(236, 301);
             this.comboBoxTransportation.Name = "comboBoxTransportation";
             this.comboBoxTransportation.Size = new System.Drawing.Size(176, 21);
             this.comboBoxTransportation.TabIndex = 9;
@@ -384,7 +389,7 @@
             this.labelTransportation.AutoSize = true;
             this.labelTransportation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTransportation.ForeColor = System.Drawing.Color.White;
-            this.labelTransportation.Location = new System.Drawing.Point(233, 279);
+            this.labelTransportation.Location = new System.Drawing.Point(233, 281);
             this.labelTransportation.Name = "labelTransportation";
             this.labelTransportation.Size = new System.Drawing.Size(99, 17);
             this.labelTransportation.TabIndex = 22;
@@ -509,11 +514,33 @@
             this.textBoxSalesId.Size = new System.Drawing.Size(121, 20);
             this.textBoxSalesId.TabIndex = 0;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.pictureBox8.Image = global::Construction_Management_System.Properties.Resources.storage1;
+            this.pictureBox8.Location = new System.Drawing.Point(507, 204);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 51;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(504, 246);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 17);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Stroage";
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1156, 824);
+            this.ClientSize = new System.Drawing.Size(1028, 749);
             this.Controls.Add(this.panelSales);
             this.Name = "Sales";
             this.Text = "Sales";
@@ -523,6 +550,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -569,5 +597,7 @@
         private System.Windows.Forms.TextBox textBoxAfterDiscount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

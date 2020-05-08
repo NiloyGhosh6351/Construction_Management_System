@@ -15,7 +15,8 @@ namespace Construction_Management_System.Gui_Design
     public partial class FormClient : Form
     {
         string Connectionstring;
-        public FormClient()
+        Form prevForm2;
+        public FormClient(Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
@@ -23,6 +24,7 @@ namespace Construction_Management_System.Gui_Design
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClient.MultiSelect = false;
+            this.prevForm2 = form;
         }
         int selectedRow;
 
@@ -41,9 +43,8 @@ namespace Construction_Management_System.Gui_Design
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
-            this.Hide(); ;
+            prevForm2.Show();
+            this.Hide();
         }
 
         private void buttonClientAdd_Click(object sender, EventArgs e)

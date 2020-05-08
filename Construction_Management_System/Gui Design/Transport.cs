@@ -16,7 +16,8 @@ namespace Construction_Management_System.Gui_Design
     {
         string Connectionstring;
         int selectedRow;
-        public Transport()
+        Form prevForm3;
+        public Transport(Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
@@ -24,13 +25,13 @@ namespace Construction_Management_System.Gui_Design
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewTran.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTran.MultiSelect = false;
+            this.prevForm3 = form;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
+            prevForm3.Show();
             this.Hide();
         }
 

@@ -25,8 +25,8 @@ namespace Construction_Management_System.Gui_Design
 
         private void buttonClient_Click(object sender, EventArgs e)
         {
-            Client_Manager openform = new Client_Manager();
-            openform.Show();
+            FormClient OpenClient = new FormClient(this);
+            OpenClient.Show();
             this.Hide();
         }
 
@@ -54,10 +54,9 @@ namespace Construction_Management_System.Gui_Design
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Transport_Manager openform = new Transport_Manager();
+            Transport openform = new Transport(this);
             openform.Show();
             this.Hide();
-
         }
 
         private void button4_Click(object sender, EventArgs e)

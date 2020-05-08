@@ -51,7 +51,7 @@ namespace Construction_Management_System
         }
         private void buttonClient_Click(object sender, EventArgs e)
         {
-            FormClient OpenClient = new FormClient();
+            FormClient OpenClient = new FormClient(this);
             OpenClient.Show();
             this.Hide();
         }
@@ -67,7 +67,7 @@ namespace Construction_Management_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Transport openform = new Transport();
+            Transport openform = new Transport(this);
             openform.Show();
             this.Hide();
 

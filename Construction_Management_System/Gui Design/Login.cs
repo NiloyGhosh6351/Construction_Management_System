@@ -30,13 +30,13 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter sda = new SqlDataAdapter(sql,Connectionstring);
             DataTable dt1 = new DataTable();
             sda.Fill(dt1);
-            string combovalue = comboBoxLLoginUserType.SelectedItem.ToString();
+            string combovalue = comboBoxLLoginUserType.Text.ToString();
             if (dt1.Rows.Count > 0)
             {
                 for (int i = 0; i < dt1.Rows.Count; i++)
                 {
-                   if (dt1.Rows[i]["UserType"].ToString() == combovalue)
-                   {
+                    if (dt1.Rows[i]["UserType"].ToString() == combovalue)
+                    {
                         MessageBox.Show("YOU ARE LOGIN AS " + dt1.Rows[i][2]);
                         if (comboBoxLLoginUserType.SelectedIndex == 0)
                         {
@@ -50,11 +50,11 @@ namespace Construction_Management_System.Gui_Design
                             i1.Show();
                             this.Hide();
                         }
-                   }
+                    }
 
                     if (dt1.Rows[i]["UserType"].ToString() != combovalue)
                     {
-                        MessageBox.Show("Select Correct User Type");
+                        MessageBox.Show("SELECT CORRECT USER TYPE");
                     }
                 }
             }
@@ -63,6 +63,7 @@ namespace Construction_Management_System.Gui_Design
             {
                 MessageBox.Show("LOGIN FAILED");
             }
+            
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -70,6 +71,11 @@ namespace Construction_Management_System.Gui_Design
             textBoxLoginUser.Text = "";
             textBoxUserPassword.Text = "";
             comboBoxLLoginUserType.Text="";
+        }
+
+        private void labelHead_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

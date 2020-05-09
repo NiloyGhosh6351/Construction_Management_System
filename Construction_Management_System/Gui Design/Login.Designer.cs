@@ -55,7 +55,7 @@
             this.panelLogin.Controls.Add(this.textBoxLoginUser);
             this.panelLogin.Controls.Add(this.labelUsername);
             this.panelLogin.Location = new System.Drawing.Point(-1, -2);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(337, 636);
             this.panelLogin.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             this.buttonReset.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonReset.Location = new System.Drawing.Point(197, 463);
-            this.buttonReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(100, 28);
             this.buttonReset.TabIndex = 7;
@@ -77,7 +77,7 @@
             this.buttonLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonLogin.Location = new System.Drawing.Point(40, 462);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(100, 28);
             this.buttonLogin.TabIndex = 6;
@@ -92,7 +92,7 @@
             "Admin",
             "Manager"});
             this.comboBoxLLoginUserType.Location = new System.Drawing.Point(37, 400);
-            this.comboBoxLLoginUserType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxLLoginUserType.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxLLoginUserType.Name = "comboBoxLLoginUserType";
             this.comboBoxLLoginUserType.Size = new System.Drawing.Size(265, 24);
             this.comboBoxLLoginUserType.TabIndex = 2;
@@ -112,7 +112,7 @@
             // textBoxUserPassword
             // 
             this.textBoxUserPassword.Location = new System.Drawing.Point(37, 322);
-            this.textBoxUserPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUserPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserPassword.Name = "textBoxUserPassword";
             this.textBoxUserPassword.Size = new System.Drawing.Size(265, 22);
             this.textBoxUserPassword.TabIndex = 1;
@@ -133,7 +133,7 @@
             // textBoxLoginUser
             // 
             this.textBoxLoginUser.Location = new System.Drawing.Point(37, 244);
-            this.textBoxLoginUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLoginUser.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLoginUser.Name = "textBoxLoginUser";
             this.textBoxLoginUser.Size = new System.Drawing.Size(265, 22);
             this.textBoxLoginUser.TabIndex = 0;
@@ -155,20 +155,21 @@
             this.labelHead.AutoSize = true;
             this.labelHead.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHead.ForeColor = System.Drawing.Color.White;
-            this.labelHead.Location = new System.Drawing.Point(344, 305);
+            this.labelHead.Location = new System.Drawing.Point(379, 71);
             this.labelHead.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHead.Name = "labelHead";
             this.labelHead.Size = new System.Drawing.Size(627, 41);
             this.labelHead.TabIndex = 3;
             this.labelHead.Text = "Constraction Material Management System";
+            this.labelHead.Click += new System.EventHandler(this.labelHead_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.Main_Pic;
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.photo_1535732759880_bbd5c7265e3f;
             this.pictureBox1.Location = new System.Drawing.Point(333, 1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(704, 633);
+            this.pictureBox1.Size = new System.Drawing.Size(779, 633);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -178,11 +179,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1028, 635);
+            this.ClientSize = new System.Drawing.Size(1111, 635);
             this.Controls.Add(this.labelHead);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelLogin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

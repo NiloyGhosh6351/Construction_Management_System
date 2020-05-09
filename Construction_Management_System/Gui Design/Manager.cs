@@ -73,5 +73,12 @@ namespace Construction_Management_System.Gui_Design
             this.Hide();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormEmployee openEmployee = new FormEmployee(this);
+            openEmployee.Show();
+            this.Hide();
+        }
     }
 }

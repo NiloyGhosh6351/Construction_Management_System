@@ -163,6 +163,16 @@ namespace Construction_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap owner4 {
+            get {
+                object obj = ResourceManager.GetObject("owner4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap photo_1535732759880_bbd5c7265e3f {
             get {
                 object obj = ResourceManager.GetObject("photo-1535732759880-bbd5c7265e3f", resourceCulture);
@@ -266,6 +276,16 @@ namespace Construction_Management_System.Properties {
         internal static System.Drawing.Bitmap transportation {
             get {
                 object obj = ResourceManager.GetObject("transportation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transportation1 {
+            get {
+                object obj = ResourceManager.GetObject("transportation1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

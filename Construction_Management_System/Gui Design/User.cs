@@ -142,28 +142,35 @@ namespace Construction_Management_System
 
         private void dataGridViewUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewUser.Rows[selectedRow];
-            textBoxUserId.Text = row.Cells[0].Value.ToString();
-            textBoxName.Text = row.Cells[1].Value.ToString();
-            textBoxUserName.Text = row.Cells[2].Value.ToString();
-            textBoxUserPassword.Text = row.Cells[3].Value.ToString();
-            textBoxUserContact.Text = row.Cells[5].Value.ToString();
-            textBoxUserAddress.Text = row.Cells[6].Value.ToString();
-            string aa = row.Cells[4].Value.ToString().ToUpper();
-            string a;
-            if (row.Cells[3].Value.ToString().ToUpper() != comboBoxUserType.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxUserType.Items.Count; i++)
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewUser.Rows[selectedRow];
+                textBoxUserId.Text = row.Cells[0].Value.ToString();
+                textBoxName.Text = row.Cells[1].Value.ToString();
+                textBoxUserName.Text = row.Cells[2].Value.ToString();
+                textBoxUserPassword.Text = row.Cells[3].Value.ToString();
+                textBoxUserContact.Text = row.Cells[5].Value.ToString();
+                textBoxUserAddress.Text = row.Cells[6].Value.ToString();
+                string aa = row.Cells[4].Value.ToString().ToUpper();
+                string a;
+                if (row.Cells[3].Value.ToString().ToUpper() != comboBoxUserType.Text.ToUpper())
                 {
-                    a = comboBoxUserType.GetItemText(comboBoxUserType.Items[i]).ToUpper();
-
-                    if (aa == a)
+                    for (int i = 0; i < comboBoxUserType.Items.Count; i++)
                     {
-                        comboBoxUserType.SelectedIndex = i;
-                        break;
+                        a = comboBoxUserType.GetItemText(comboBoxUserType.Items[i]).ToUpper();
+
+                        if (aa == a)
+                        {
+                            comboBoxUserType.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
+            }
+            catch(Exception exe)
+            {
+                MessageBox.Show("Please select  valid row!!");
             }
         }
 

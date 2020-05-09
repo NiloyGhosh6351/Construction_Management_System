@@ -16,7 +16,8 @@ namespace Construction_Management_System
     {
         string Connectionstring;
         int selectedRow;
-        public FormEmployee()
+        Form prevForm4;
+        public FormEmployee(Form form)
         {
             InitializeComponent();
             string currentLocation = Directory.GetCurrentDirectory();
@@ -24,6 +25,7 @@ namespace Construction_Management_System
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewEmp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewEmp.MultiSelect = false;
+            this.prevForm4 = form;
         }
         private void FormEmployee_Load(object sender, EventArgs e)
         {
@@ -139,9 +141,6 @@ namespace Construction_Management_System
             }
             
         }
-
-
-
         private void dataGridViewEmp_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedRow = e.RowIndex;
@@ -153,7 +152,7 @@ namespace Construction_Management_System
             textBoxEmpAddress.Text = row.Cells[5].Value.ToString();
             string aa = row.Cells[3].Value.ToString().ToUpper();
             string a;
-            if (row.Cells[3].Value.ToString().ToUpper() != comboBoxEmpCatagory.Text.ToUpper())
+            if (aa!= comboBoxEmpCatagory.Text.ToUpper())
             {
                 for (int i = 0; i < comboBoxEmpCatagory.Items.Count; i++)
                 {
@@ -171,8 +170,7 @@ namespace Construction_Management_System
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormHome f1 = new FormHome();
-            f1.Show();
+            prevForm4.Show();
             this.Hide();
         }
     }

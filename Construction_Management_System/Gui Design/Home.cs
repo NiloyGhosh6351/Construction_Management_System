@@ -32,7 +32,7 @@ namespace Construction_Management_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormEmployee openEmployee = new FormEmployee();
+            FormEmployee openEmployee = new FormEmployee(this);
             openEmployee.Show();
             this.Hide();
         }

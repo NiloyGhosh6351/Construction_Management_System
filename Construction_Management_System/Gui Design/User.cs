@@ -170,7 +170,7 @@ namespace Construction_Management_System
             }
             catch(Exception exe)
             {
-                MessageBox.Show("Please select  valid row!!");
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
             }
         }
 

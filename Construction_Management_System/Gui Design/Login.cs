@@ -72,10 +72,5 @@ namespace Construction_Management_System.Gui_Design
             textBoxUserPassword.Text = "";
             comboBoxLLoginUserType.Text="";
         }
-
-        private void labelHead_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -79,5 +79,10 @@ namespace Construction_Management_System
             storage.Show();
             this.Hide();
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

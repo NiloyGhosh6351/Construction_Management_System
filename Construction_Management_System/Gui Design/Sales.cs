@@ -449,64 +449,72 @@ namespace Construction_Management_System.Gui_Design
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[selectedRow];
-            textBoxSalesId.Text = row.Cells[0].Value.ToString();
-            comboBoxClientId.Text = row.Cells[1].Value.ToString();
-            textBoxClientName.Text = row.Cells[2].Value.ToString();
-            textBoxClientContact.Text = row.Cells[3].Value.ToString();
-            comboBoxTransportation.Text = row.Cells[4].Value.ToString();
-            comboBoxSalesItem.Text = row.Cells[6].Value.ToString();
-            textBoxSalesPrice.Text = row.Cells[7].Value.ToString();
-            textBoxSalesQuantity.Text = row.Cells[8].Value.ToString();
-            textBoxDiscountPrice.Text = row.Cells[9].Value.ToString();
-            textBoxSalesTotal.Text = row.Cells[10].Value.ToString();
-            string bb = row.Cells[4].Value.ToString().ToUpper();
-            string cc = row.Cells[6].Value.ToString().ToUpper();
-            string aa = row.Cells[1].Value.ToString().ToUpper();
-            string a;
-            if (aa != comboBoxClientId.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxClientId.Items.Count; i++)
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[selectedRow];
+                textBoxSalesId.Text = row.Cells[0].Value.ToString();
+                comboBoxClientId.Text = row.Cells[1].Value.ToString();
+                textBoxClientName.Text = row.Cells[2].Value.ToString();
+                textBoxClientContact.Text = row.Cells[3].Value.ToString();
+                comboBoxTransportation.Text = row.Cells[4].Value.ToString();
+                comboBoxSalesItem.Text = row.Cells[6].Value.ToString();
+                textBoxSalesPrice.Text = row.Cells[7].Value.ToString();
+                textBoxSalesQuantity.Text = row.Cells[8].Value.ToString();
+                textBoxDiscountPrice.Text = row.Cells[9].Value.ToString();
+                textBoxSalesTotal.Text = row.Cells[10].Value.ToString();
+                string bb = row.Cells[4].Value.ToString().ToUpper();
+                string cc = row.Cells[6].Value.ToString().ToUpper();
+                string aa = row.Cells[1].Value.ToString().ToUpper();
+                string a;
+                if (aa != comboBoxClientId.Text.ToUpper())
                 {
-                    a = comboBoxClientId.GetItemText(comboBoxClientId.Items[i]).ToUpper();
-
-                    if (aa == a)
+                    for (int i = 0; i < comboBoxClientId.Items.Count; i++)
                     {
-                        comboBoxClientId.SelectedIndex = i;
-                        break;
+                        a = comboBoxClientId.GetItemText(comboBoxClientId.Items[i]).ToUpper();
+
+                        if (aa == a)
+                        {
+                            comboBoxClientId.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+
+                string b;
+                if (bb != comboBoxTransportation.Text.ToUpper())
+                {
+                    for (int i = 0; i < comboBoxTransportation.Items.Count; i++)
+                    {
+                        b = comboBoxTransportation.GetItemText(comboBoxTransportation.Items[i]).ToUpper();
+
+                        if (bb == b)
+                        {
+                            comboBoxTransportation.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+                string c;
+                if (cc != comboBoxSalesItem.Text.ToUpper())
+                {
+                    for (int i = 0; i < comboBoxSalesItem.Items.Count; i++)
+                    {
+                        c = comboBoxSalesItem.GetItemText(comboBoxSalesItem.Items[i]).ToUpper();
+
+                        if (cc == c)
+                        {
+                            comboBoxSalesItem.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
-
-            string b;
-            if (bb != comboBoxTransportation.Text.ToUpper())
+            catch (Exception exe)
             {
-                for (int i = 0; i < comboBoxTransportation.Items.Count; i++)
-                {
-                    b = comboBoxTransportation.GetItemText(comboBoxTransportation.Items[i]).ToUpper();
-
-                    if (bb == b)
-                    {
-                        comboBoxTransportation.SelectedIndex = i;
-                        break;
-                    }
-                }
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
             }
-            string c;
-            if (cc != comboBoxSalesItem.Text.ToUpper())
-            {
-                for (int i = 0; i < comboBoxSalesItem.Items.Count; i++)
-                {
-                    c = comboBoxSalesItem.GetItemText(comboBoxSalesItem.Items[i]).ToUpper();
-
-                    if (cc == c)
-                    {
-                        comboBoxSalesItem.SelectedIndex = i;
-                        break;
-                    }
-                }
-            }
+            
         }
 
         private void buttonSalesUpdate_Click(object sender, EventArgs e)

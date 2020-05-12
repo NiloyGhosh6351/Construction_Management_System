@@ -155,30 +155,38 @@ namespace Construction_Management_System.Gui_Design
 
         private void dataGridViewTran_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewTran.Rows[selectedRow];
-            textBoxTranId.Text = row.Cells[0].Value.ToString();
-            textBoxTranCarNumber.Text = row.Cells[1].Value.ToString();
-            textBoxTranDriverName.Text = row.Cells[2].Value.ToString();
-            textBoxTranLicence.Text = row.Cells[3].Value.ToString();
-            textBoxTranContact.Text = row.Cells[4].Value.ToString();
-            textBoxTranAddress.Text = row.Cells[5].Value.ToString();
-
-            string aa = row.Cells[6].Value.ToString().ToUpper();
-            string a;
-            if (row.Cells[6].Value.ToString().ToUpper() != comboBoxBooked.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxBooked.Items.Count; i++)
-                {
-                    a = comboBoxBooked.GetItemText(comboBoxBooked.Items[i]).ToUpper();
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewTran.Rows[selectedRow];
+                textBoxTranId.Text = row.Cells[0].Value.ToString();
+                textBoxTranCarNumber.Text = row.Cells[1].Value.ToString();
+                textBoxTranDriverName.Text = row.Cells[2].Value.ToString();
+                textBoxTranLicence.Text = row.Cells[3].Value.ToString();
+                textBoxTranContact.Text = row.Cells[4].Value.ToString();
+                textBoxTranAddress.Text = row.Cells[5].Value.ToString();
 
-                    if (aa == a)
+                string aa = row.Cells[6].Value.ToString().ToUpper();
+                string a;
+                if (row.Cells[6].Value.ToString().ToUpper() != comboBoxBooked.Text.ToUpper())
+                {
+                    for (int i = 0; i < comboBoxBooked.Items.Count; i++)
                     {
-                        comboBoxBooked.SelectedIndex = i;
-                        break;
+                        a = comboBoxBooked.GetItemText(comboBoxBooked.Items[i]).ToUpper();
+
+                        if (aa == a)
+                        {
+                            comboBoxBooked.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
+            catch (Exception exe)
+            {
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
+            }
+            
         }
     }
 }

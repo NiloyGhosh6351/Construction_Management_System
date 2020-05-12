@@ -122,10 +122,18 @@ namespace Construction_Management_System.Gui_Design
 
         private void dataGridViewCatagory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewCatagory.Rows[selectedRow];
-            textBoxCatagoryId.Text = row.Cells[0].Value.ToString();
-            textBoxCatagoryName.Text = row.Cells[1].Value.ToString();
+            try
+            {
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewCatagory.Rows[selectedRow];
+                textBoxCatagoryId.Text = row.Cells[0].Value.ToString();
+                textBoxCatagoryName.Text = row.Cells[1].Value.ToString();
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
+            }
+            
         }
 
         private void ItemCatagory_Load(object sender, EventArgs e)

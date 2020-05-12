@@ -143,28 +143,36 @@ namespace Construction_Management_System
         }
         private void dataGridViewEmp_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewEmp.Rows[selectedRow];
-            textBoxEmpId.Text = row.Cells[0].Value.ToString();
-            textBoxEmpName.Text = row.Cells[1].Value.ToString();
-            textBoxEmpSalary.Text = row.Cells[2].Value.ToString();
-            textBoxEmpContact.Text = row.Cells[4].Value.ToString();
-            textBoxEmpAddress.Text = row.Cells[5].Value.ToString();
-            string aa = row.Cells[3].Value.ToString().ToUpper();
-            string a;
-            if (aa!= comboBoxEmpCatagory.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxEmpCatagory.Items.Count; i++)
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewEmp.Rows[selectedRow];
+                textBoxEmpId.Text = row.Cells[0].Value.ToString();
+                textBoxEmpName.Text = row.Cells[1].Value.ToString();
+                textBoxEmpSalary.Text = row.Cells[2].Value.ToString();
+                textBoxEmpContact.Text = row.Cells[4].Value.ToString();
+                textBoxEmpAddress.Text = row.Cells[5].Value.ToString();
+                string aa = row.Cells[3].Value.ToString().ToUpper();
+                string a;
+                if (aa != comboBoxEmpCatagory.Text.ToUpper())
                 {
-                    a = comboBoxEmpCatagory.GetItemText(comboBoxEmpCatagory.Items[i]).ToUpper();
-
-                    if (aa == a)
+                    for (int i = 0; i < comboBoxEmpCatagory.Items.Count; i++)
                     {
-                        comboBoxEmpCatagory.SelectedIndex = i;
-                        break;
+                        a = comboBoxEmpCatagory.GetItemText(comboBoxEmpCatagory.Items[i]).ToUpper();
+
+                        if (aa == a)
+                        {
+                            comboBoxEmpCatagory.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
+            catch (Exception exe)
+            {
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
+            }
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

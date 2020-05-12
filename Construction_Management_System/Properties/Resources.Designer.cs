@@ -183,6 +183,26 @@ namespace Construction_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap photo_1535732759880_bbd5c7265e3f1 {
+            get {
+                object obj = ResourceManager.GetObject("photo-1535732759880-bbd5c7265e3f1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_1535732759880_bbd5c7265e3f2 {
+            get {
+                object obj = ResourceManager.GetObject("photo-1535732759880-bbd5c7265e3f2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sale {
             get {
                 object obj = ResourceManager.GetObject("sale", resourceCulture);

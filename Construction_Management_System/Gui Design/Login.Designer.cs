@@ -161,11 +161,10 @@
             this.labelHead.Size = new System.Drawing.Size(627, 41);
             this.labelHead.TabIndex = 3;
             this.labelHead.Text = "Constraction Material Management System";
-            this.labelHead.Click += new System.EventHandler(this.labelHead_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.photo_1535732759880_bbd5c7265e3f;
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.photo_1535732759880_bbd5c7265e3f2;
             this.pictureBox1.Location = new System.Drawing.Point(333, 1);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

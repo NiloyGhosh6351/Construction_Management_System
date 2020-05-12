@@ -88,7 +88,7 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price,Item_Quantity,Total_Price, Supplier_Name) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemManagerPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text);
+                string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price,Item_Quantity,Total_Price, Supplier_Name, Date) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemManagerPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, DateTime.Now.ToString());
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
@@ -167,43 +167,51 @@ namespace Construction_Management_System.Gui_Design
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridView1.Rows[selectedRow];
-            textBoxItemId.Text = row.Cells[0].Value.ToString();
-            textBoxItemName.Text = row.Cells[1].Value.ToString();
-            textBoxItemQuantity.Text = row.Cells[4].Value.ToString();
-            textBoxItemTotal.Text = row.Cells[5].Value.ToString();          
-            string bb = row.Cells[6].Value.ToString().ToUpper();
-            string aa = row.Cells[2].Value.ToString().ToUpper();
-            string a;
-            if (aa != comboBoxItemCatagory.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxItemCatagory.Items.Count; i++)
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[selectedRow];
+                textBoxItemId.Text = row.Cells[0].Value.ToString();
+                textBoxItemName.Text = row.Cells[1].Value.ToString();
+                textBoxItemQuantity.Text = row.Cells[4].Value.ToString();
+                textBoxItemTotal.Text = row.Cells[5].Value.ToString();
+                string bb = row.Cells[6].Value.ToString().ToUpper();
+                string aa = row.Cells[2].Value.ToString().ToUpper();
+                string a;
+                if (aa != comboBoxItemCatagory.Text.ToUpper())
                 {
-                    a = comboBoxItemCatagory.GetItemText(comboBoxItemCatagory.Items[i]).ToUpper();
-
-                    if (aa == a)
+                    for (int i = 0; i < comboBoxItemCatagory.Items.Count; i++)
                     {
-                        comboBoxItemCatagory.SelectedIndex = i;
-                        break;
+                        a = comboBoxItemCatagory.GetItemText(comboBoxItemCatagory.Items[i]).ToUpper();
+
+                        if (aa == a)
+                        {
+                            comboBoxItemCatagory.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+
+                string b;
+                if (bb != comboBoxSupplierName.Text.ToUpper())
+                {
+                    for (int i = 0; i < comboBoxSupplierName.Items.Count; i++)
+                    {
+                        b = comboBoxSupplierName.GetItemText(comboBoxSupplierName.Items[i]).ToUpper();
+
+                        if (bb == b)
+                        {
+                            comboBoxSupplierName.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
-
-            string b;
-            if (bb != comboBoxSupplierName.Text.ToUpper())
+            catch (Exception exe)
             {
-                for (int i = 0; i < comboBoxSupplierName.Items.Count; i++)
-                {
-                    b = comboBoxSupplierName.GetItemText(comboBoxSupplierName.Items[i]).ToUpper();
-
-                    if (bb == b)
-                    {
-                        comboBoxSupplierName.SelectedIndex = i;
-                        break;
-                    }
-                }
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
             }
+            
 
         }
 

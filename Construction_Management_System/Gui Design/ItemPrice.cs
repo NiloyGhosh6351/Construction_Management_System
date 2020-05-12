@@ -116,25 +116,33 @@ namespace Construction_Management_System.Gui_Design
 
         private void dataGridViewItemPrice_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRow = e.RowIndex;
-            DataGridViewRow row = dataGridViewItemPrice.Rows[selectedRow];
-            comboBoxItemPriceCatagory.Text = row.Cells[0].Value.ToString();
-            textBoxPrice.Text = row.Cells[1].Value.ToString();
-            string cc = row.Cells[0].Value.ToString().ToUpper();
-            string c;
-            if (row.Cells[0].Value.ToString().ToUpper() != comboBoxItemPriceCatagory.Text.ToUpper())
+            try
             {
-                for (int i = 0; i < comboBoxItemPriceCatagory.Items.Count; i++)
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewItemPrice.Rows[selectedRow];
+                comboBoxItemPriceCatagory.Text = row.Cells[0].Value.ToString();
+                textBoxPrice.Text = row.Cells[1].Value.ToString();
+                string cc = row.Cells[0].Value.ToString().ToUpper();
+                string c;
+                if (row.Cells[0].Value.ToString().ToUpper() != comboBoxItemPriceCatagory.Text.ToUpper())
                 {
-                    c = comboBoxItemPriceCatagory.GetItemText(comboBoxItemPriceCatagory.Items[i]).ToUpper();
-
-                    if (cc == c)
+                    for (int i = 0; i < comboBoxItemPriceCatagory.Items.Count; i++)
                     {
-                        comboBoxItemPriceCatagory.SelectedIndex = i;
-                        break;
+                        c = comboBoxItemPriceCatagory.GetItemText(comboBoxItemPriceCatagory.Items[i]).ToUpper();
+
+                        if (cc == c)
+                        {
+                            comboBoxItemPriceCatagory.SelectedIndex = i;
+                            break;
+                        }
                     }
                 }
             }
+            catch (Exception exe)
+            {
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
+            }
+            
         }
     }
 }

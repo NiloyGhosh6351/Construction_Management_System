@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelUser = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxUserContact = new System.Windows.Forms.TextBox();
             this.lableUserContact = new System.Windows.Forms.Label();
             this.comboBoxUserType = new System.Windows.Forms.ComboBox();
@@ -49,10 +50,9 @@
             this.buttonUserDelete = new System.Windows.Forms.Button();
             this.buttonUserUpdate = new System.Windows.Forms.Button();
             this.buttonUserAdd = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUser
@@ -79,6 +79,17 @@
             this.panelUser.Name = "panelUser";
             this.panelUser.Size = new System.Drawing.Size(204, 507);
             this.panelUser.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(11, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // textBoxUserContact
             // 
@@ -298,17 +309,6 @@
             this.buttonUserAdd.UseVisualStyleBackColor = false;
             this.buttonUserAdd.Click += new System.EventHandler(this.buttonUserAdd_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Construction_Management_System.Properties.Resources.arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(11, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,12 +323,13 @@
             this.Controls.Add(this.panelUser);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User";
             this.Load += new System.EventHandler(this.FormUser_Load);
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).EndInit();
             this.ResumeLayout(false);
 
         }

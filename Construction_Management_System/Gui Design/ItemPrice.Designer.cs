@@ -140,6 +140,8 @@
             // 
             // dataGridViewItemPrice
             // 
+            this.dataGridViewItemPrice.AllowUserToOrderColumns = true;
+            this.dataGridViewItemPrice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewItemPrice.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewItemPrice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewItemPrice.Location = new System.Drawing.Point(228, 25);
@@ -157,6 +159,7 @@
             this.Controls.Add(this.dataGridViewItemPrice);
             this.Controls.Add(this.panelItemPrice);
             this.Name = "ItemPrice";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemPrice";
             this.Load += new System.EventHandler(this.ItemPrice_Load);
             this.panelItemPrice.ResumeLayout(false);

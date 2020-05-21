@@ -39,6 +39,7 @@ namespace Construction_Management_System.Gui_Design
                     sqlcmd.ExecuteNonQuery();
                     sqlcmd.Connection.Close();
                     display_dataPrice();
+                    textBoxPrice.Clear();
                     MessageBox.Show("ADDED SUCCESSFULLY");
                 }
                 catch (Exception d)

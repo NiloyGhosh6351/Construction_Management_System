@@ -110,7 +110,7 @@
             this.buttonAddPrice.Name = "buttonAddPrice";
             this.buttonAddPrice.Size = new System.Drawing.Size(112, 32);
             this.buttonAddPrice.TabIndex = 17;
-            this.buttonAddPrice.Text = "ADD  Price";
+            this.buttonAddPrice.Text = "ADD  PRICE";
             this.buttonAddPrice.UseVisualStyleBackColor = false;
             this.buttonAddPrice.Click += new System.EventHandler(this.buttonAddPrice_Click);
             // 

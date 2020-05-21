@@ -119,6 +119,7 @@
             // 
             // dataGridViewCatagory
             // 
+            this.dataGridViewCatagory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCatagory.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCatagory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCatagory.Location = new System.Drawing.Point(248, 34);
@@ -188,6 +189,7 @@
             this.Controls.Add(this.dataGridViewCatagory);
             this.Controls.Add(this.panelCatagory);
             this.Name = "ItemCatagory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemCatagory";
             this.Load += new System.EventHandler(this.ItemCatagory_Load);
             this.panelCatagory.ResumeLayout(false);

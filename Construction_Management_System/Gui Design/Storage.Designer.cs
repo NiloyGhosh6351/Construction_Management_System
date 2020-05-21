@@ -80,6 +80,7 @@
             this.Controls.Add(this.dataGridViewStorage);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Storage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Storage";
             this.Load += new System.EventHandler(this.Storage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStorage)).EndInit();

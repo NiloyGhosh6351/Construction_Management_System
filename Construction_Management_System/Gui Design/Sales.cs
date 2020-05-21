@@ -20,7 +20,8 @@ namespace Construction_Management_System.Gui_Design
         float discount, discountGiven;
         double totalprice;
         string Connectionstring;
-        int selectedRow;
+        int selectedRow, id;
+        string catagory;
         public Sales()
         {
             InitializeComponent();
@@ -418,7 +419,7 @@ namespace Construction_Management_System.Gui_Design
             textBoxSalesTotal.Text = "";
             textBoxSalesAvailable.Text = "";
         }
-        private void buttonSalesDelete_Click(object sender, EventArgs e)
+        /*private void buttonSalesDelete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -429,7 +430,7 @@ namespace Construction_Management_System.Gui_Design
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
                 sqlcmd.Connection.Close();
-                MessageBox.Show("DELETE SUCCESSFULLY");
+                //MessageBox.Show("DELETE SUCCESSFULLY");
 
                 string sql1 = string.Format("delete from Sales_Price_Cart where Sales_ID={0}", textBoxSalesId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
@@ -439,13 +440,14 @@ namespace Construction_Management_System.Gui_Design
                 sqlcmd1.ExecuteNonQuery();
                 sqlcmd1.Connection.Close();
                 MessageBox.Show("DELETE SUCCESSFULLY");
+                refreshTable2();
             }
             catch (Exception b)
             {
                 MessageBox.Show("SELECT WRONG BUTTON");
             }
             
-        }
+        }*/
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -542,6 +544,41 @@ namespace Construction_Management_System.Gui_Design
             Storage storage = new Storage(this);
             storage.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = string.Format("delete " + " from Sales_Price_Cart where Sales_ID={0} and Item='{1}'", id.ToString(),catagory);
+                SqlConnection con1 = new SqlConnection(Connectionstring);
+                SqlCommand sqlcmd = new SqlCommand(sql, con1);
+                DataTable dt1 = new DataTable();
+                sqlcmd.Connection.Open();
+                sqlcmd.ExecuteNonQuery();
+                sqlcmd.Connection.Close();
+                display_dataSales();
+                MessageBox.Show("DELETE SUCCESSFULLY");
+            }
+            catch (Exception b)
+            {
+                MessageBox.Show("SELECT WRONG BUTTON");
+            }
+        }
+
+        private void dataGridViewTotal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                selectedRow = e.RowIndex;
+                DataGridViewRow row = dataGridViewTotal.Rows[selectedRow];
+                id = Convert.ToInt32(row.Cells[5].Value.ToString());
+                catagory = row.Cells[0].Value.ToString();
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show("PLEASE SELECT VALID ROW!!");
+            }
         }
 
         public void refreshTable2()

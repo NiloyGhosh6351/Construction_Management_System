@@ -23,6 +23,8 @@ namespace Construction_Management_System.Gui_Design
             string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
             Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             this.prevForm1 = form;
+            dataGridViewStorage.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewStorage.MultiSelect = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

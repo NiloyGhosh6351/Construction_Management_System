@@ -273,6 +273,7 @@ namespace Construction_Management_System.Gui_Design
             this.Controls.Add(this.panelClient);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.Name = "FormClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Client_Load);
             this.panelClient.ResumeLayout(false);

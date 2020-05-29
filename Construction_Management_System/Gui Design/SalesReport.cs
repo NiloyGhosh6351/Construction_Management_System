@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,13 +17,12 @@ namespace Construction_Management_System
     {
         string Connectionstring;
         Form prevForm;
+        DataAccess da;
         public FormSalesReport(Form form)
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             this.prevForm = form;
+            da = new DataAccess();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -39,13 +39,14 @@ namespace Construction_Management_System
 
         public void refreshTable2(string where)
         {
-            SqlConnection con = new SqlConnection(Connectionstring);
+            DataTable dt = da.Select(string.Format("select * from Sales inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID {0} order by Sales.Date desc ", where));
+            /*SqlConnection con = new SqlConnection(Connectionstring);
             string sql2 = string.Format("select * from Sales inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID {0} order by Sales.Date desc ",where);
             DataTable dt = new DataTable();
             SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
             sqlcmd2.Connection.Open();
             dt.Load(sqlcmd2.ExecuteReader());
-            sqlcmd2.Connection.Close();
+            sqlcmd2.Connection.Close();*/
             dt.Columns.Remove("Sales_ID1");
             dataGridView1.DataSource = dt;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

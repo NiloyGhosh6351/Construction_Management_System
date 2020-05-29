@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,29 +15,29 @@ namespace Construction_Management_System.Gui_Design
 {
     public partial class FormClient : Form
     {
-        string Connectionstring;
         Form prevForm2;
+        DataAccess da;
         public FormClient(Form form)
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewClient.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewClient.MultiSelect = false;
             this.prevForm2 = form;
+            da = new DataAccess();
         }
         int selectedRow;
 
         private void Client_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * " + " from Client");
+            dataGridViewClient.ForeColor = Color.Black;
+            DataTable dt1 = da.Select(string.Format("select * from Client"));
+            /*string sql = string.Format("select * " + " from Client");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             display_dataClient();
         }
 
@@ -51,13 +52,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text);
+                da.IUD(string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text));
+                /*string sql = string.Format("insert into Client (Client_ID, Client_Name, Client_Contact, Client_Email, Client_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, textBoxClientEmail.Text, textBoxClientAddress.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataClient();
                 MessageBox.Show("ADDED SUCESSFULLY");
                 buttonClientClear_Click(new object(), new EventArgs());
@@ -70,7 +72,8 @@ namespace Construction_Management_System.Gui_Design
         }
         public void display_dataClient()
         {
-            string sql = string.Format("select * " + " from Client");
+            dataGridViewClient.DataSource = da.Select(string.Format("select * from Client"));
+            /*string sql = string.Format("select * " + " from Client");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -79,20 +82,21 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewClient.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonClientDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = string.Format("delete " + " from Client where Client_ID={0}", textBoxClientId.Text);
+                da.IUD(string.Format("delete from Client where Client_ID={0}", textBoxClientId.Text));
+                /*string sql = string.Format("delete " + " from Client where Client_ID={0}", textBoxClientId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataClient();
                 MessageBox.Show("DELETE SUCCESFULLY");
                 buttonClientClear_Click(new object(), new EventArgs());
@@ -108,20 +112,15 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewClient.Rows[selectedRow];
-                dataGridViewClient.SelectedCells[0].Value = textBoxClientId.Text;
-                dataGridViewClient.SelectedCells[1].Value = textBoxClientName.Text;
-                dataGridViewClient.SelectedCells[2].Value = textBoxClientContact.Text;
-                dataGridViewClient.SelectedCells[3].Value = textBoxClientEmail.Text;
-                dataGridViewClient.SelectedCells[4].Value = textBoxClientAddress.Text;
-                string sql = string.Format("update Client set Client_ID={0}, Client_Name='{1}', Client_Email='{2}', Client_Contact='{3}', Client_Address='{4}'  where  Client_ID={5} ", textBoxClientId.Text, textBoxClientName.Text, textBoxClientEmail.Text, textBoxClientContact.Text, textBoxClientAddress.Text, textBoxClientId.Text);
+                da.IUD(string.Format("update Client set Client_ID={0}, Client_Name='{1}', Client_Email='{2}', Client_Contact='{3}', Client_Address='{4}'  where  Client_ID={5} ", textBoxClientId.Text, textBoxClientName.Text, textBoxClientEmail.Text, textBoxClientContact.Text, textBoxClientAddress.Text, textBoxClientId.Text));
+                /*string sql = string.Format("update Client set Client_ID={0}, Client_Name='{1}', Client_Email='{2}', Client_Contact='{3}', Client_Address='{4}'  where  Client_ID={5} ", textBoxClientId.Text, textBoxClientName.Text, textBoxClientEmail.Text, textBoxClientContact.Text, textBoxClientAddress.Text, textBoxClientId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_dataClient();
             }
             catch (Exception c)

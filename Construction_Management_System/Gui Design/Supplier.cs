@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,25 +18,25 @@ namespace Construction_Management_System
         string Connectionstring;
         int selectedRow;
         Form prevForm2;
+        DataAccess da;
         public FormSupplier( Form form)
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewSupplier.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSupplier.MultiSelect = false;
             this.prevForm2 = form;
+            da = new DataAccess();
         }      
         private void FormSupplier_Load(object sender, EventArgs e)
-        {         
-            string sql = string.Format("select * " + " from Item_Catagory");
+        {
+            DataTable dt1 = da.Select(string.Format("select * from Item_Catagory"));
+            /*string sql = string.Format("select * " + " from Item_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxItemCatagory.DataSource = dt1;
             comboBoxItemCatagory.DisplayMember = "Item_Catagory";
             comboBoxItemCatagory.ValueMember = "Id";
@@ -47,13 +48,14 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("insert into Supplier (Supplier_ID, Supplier_Name, Supplier_Contact, Supplier_Item_Catagory, Supplier_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text);
+                da.IUD(string.Format("insert into Supplier (Supplier_ID, Supplier_Name, Supplier_Contact, Supplier_Item_Catagory, Supplier_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text));
+                /*string sql = string.Format("insert into Supplier (Supplier_ID, Supplier_Name, Supplier_Contact, Supplier_Item_Catagory, Supplier_Address) Values('{0}','{1}','{2}','{3}','{4}')", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataSupplier();
                 MessageBox.Show("ADDED SUCCESSFULLY");
                 buttonSupplierClear_Click(new object(), new EventArgs());
@@ -67,7 +69,8 @@ namespace Construction_Management_System
 
         public void display_dataSupplier()
         {
-            string sql = string.Format("select * " + " from Supplier");
+            dataGridViewSupplier.DataSource = da.Select(string.Format("select * from Supplier"));
+            /*string sql = string.Format("select * " + " from Supplier");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -76,20 +79,21 @@ namespace Construction_Management_System
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewSupplier.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonSupplierDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = string.Format("delete " + " from Supplier where Supplier_ID={0}", textBoxSupplierId.Text);
+                da.IUD(string.Format("delete from Supplier where Supplier_ID={0}", textBoxSupplierId.Text));
+                /*string sql = string.Format("delete " + " from Supplier where Supplier_ID={0}", textBoxSupplierId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataSupplier();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 buttonSupplierClear_Click(new object(), new EventArgs());
@@ -105,21 +109,15 @@ namespace Construction_Management_System
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewSupplier.Rows[selectedRow];
-                dataGridViewSupplier.SelectedCells[0].Value = textBoxSupplierId.Text;
-                dataGridViewSupplier.SelectedCells[1].Value = textBoxSupplierName.Text;
-                dataGridViewSupplier.SelectedCells[2].Value = textBoxSupplierContact.Text;
-                dataGridViewSupplier.SelectedCells[3].Value = comboBoxItemCatagory.Text;
-                dataGridViewSupplier.SelectedCells[4].Value = textBoxSupplierAddress.Text;
-
-                string sql = string.Format("update Supplier set Supplier_ID={0}, Supplier_Name='{1}', Supplier_Contact={2}, Supplier_Item_Catagory='{3}', Supplier_Address='{4}'  where Supplier_ID={5} ", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text, textBoxSupplierId.Text);
+                da.IUD(string.Format("update Supplier set Supplier_ID={0}, Supplier_Name='{1}', Supplier_Contact={2}, Supplier_Item_Catagory='{3}', Supplier_Address='{4}'  where Supplier_ID={5} ", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text, textBoxSupplierId.Text));
+                /*string sql = string.Format("update Supplier set Supplier_ID={0}, Supplier_Name='{1}', Supplier_Contact={2}, Supplier_Item_Catagory='{3}', Supplier_Address='{4}'  where Supplier_ID={5} ", textBoxSupplierId.Text, textBoxSupplierName.Text, textBoxSupplierContact.Text, comboBoxItemCatagory.Text, textBoxSupplierAddress.Text, textBoxSupplierId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_dataSupplier();
             }
             catch (Exception c)

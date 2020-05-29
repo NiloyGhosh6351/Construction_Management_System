@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +18,14 @@ namespace Construction_Management_System.Gui_Design
         string Connectionstring;
         int selectedRow;
         Form prevForm3;
+        DataAccess da;
         public Transport(Form form)
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewTran.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTran.MultiSelect = false;
             this.prevForm3 = form;
+            da = new DataAccess();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -37,13 +37,14 @@ namespace Construction_Management_System.Gui_Design
 
         private void Transport_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * " + " from Booking");
+            DataTable dt1 = da.Select(string.Format("select * from Booking"));
+            /*string sql = string.Format("select * " + " from Booking");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxBooked.DataSource = dt1;
             comboBoxBooked.DisplayMember = "Booking_Condition";
             comboBoxBooked.ValueMember = "Id";
@@ -52,7 +53,8 @@ namespace Construction_Management_System.Gui_Design
         }
         public void display_Tran()
         {
-            string sql = string.Format("select * " + " from Transportation_Manager");
+            dataGridViewTran.DataSource = da.Select(string.Format("select * from Transportation_Manager"));
+            /*string sql = string.Format("select * " + " from Transportation_Manager");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -61,20 +63,21 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewTran.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonTransAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text);
+                da.IUD(string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text));
+                /*string sql = string.Format("insert into Transportation_Manager (Transportation_ID, Car_Number, Driver_Name, Driving_Licence, Contact, Address, Booking_Condition) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_Tran();
                 MessageBox.Show("ADDED SUCCESSFULLY");
                 buttonTranClear_Click(new object(), new EventArgs());
@@ -91,23 +94,15 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewTran.Rows[selectedRow];
-                dataGridViewTran.SelectedCells[0].Value = textBoxTranId.Text;
-                dataGridViewTran.SelectedCells[1].Value = textBoxTranCarNumber.Text;
-                dataGridViewTran.SelectedCells[2].Value = textBoxTranDriverName.Text;
-                dataGridViewTran.SelectedCells[3].Value = textBoxTranLicence.Text;
-                dataGridViewTran.SelectedCells[4].Value = textBoxTranContact.Text;
-                dataGridViewTran.SelectedCells[5].Value = textBoxTranAddress.Text;
-                dataGridViewTran.SelectedCells[6].Value = comboBoxBooked.Text;
-
-                string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text);
+                da.IUD(string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text));
+                /*string sql = string.Format("update Transportation_Manager set Transportation_ID='{0}', Car_Number='{1}', Driver_Name='{2}', Driving_Licence ='{3}', Contact='{4}', Address='{5}', Booking_Condition='{6}' where Transportation_ID='{7}' ", textBoxTranId.Text, textBoxTranCarNumber.Text, textBoxTranDriverName.Text, textBoxTranLicence.Text, textBoxTranContact.Text, textBoxTranAddress.Text, comboBoxBooked.Text, textBoxTranId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_Tran();
             }
             catch (Exception b)
@@ -122,13 +117,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text);
+                da.IUD(string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text));
+                /*string sql = string.Format("delete " + " from Transportation_Manager where Transportation_ID={0}", textBoxTranId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_Tran();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 buttonTranClear_Click(new object(), new EventArgs());

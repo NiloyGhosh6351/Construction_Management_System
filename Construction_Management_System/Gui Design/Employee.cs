@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,25 +18,25 @@ namespace Construction_Management_System
         string Connectionstring;
         int selectedRow;
         Form prevForm4;
+        DataAccess da;
         public FormEmployee(Form form)
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewEmp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewEmp.MultiSelect = false;
             this.prevForm4 = form;
+            da = new DataAccess();
         }
         private void FormEmployee_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * " + " from Employee_Catagory");
+            DataTable dt1 = da.Select(string.Format("select * from Employee_Catagory"));
+            /*string sql = string.Format("select * " + " from Employee_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxEmpCatagory.DataSource = dt1;
             comboBoxEmpCatagory.DisplayMember = "Employee_Catagory";
             comboBoxEmpCatagory.ValueMember = "Id";
@@ -45,13 +46,14 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text);
+                da.IUD(string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text));
+                /*string sql = string.Format("insert into Employee (Employee_ID, Employee_Name, Employee_Salary, Employee_Catagory, Employee_Contact, Employee_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 dispaly_dataEmp();
                 MessageBox.Show("ADDED SUCCESSFULLY");
                 buttonEmpClear_Click(new object(), new EventArgs());
@@ -65,7 +67,8 @@ namespace Construction_Management_System
 
         public void dispaly_dataEmp()
         {
-            string sql = string.Format("select * " + " from Employee ");
+            dataGridViewEmp.DataSource = da.Select(string.Format("select * from Employee"));
+            /*string sql = string.Format("select * " + " from Employee ");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -74,7 +77,7 @@ namespace Construction_Management_System
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewEmp.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonEmpClear_Click(object sender, EventArgs e)
@@ -96,13 +99,14 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("delete " + " from Employee where Employee_ID={0}", textBoxEmpId.Text);
+                da.IUD(string.Format("delete from Employee where Employee_ID={0}", textBoxEmpId.Text));
+                /*string sql = string.Format("delete " + " from Employee where Employee_ID={0}", textBoxEmpId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 dispaly_dataEmp();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 buttonEmpClear_Click(new object(), new EventArgs());
@@ -118,21 +122,15 @@ namespace Construction_Management_System
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewEmp.Rows[selectedRow];
-                dataGridViewEmp.SelectedCells[0].Value = textBoxEmpId.Text;
-                dataGridViewEmp.SelectedCells[1].Value = textBoxEmpName.Text;
-                dataGridViewEmp.SelectedCells[2].Value = textBoxEmpSalary.Text;
-                dataGridViewEmp.SelectedCells[3].Value = comboBoxEmpCatagory.Text;
-                dataGridViewEmp.SelectedCells[4].Value = textBoxEmpContact.Text;
-                dataGridViewEmp.SelectedCells[5].Value = textBoxEmpAddress.Text;
-                string sql = string.Format("update Employee set Employee_ID={0}, Employee_Name='{1}', Employee_Salary={2}, Employee_Catagory='{3}', Employee_Contact='{4}', Employee_Address='{5}'  where  Employee_ID={6} ", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text, textBoxEmpId.Text);
+                da.IUD(string.Format("update Employee set Employee_ID={0}, Employee_Name='{1}', Employee_Salary={2}, Employee_Catagory='{3}', Employee_Contact='{4}', Employee_Address='{5}'  where  Employee_ID={6} ", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text, textBoxEmpId.Text));
+                /*string sql = string.Format("update Employee set Employee_ID={0}, Employee_Name='{1}', Employee_Salary={2}, Employee_Catagory='{3}', Employee_Contact='{4}', Employee_Address='{5}'  where  Employee_ID={6} ", textBoxEmpId.Text, textBoxEmpName.Text, textBoxEmpSalary.Text, comboBoxEmpCatagory.Text, textBoxEmpContact.Text, textBoxEmpAddress.Text, textBoxEmpId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 dispaly_dataEmp();
             }
             catch (Exception c)

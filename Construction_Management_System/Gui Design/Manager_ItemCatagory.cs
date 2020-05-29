@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,14 +17,13 @@ namespace Construction_Management_System.Gui_Design
     {
         string Connectionstring;
         int selectedRow;
+        DataAccess da;
         public Manager_ItemCatagory()
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewCatagory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCatagory.MultiSelect = false;
+            da = new DataAccess();
         }
         private void pictureBoxCatagory_Click(object sender, EventArgs e)
         {
@@ -37,13 +37,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("insert into Item_Catagory (Id, Item_Catagory) Values('{0}','{1}')", textBoxCatagoryId.Text, textBoxCatagoryName.Text);
+                da.IUD(string.Format("insert into Item_Catagory (Id, Item_Catagory) Values('{0}','{1}')", textBoxCatagoryId.Text, textBoxCatagoryName.Text));
+                /*string sql = string.Format("insert into Item_Catagory (Id, Item_Catagory) Values('{0}','{1}')", textBoxCatagoryId.Text, textBoxCatagoryName.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataCatagory();
                 MessageBox.Show("ADDED SUCCESSFULLY");
             }
@@ -55,7 +56,8 @@ namespace Construction_Management_System.Gui_Design
         }
         public void display_dataCatagory()
         {
-            string sql = string.Format("select * " + " from Item_Catagory");
+            dataGridViewCatagory.DataSource = da.Select(string.Format("select * from Item_Catagory"));
+            /*string sql = string.Format("select * " + " from Item_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -64,7 +66,7 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewCatagory.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             buttonCatagoryClear_Click(new object(), new EventArgs());
         }
 
@@ -72,17 +74,15 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewCatagory.Rows[selectedRow];
-                dataGridViewCatagory.SelectedCells[0].Value = textBoxCatagoryId.Text;
-                dataGridViewCatagory.SelectedCells[1].Value = textBoxCatagoryName.Text;
-                string sql = string.Format("update Item_Catagory set Id={0}, Item_Catagory='{1}'  where  Id={2} ", textBoxCatagoryId.Text, textBoxCatagoryName.Text, textBoxCatagoryId.Text);
+                da.IUD(string.Format("update Item_Catagory set Id={0}, Item_Catagory='{1}'  where  Id={2} ", textBoxCatagoryId.Text, textBoxCatagoryName.Text, textBoxCatagoryId.Text));
+                /*string sql = string.Format("update Item_Catagory set Id={0}, Item_Catagory='{1}'  where  Id={2} ", textBoxCatagoryId.Text, textBoxCatagoryName.Text, textBoxCatagoryId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_dataCatagory();
             }
             catch (Exception b)
@@ -96,13 +96,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("delete " + " from Item_Catagory where Id={0}", textBoxCatagoryId.Text);
+                da.IUD(string.Format("delete " + " from Item_Catagory where Id={0}", textBoxCatagoryId.Text));
+                /*string sql = string.Format("delete " + " from Item_Catagory where Id={0}", textBoxCatagoryId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataCatagory();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 buttonCatagoryClear_Click(new object(), new EventArgs());

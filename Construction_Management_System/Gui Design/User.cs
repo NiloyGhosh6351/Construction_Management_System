@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,25 +17,24 @@ namespace Construction_Management_System
     {
         string Connectionstring;
         int selectedRow;
+        DataAccess da;
         public FormUser()
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewUser.MultiSelect = false;
+            da = new DataAccess();
         }
         private void FormUser_Load(object sender, EventArgs e)
         {
-            
-            string sql = string.Format("select * " + " from User_Type");
+            DataTable dt1 = da.Select(string.Format("select * from User_Type"));
+            /*string sql = string.Format("select * " + " from User_Type");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxUserType.DataSource = dt1;
             comboBoxUserType.DisplayMember = "User_Type";
             comboBoxUserType.ValueMember = "Id";
@@ -45,13 +45,14 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
+                da.IUD(string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text));
+                /*string sql = string.Format("insert into [User] (User_ID, Name, User_Name, User_Password, User_Type, User_Contact, User_Address) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataUser();
                 MessageBox.Show("ADDED SUCCESSFULLY");
                 AddUser();
@@ -65,19 +66,21 @@ namespace Construction_Management_System
         }
         public void AddUser()
         {
-            string sql = string.Format("insert into Login_User (UserName, Password, UserType) Values('{0}','{1}','{2}')", textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text);
+            da.IUD(string.Format("insert into Login_User (UserName, Password, UserType) Values('{0}','{1}','{2}')", textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text));
+            /*string sql = string.Format("insert into Login_User (UserName, Password, UserType) Values('{0}','{1}','{2}')", textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
-            sqlcmd.ExecuteNonQuery();
+            sqlcmd.ExecuteNonQuery();*/
             MessageBox.Show("ADD TO LOGINUSER DATABASE SUCCESSFULLY");
-            sqlcmd.Connection.Close();
+            //sqlcmd.Connection.Close();
         }
 
         public void display_dataUser()
         {
-            string sql = string.Format("select * " + " from [User]");
+            dataGridViewUser.DataSource = da.Select(string.Format("select * " + " from [User]"));
+            /*string sql = string.Format("select * " + " from [User]");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -86,20 +89,21 @@ namespace Construction_Management_System
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewUser.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonUserDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
+                da.IUD(string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text));
+                /*string sql = string.Format("delete " + " from [User] where User_ID={0}", textBoxUserId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataUser();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 buttonUserClear_Click(new object(), new EventArgs());
@@ -115,22 +119,15 @@ namespace Construction_Management_System
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewUser.Rows[selectedRow];
-                dataGridViewUser.SelectedCells[0].Value = textBoxUserId.Text;
-                dataGridViewUser.SelectedCells[1].Value = textBoxName.Text;
-                dataGridViewUser.SelectedCells[2].Value = textBoxUserName.Text;
-                dataGridViewUser.SelectedCells[3].Value = textBoxUserPassword.Text;
-                dataGridViewUser.SelectedCells[4].Value = comboBoxUserType.Text;
-                dataGridViewUser.SelectedCells[5].Value = textBoxUserContact.Text;
-                dataGridViewUser.SelectedCells[6].Value = textBoxUserAddress.Text;
-                string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
+                da.IUD(string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text));
+                /*string sql = string.Format("update [User] set User_ID={0}, Name='{1}', User_Name='{2}', User_Password='{3}', User_Type='{4}', User_Contact='{5}', User_Address='{6}'  where  User_ID={7} ", textBoxUserId.Text, textBoxName.Text, textBoxUserName.Text, textBoxUserPassword.Text, comboBoxUserType.Text, textBoxUserContact.Text, textBoxUserAddress.Text, textBoxUserId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_dataUser();
             }
             catch (Exception c)

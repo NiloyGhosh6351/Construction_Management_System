@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Construction_Management_System.Data;
 using Construction_Management_System.Gui_Design;
 
 namespace Construction_Management_System
@@ -16,38 +17,38 @@ namespace Construction_Management_System
     public partial class FormItem : Form
     {
         bool selectionCombo = false;
-        string Connectionstring;
         int selectedRow;
         double newValue;
+        DataAccess da;
         public FormItem()
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewItem.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewItem.MultiSelect = false;
+            da = new DataAccess();
         }
         private void Item_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * " + " from Item_Catagory");
+            DataTable dt1 = da.Select(string.Format("select * from Item_Catagory"));
+            /*string sql = string.Format("select * " + " from Item_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxItemCatagory.DataSource = dt1;
             comboBoxItemCatagory.DisplayMember = "Item_Catagory";
             comboBoxItemCatagory.ValueMember = "Id";
 
-            string sql1 = string.Format("select * " + " from Supplier");
+            DataTable dt2 = da.Select(string.Format("select * from Supplier"));
+            /*string sql1 = string.Format("select * " + " from Supplier");
             SqlConnection con2 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd1 = new SqlCommand(sql1, con2);
             DataTable dt2 = new DataTable();
             sqlcmd1.Connection.Open();
             dt2.Load(sqlcmd1.ExecuteReader());
-            sqlcmd1.Connection.Close();
+            sqlcmd1.Connection.Close();*/
             comboBoxSupplierName.DataSource = dt2;
             comboBoxSupplierName.DisplayMember = "Supplier_Name";
             comboBoxSupplierName.ValueMember = "Supplier_ID";
@@ -62,13 +63,14 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price, Item_Quantity, Total_Price, Supplier_Name, Date) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, DateTime.Now.ToString());
+                da.IUD(string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price, Item_Quantity, Total_Price, Supplier_Name, Date) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, DateTime.Now.ToString()));
+                /*string sql = string.Format("insert into Item (Item_ID, Item_Name, Item_Catagory, Item_Price, Item_Quantity, Total_Price, Supplier_Name, Date) Values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, DateTime.Now.ToString());
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_data();
                 MessageBox.Show("ADDED SUCCESSFULLY");
                 updateStorage();
@@ -83,7 +85,8 @@ namespace Construction_Management_System
 
         public void display_data()
         {
-            string sql = string.Format("select * " + " from Item");
+            dataGridViewItem.DataSource = da.Select(string.Format("select * from Item"));
+            /*string sql = string.Format("select * " + " from Item");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -92,20 +95,21 @@ namespace Construction_Management_System
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewItem.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void buttonItemDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
+                da.IUD(string.Format("delete from Item where Item_ID={0}", textBoxItemId.Text));
+                /*string sql = string.Format("delete " + " from Item where Item_ID={0}", textBoxItemId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_data();
                 MessageBox.Show("DELETE SUCCESSFULLY");
                 deleteFromStorage();
@@ -122,22 +126,15 @@ namespace Construction_Management_System
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewItem.Rows[selectedRow];
-                dataGridViewItem.SelectedCells[0].Value = textBoxItemId.Text;
-                dataGridViewItem.SelectedCells[1].Value = textBoxItemName.Text;
-                dataGridViewItem.SelectedCells[2].Value = comboBoxItemCatagory.Text;
-                dataGridViewItem.SelectedCells[3].Value = textBoxItemPrice.Text;
-                dataGridViewItem.SelectedCells[4].Value = textBoxItemQuantity.Text;
-                dataGridViewItem.SelectedCells[5].Value = textBoxItemTotal.Text;
-                dataGridViewItem.SelectedCells[6].Value = comboBoxSupplierName.Text;
-                string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
+                da.IUD(string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text));
+                /*string sql = string.Format("update Item set Item_ID={0}, Item_Name='{1}', Item_Catagory='{2}', Item_Price={3}, Item_Quantity={4}, Total_Price={5}, Supplier_Name='{6}'  where  Item_ID={7} ", textBoxItemId.Text, textBoxItemName.Text, comboBoxItemCatagory.Text, textBoxItemPrice.Text, textBoxItemQuantity.Text, textBoxItemTotal.Text, comboBoxSupplierName.Text, textBoxItemId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_data();
                 if(newValue!=Convert.ToDouble(textBoxItemQuantity.Text))
                 {
@@ -258,12 +255,13 @@ namespace Construction_Management_System
                 if (selectionCombo)
                 {
                     display_data();
-                    SqlConnection con1 = new SqlConnection(Connectionstring);
+                    DataTable dt1 = da.Select(string.Format("select * from Item_Price where Item_Catagory='{0}'" ,comboBoxItemCatagory.Text.ToString()));
+                    /*SqlConnection con1 = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd = new SqlCommand("select * from Item_Price where Item_Catagory='" + comboBoxItemCatagory.Text.ToString() + "'", con1);
                     DataTable dt1 = new DataTable();
                     sqlcmd.Connection.Open();
                     dt1.Load(sqlcmd.ExecuteReader());
-                    sqlcmd.Connection.Close();
+                    sqlcmd.Connection.Close();*/
                     textBoxItemPrice.Text = dt1.Rows[0][1].ToString();
                 }
             }
@@ -276,33 +274,36 @@ namespace Construction_Management_System
         {
             try
             {
-                string sql = string.Format("insert into Storage (Item_Catagory, Item_Quantity) Values('{0}',{1})", comboBoxItemCatagory.Text,textBoxItemQuantity.Text);
+                da.IUD(string.Format("insert into Storage (Item_Catagory, Item_Quantity) Values('{0}',{1})", comboBoxItemCatagory.Text, textBoxItemQuantity.Text));
+                /*string sql = string.Format("insert into Storage (Item_Catagory, Item_Quantity) Values('{0}',{1})", comboBoxItemCatagory.Text,textBoxItemQuantity.Text);
                 SqlConnection con2 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd2 = new SqlCommand(sql, con2);
                 sqlcmd2.Connection.Open();
                 sqlcmd2.ExecuteNonQuery();
-                sqlcmd2.Connection.Close();
+                sqlcmd2.Connection.Close();*/
                 MessageBox.Show("Storage Inserted");
             }
             catch
             {
-                string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'",comboBoxItemCatagory.Text);
+                DataTable dt1 = da.Select(string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxItemCatagory.Text));
+                /*string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'",comboBoxItemCatagory.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 dt1.Load(sqlcmd.ExecuteReader());
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
 
                 double currnetQuantity=Convert.ToDouble(dt1.Rows[0][0].ToString());
                 double newTotal = currnetQuantity + Convert.ToDouble(textBoxItemQuantity.Text);
 
-                string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text);
+                da.IUD(string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text));
+                /*string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text);
                 SqlConnection con3 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd3 = new SqlCommand(sq2, con3);
                 sqlcmd3.Connection.Open();
                 sqlcmd3.ExecuteNonQuery();
-                sqlcmd3.Connection.Close();
+                sqlcmd3.Connection.Close();*/
                 MessageBox.Show("Storage Updated");
             }
 
@@ -310,23 +311,25 @@ namespace Construction_Management_System
 
         public void deleteFromStorage()
         {
-            string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxItemCatagory.Text);
+            DataTable dt1 = da.Select(string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxItemCatagory.Text));
+            /*string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxItemCatagory.Text);
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
 
             double currnetQuantity = Convert.ToDouble(dt1.Rows[0][0].ToString());
             double newTotal = currnetQuantity - Convert.ToDouble(textBoxItemQuantity.Text);
 
-            string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text);
+            da.IUD(string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text));
+            /*string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, comboBoxItemCatagory.Text);
             SqlConnection con3 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd3 = new SqlCommand(sq2, con3);
             sqlcmd3.Connection.Open();
             sqlcmd3.ExecuteNonQuery();
-            sqlcmd3.Connection.Close();
+            sqlcmd3.Connection.Close();*/
             MessageBox.Show("Storage Updated");
         }
 

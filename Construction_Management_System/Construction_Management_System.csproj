@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Gui Design\Client.cs">
       <SubType>Form</SubType>
     </Compile>

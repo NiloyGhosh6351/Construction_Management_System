@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,14 +17,13 @@ namespace Construction_Management_System.Gui_Design
     {
         string Connectionstring;
         int selectedRow;
+        DataAccess da;
         public ItemPrice()
         {
             InitializeComponent();
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30", projectDir);
             dataGridViewItemPrice.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewItemPrice.MultiSelect = false;
+            da = new DataAccess();
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -31,13 +31,14 @@ namespace Construction_Management_System.Gui_Design
             {
                 try
                 {
-                    string sql = string.Format("insert into Item_Price (Item_Catagory, Item_Pricee) Values('{0}','{1}')", comboBoxItemPriceCatagory.Text, textBoxPrice.Text);
+                    da.IUD(string.Format("insert into Item_Price (Item_Catagory, Item_Pricee) Values('{0}','{1}')", comboBoxItemPriceCatagory.Text, textBoxPrice.Text));
+                   /* string sql = string.Format("insert into Item_Price (Item_Catagory, Item_Pricee) Values('{0}','{1}')", comboBoxItemPriceCatagory.Text, textBoxPrice.Text);
                     SqlConnection con1 = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd = new SqlCommand(sql, con1);
                     DataTable dt1 = new DataTable();
                     sqlcmd.Connection.Open();
                     sqlcmd.ExecuteNonQuery();
-                    sqlcmd.Connection.Close();
+                    sqlcmd.Connection.Close();*/
                     display_dataPrice();
                     textBoxPrice.Clear();
                     MessageBox.Show("ADDED SUCCESSFULLY");
@@ -59,17 +60,15 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                DataGridViewRow dataGridViewRow = dataGridViewItemPrice.Rows[selectedRow];
-                dataGridViewItemPrice.SelectedCells[0].Value = comboBoxItemPriceCatagory.Text;
-                dataGridViewItemPrice.SelectedCells[1].Value = textBoxPrice.Text;
-                string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
+                da.IUD(string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text));
+                /*string sql = string.Format("update Item_Price set Item_Catagory='{0}', Item_Pricee='{1}'  where  Item_Catagory='{2}' ", comboBoxItemPriceCatagory.Text, textBoxPrice.Text, comboBoxItemPriceCatagory.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 display_dataPrice();
             }
             catch (Exception b)
@@ -89,13 +88,14 @@ namespace Construction_Management_System.Gui_Design
 
         private void ItemPrice_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * " + " from Item_Catagory");
+            DataTable dt1 = da.Select(string.Format("select * from Item_Catagory"));
+            /*string sql = string.Format("select * " + " from Item_Catagory");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
             sqlcmd.Connection.Open();
             dt1.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxItemPriceCatagory.DataSource = dt1;
             comboBoxItemPriceCatagory.DisplayMember = "Item_Catagory";
             comboBoxItemPriceCatagory.ValueMember = "Id";
@@ -103,7 +103,8 @@ namespace Construction_Management_System.Gui_Design
         }
         public void display_dataPrice()
         {
-            string sql = string.Format("select * " + " from Item_Price");
+            dataGridViewItemPrice.DataSource = da.Select(string.Format("select * from Item_Price"));
+            /*string sql = string.Format("select * " + " from Item_Price");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con1);
             DataTable dt1 = new DataTable();
@@ -112,7 +113,7 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt1);
             dataGridViewItemPrice.DataSource = dt1;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
 
         private void dataGridViewItemPrice_CellClick(object sender, DataGridViewCellEventArgs e)

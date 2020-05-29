@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Construction_Management_System.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,21 +20,17 @@ namespace Construction_Management_System.Gui_Design
         bool selectionCombo2 = false;
         float discount, discountGiven;
         double totalprice;
-        string Connectionstring;
         int selectedRow, id;
         string catagory;
+        DataAccess da;
         public Sales()
         {
             InitializeComponent();
-            //var currentLocation = Directory.GetCurrentDirectory();
-            //var projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            string currentLocation = Directory.GetCurrentDirectory();
-            string projectDir = Directory.GetParent(Directory.GetParent(Directory.GetParent(currentLocation).FullName).FullName).FullName;
-            Connectionstring = string.Format(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={0}\Construction_Management_System.mdf;Integrated Security=True;Connect Timeout=30",projectDir);
             dataGridViewTotal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewTotal.MultiSelect = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
+            da = new DataAccess();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -44,26 +41,28 @@ namespace Construction_Management_System.Gui_Design
         }
         private void Sales_Load(object sender, EventArgs e)
         {
-            string sql1 = string.Format("select * " + " from Client");
+            DataTable dt1 = da.Select(string.Format("select * " + " from Client"));
+            /*string sql1 = string.Format("select * " + " from Client");
             SqlConnection con1 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd1 = new SqlCommand(sql1, con1);
             DataTable dt1 = new DataTable();
             sqlcmd1.Connection.Open();
             dt1.Load(sqlcmd1.ExecuteReader());
-            sqlcmd1.Connection.Close();
+            sqlcmd1.Connection.Close();*/
             comboBoxClientId.DataSource = dt1;
             comboBoxClientId.DisplayMember = "Client_ID";
             comboBoxClientId.ValueMember = "Client_ID";
 
             selectionCombo = true;
 
-            string sql = string.Format("select * " + " from Item_Price");
+            DataTable dt = da.Select(string.Format("select * " + " from Item_Price"));
+            /*string sql = string.Format("select * " + " from Item_Price");
             SqlConnection con = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con);
             DataTable dt = new DataTable();
             sqlcmd.Connection.Open();
             dt.Load(sqlcmd.ExecuteReader());
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
             comboBoxSalesItem.DataSource = dt;
             comboBoxSalesItem.DisplayMember = "Item_Catagory";
             comboBoxSalesItem.ValueMember = "Item_Catagory";
@@ -72,13 +71,14 @@ namespace Construction_Management_System.Gui_Design
 
             comboBoxTransportation.Text = "";
 
-            string sql2 = string.Format("select * " + " from Transportation_Manager");
+            DataTable dt2 = da.Select(string.Format("select * " + " from Transportation_Manager"));
+            /*string sql2 = string.Format("select * " + " from Transportation_Manager");
             SqlConnection con2 = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd2 = new SqlCommand(sql2, con2);
             DataTable dt2 = new DataTable();
             sqlcmd2.Connection.Open();
             dt2.Load(sqlcmd2.ExecuteReader());
-            sqlcmd2.Connection.Close();
+            sqlcmd2.Connection.Close();*/
             comboBoxTransportation.DataSource = dt2;
             comboBoxTransportation.DisplayMember = "Car_Number";
             comboBoxTransportation.ValueMember = "Transportation_Id";
@@ -114,12 +114,13 @@ namespace Construction_Management_System.Gui_Design
             {
                 if (selectionCombo)
                 {
-                    SqlConnection con1 = new SqlConnection(Connectionstring);
+                    DataTable dt1 = da.Select(string.Format("select * from Client where Client_ID='{0}'" ,comboBoxClientId.Text.ToString()));
+                    /*SqlConnection con1 = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd1 = new SqlCommand("select * from Client where Client_ID= '" + comboBoxClientId.Text.ToString() + "'", con1);
                     DataTable dt1 = new DataTable();
                     sqlcmd1.Connection.Open();
                     dt1.Load(sqlcmd1.ExecuteReader());
-                    sqlcmd1.Connection.Close();
+                    sqlcmd1.Connection.Close();*/
                     textBoxClientName.Text = dt1.Rows[0][1].ToString();
                     textBoxClientContact.Text = dt1.Rows[0][3].ToString();
                 }
@@ -136,12 +137,13 @@ namespace Construction_Management_System.Gui_Design
             {
                 if (selectionCombo1)
                 {
-                    SqlConnection con = new SqlConnection(Connectionstring);
+                    DataTable dt = da.Select(string.Format("select * from Item_Price where Item_Catagory='{0}'" ,comboBoxSalesItem.Text.ToString()));
+                    /*SqlConnection con = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd = new SqlCommand("select * from Item_Price where Item_Catagory= '" + comboBoxSalesItem.Text.ToString() + "'", con);
                     DataTable dt = new DataTable();
                     sqlcmd.Connection.Open();
                     dt.Load(sqlcmd.ExecuteReader());
-                    sqlcmd.Connection.Close();
+                    sqlcmd.Connection.Close();*/
                     textBoxSalesPrice.Text = dt.Rows[0][1].ToString();
                 }
             }
@@ -167,37 +169,40 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql3 = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxSalesItem.Text);
+                DataTable dt5 = da.Select(string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxSalesItem.Text));
+                /*string sql3 = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", comboBoxSalesItem.Text);
                 SqlConnection con2 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd3 = new SqlCommand(sql3, con2);
                 DataTable dt5 = new DataTable();
                 sqlcmd3.Connection.Open();
                 dt5.Load(sqlcmd3.ExecuteReader());
-                sqlcmd3.Connection.Close();
+                sqlcmd3.Connection.Close();*/
                 MessageBox.Show(dt5.Rows[0][0].ToString());
                 double totalQuantity = Convert.ToDouble(dt5.Rows[0][0].ToString());
                 double currentQuantity = Convert.ToDouble(textBoxSalesQuantity.Text);
                 if (totalQuantity>=currentQuantity)
                 {
-                    string sql2 = string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}", comboBoxSalesItem.Text, textBoxSalesId.Text);
+                    DataTable dt4 = da.Select(string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}", comboBoxSalesItem.Text, textBoxSalesId.Text));
+                    /*string sql2 = string.Format("select * from Sales_Price_Cart where Item='{0}' and Sales_ID={1}", comboBoxSalesItem.Text, textBoxSalesId.Text);
                     DataTable dt4 = new DataTable();
                     SqlConnection con = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
                     sqlcmd2.Connection.Open();
                     dt4.Load(sqlcmd2.ExecuteReader());
-                    sqlcmd2.Connection.Close();
+                    sqlcmd2.Connection.Close();*/
                     if (dt4.Rows.Count == 0)
                     {
                         if (textBoxAfterDiscount.Text == "")
                         {
                             totalprice = Convert.ToDouble(textBoxSalesTotal.Text);
                         }
-                        string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount_Price, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text);
+                        da.Select(string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount_Price, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text));
+                        /*string sql = string.Format("insert into Sales_Price_Cart (Item, Price, Quantity, Discount_Price, Total, Sales_ID) Values('{0}','{1}','{2}','{3}','{4}','{5}')", comboBoxSalesItem.Text, textBoxSalesPrice.Text, textBoxSalesQuantity.Text, textBoxDiscountPrice.Text, totalprice.ToString(), textBoxSalesId.Text);
                         SqlCommand sqlcmd = new SqlCommand(sql, con);
                         DataTable dt = new DataTable();
                         sqlcmd.Connection.Open();
                         sqlcmd.ExecuteNonQuery();
-                        sqlcmd.Connection.Close();
+                        sqlcmd.Connection.Close();*/
                         display_dataSales();
                         MessageBox.Show("ADDED SUCCESSFULLY");
                         textBoxDiscount.Text = "";
@@ -274,7 +279,8 @@ namespace Construction_Management_System.Gui_Design
         }
         public void display_dataSales()
         {
-            string sql = string.Format("select * " + " from Sales_Price_Cart where Sales_ID={0}",textBoxSalesId.Text);
+            dataGridViewTotal.DataSource = da.Select(string.Format("select * from Sales_Price_Cart where Sales_ID={0}", textBoxSalesId.Text));
+            /*string sql = string.Format("select * " + " from Sales_Price_Cart where Sales_ID={0}",textBoxSalesId.Text);
             SqlConnection con = new SqlConnection(Connectionstring);
             SqlCommand sqlcmd = new SqlCommand(sql, con);
             DataTable dt = new DataTable();
@@ -283,7 +289,7 @@ namespace Construction_Management_System.Gui_Design
             SqlDataAdapter data1 = new SqlDataAdapter(sqlcmd);
             data1.Fill(dt);
             dataGridViewTotal.DataSource = dt;
-            sqlcmd.Connection.Close();
+            sqlcmd.Connection.Close();*/
         }
         private void comboBoxTransportation_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -291,14 +297,14 @@ namespace Construction_Management_System.Gui_Design
             {
                 if (selectionCombo2)
                 {
-                    //display_data();
-                    SqlConnection con = new SqlConnection(Connectionstring);
+                    DataTable dt = da.Select(string.Format("select * from Transportation_Manager where Booking_Condition='Available' and Car_Number='{0}'" ,comboBoxTransportation.Text.ToString()));
+                    /*SqlConnection con = new SqlConnection(Connectionstring);
                     SqlCommand sqlcmd = new SqlCommand("select * from Transportation_Manager where Booking_Condition='Available' and Car_Number='" + comboBoxTransportation.Text.ToString()+"'", con);
                     DataTable dt = new DataTable();
                     sqlcmd.Connection.Open();
                     dt.Load(sqlcmd.ExecuteReader());
-                    sqlcmd.Connection.Close();
-                    if(dt.Rows.Count==0)
+                    sqlcmd.Connection.Close();*/
+                    if (dt.Rows.Count==0)
                     {
                         textBoxSalesAvailable.Text = "NOT AVAILABLE";
                     }
@@ -317,15 +323,15 @@ namespace Construction_Management_System.Gui_Design
         {
             if (textBoxSalesAvailable.Text == "AVAILABLE")
             {
-                string sql = string.Format("update Transportation_Manager set Booking_Condition='Booked'  where  Car_Number='{0}' ",comboBoxTransportation.Text);
+                da.IUD(string.Format("update Transportation_Manager set Booking_Condition='Booked'  where  Car_Number='{0}' ", comboBoxTransportation.Text));
+                /*string sql = string.Format("update Transportation_Manager set Booking_Condition='Booked'  where  Car_Number='{0}' ",comboBoxTransportation.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 textBoxSalesAvailable.Text = "BOOKED";
             }
         }
@@ -339,12 +345,13 @@ namespace Construction_Management_System.Gui_Design
                 {
                     try
                     {
-                        string sql = string.Format("insert into Sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString());
+                        da.IUD(string.Format("insert into Sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString()));
+                        /*string sql = string.Format("insert into Sales(Sales_ID,Client_ID,Client_Name,Contact,Transportation,Date) Values('{0}','{1}','{2}','{3}','{4}','{5}')", textBoxSalesId.Text, comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, DateTime.Now.ToString());
                         SqlConnection con1 = new SqlConnection(Connectionstring);
                         SqlCommand sqlcmd = new SqlCommand(sql, con1);
                         sqlcmd.Connection.Open();
                         sqlcmd.ExecuteNonQuery();
-                        sqlcmd.Connection.Close();
+                        sqlcmd.Connection.Close();*/
                     }
                     catch (Exception ex)
                     {
@@ -353,23 +360,25 @@ namespace Construction_Management_System.Gui_Design
                     }
                     for (int i = 0; i < dataGridViewTotal.Rows.Count-1; i++)
                     {
-                        string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", dataGridViewTotal.Rows[i].Cells[0].Value);
+                        DataTable dt1 = da.Select(string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", dataGridViewTotal.Rows[i].Cells[0].Value));
+                        /*string sql = string.Format("select Item_Quantity from Storage where Item_Catagory='{0}'", dataGridViewTotal.Rows[i].Cells[0].Value);
                         SqlConnection con1 = new SqlConnection(Connectionstring);
                         SqlCommand sqlcmd = new SqlCommand(sql, con1);
                         DataTable dt1 = new DataTable();
                         sqlcmd.Connection.Open();
                         dt1.Load(sqlcmd.ExecuteReader());
-                        sqlcmd.Connection.Close();
+                        sqlcmd.Connection.Close();*/
 
                         double currnetQuantity = Convert.ToDouble(dt1.Rows[0][0].ToString());
                         double newTotal = currnetQuantity - Convert.ToDouble(dataGridViewTotal.Rows[i].Cells[2].Value);
 
-                        string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, dataGridViewTotal.Rows[i].Cells[0].Value);
+                        da.IUD(string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, dataGridViewTotal.Rows[i].Cells[0].Value));
+                        /*string sq2 = string.Format("update Storage set Item_Quantity={0} where  Item_Catagory='{1}' ", newTotal, dataGridViewTotal.Rows[i].Cells[0].Value);
                         SqlConnection con3 = new SqlConnection(Connectionstring);
                         SqlCommand sqlcmd3 = new SqlCommand(sq2, con3);
                         sqlcmd3.Connection.Open();
                         sqlcmd3.ExecuteNonQuery();
-                        sqlcmd3.Connection.Close();
+                        sqlcmd3.Connection.Close();*/
                     }
                     refreshTable2();
                     dataGridViewTotal.DataSource = null;
@@ -383,22 +392,6 @@ namespace Construction_Management_System.Gui_Design
             {
                 MessageBox.Show("SELECT WRONG BUTTON");
             }
-            
-            
-            //DataTable dt = dataGridViewTotal.DataSource as DataTable;
-            //DataTable dt1 = new DataTable();
-            //dt1 = dt.Copy();
-            //dt1.Columns.Add("Sales_ID", typeof(String));
-            //dt1.Columns.Add("Client_ID", typeof(String));
-            //dt1.Columns.Add("Client_Name", typeof(String));
-            //dt1.Columns.Add("Transportation", typeof(String));
-            //dt1.Columns.Add("Date", typeof(DateTime));
-            //dt1.Rows[0][5] = textBoxSalesId.Text;
-            //dt1.Rows[0][6] = comboBoxClientId.Text;
-            //dt1.Rows[0][7] = textBoxClientName.Text;
-            //dt1.Rows[0][8] = comboBoxTransportation.Text;
-            //dt1.Rows[0][9] = DateTime.Now.ToString();
-            //dataGridView1.DataSource = dt1;
         }
 
         private void buttonSalesClear_Click(object sender, EventArgs e)
@@ -523,13 +516,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, textBoxSalesId.Text);
+                da.IUD(string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, textBoxSalesId.Text));
+                /*string sql = string.Format("update Sales set Client_ID={0}, Client_Name='{1}', Contact='{2}', Transportation='{3}'  where  Sales_ID={4} ", comboBoxClientId.Text, textBoxClientName.Text, textBoxClientContact.Text, comboBoxTransportation.Text, textBoxSalesId.Text);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 sqlcmd.Connection.Open();
-                sqlcmd.ExecuteNonQuery();
+                sqlcmd.ExecuteNonQuery();*/
                 MessageBox.Show("UPDATE SUCCESSFULLY");
-                sqlcmd.Connection.Close();
+                //sqlcmd.Connection.Close();
                 refreshTable2();
             }
             catch (Exception c)
@@ -550,13 +544,14 @@ namespace Construction_Management_System.Gui_Design
         {
             try
             {
-                string sql = string.Format("delete " + " from Sales_Price_Cart where Sales_ID={0} and Item='{1}'", id.ToString(),catagory);
+                da.IUD(string.Format("delete " + " from Sales_Price_Cart where Sales_ID={0} and Item='{1}'", id.ToString(), catagory));
+                /*string sql = string.Format("delete " + " from Sales_Price_Cart where Sales_ID={0} and Item='{1}'", id.ToString(),catagory);
                 SqlConnection con1 = new SqlConnection(Connectionstring);
                 SqlCommand sqlcmd = new SqlCommand(sql, con1);
                 DataTable dt1 = new DataTable();
                 sqlcmd.Connection.Open();
                 sqlcmd.ExecuteNonQuery();
-                sqlcmd.Connection.Close();
+                sqlcmd.Connection.Close();*/
                 display_dataSales();
                 MessageBox.Show("DELETE SUCCESSFULLY");
             }
@@ -583,13 +578,14 @@ namespace Construction_Management_System.Gui_Design
 
         public void refreshTable2()
         {
-            SqlConnection con = new SqlConnection(Connectionstring);
+            DataTable dt = da.Select(string.Format("select * from Sales inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID order by Sales.Date desc", textBoxSalesId.Text));
+            /*SqlConnection con = new SqlConnection(Connectionstring);
             string sql2 = string.Format("select * from Sales inner join Sales_Price_Cart  ON Sales.Sales_ID=Sales_Price_Cart.Sales_ID order by Sales.Date desc", textBoxSalesId.Text);
             DataTable dt = new DataTable();
             SqlCommand sqlcmd2 = new SqlCommand(sql2, con);
             sqlcmd2.Connection.Open();
             dt.Load(sqlcmd2.ExecuteReader());
-            sqlcmd2.Connection.Close();
+            sqlcmd2.Connection.Close();*/
             dt.Columns.Remove("Sales_ID1");
             dataGridView1.DataSource = dt;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
